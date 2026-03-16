@@ -81,7 +81,7 @@
             <!-- LOGO (W Google Sites wgraj tutaj plik przez edytor) -->
             <a href="#" class="flex items-center gap-2 mr-auto hover:opacity-80 transition-opacity" aria-label="Go to top">
                 <img src="logo_anim.webp" alt="Storyboard GO Logo" class="h-8 w-auto object-contain">
-                <span class="font-extrabold tracking-tighter text-lg text-stone-900 uppercase">Storyboard GO</span>
+                <span class="font-extrabold tracking-tighter text-lg text-stone-900">Storyboard GO</span>
             </a>
 
             <!-- Menu Desktop -->
@@ -132,6 +132,50 @@
                 <a href="#support" class="border border-stone-200 text-stone-400 px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-stone-50 transition-colors text-center">
                     Get Help
                 </a>
+            </div>
+        </section>
+
+        <!-- APP PREVIEW (SCREENSHOTY) -->
+        <section id="preview" class="max-w-full mx-auto mb-32 overflow-hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400">Peek Inside</h2>
+            </div>
+            
+            <!-- Karuzela (Horizontal Scroll) -->
+            <div class="flex gap-6 overflow-x-auto pb-10 px-6 md:px-12 snap-x snap-mandatory hide-scroll">
+                <style>
+                    /* Ukrywanie paska przewijania, ale zostawienie funkcjonalności */
+                    .hide-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+                    .hide-scroll::-webkit-scrollbar { display: none; }
+                </style>
+
+                <!-- Screen 1 -->
+                <div class="snap-center shrink-0 group">
+                    <img src="scr1.jpg" alt="Storyboard GO Interface 1" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500">
+                </div>
+                
+                <!-- Screen 2 -->
+                <div class="snap-center shrink-0 group">
+                    <img src="scr2.jpg" alt="Storyboard GO Interface 2" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100">
+                </div>
+
+                <!-- Screen 3 -->
+                <div class="snap-center shrink-0 group">
+                    <img src="scr3.jpg" alt="Storyboard GO Interface 3" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100">
+                </div>
+
+                <!-- Screen 4 -->
+                <div class="snap-center shrink-0 group">
+                    <img src="scr4.jpg" alt="Storyboard GO Interface 4" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100">
+                </div>
+
+                <!-- Screen 5 -->
+                <div class="snap-center shrink-0 group">
+                    <img src="scr5.jpg" alt="Storyboard GO Interface 5" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100">
+                </div>
+                
+                <!-- Pusty blok na prawym marginesie dla lepszego scrollowania do końca -->
+                <div class="shrink-0 w-4 md:w-12"></div>
             </div>
         </section>
 
@@ -376,7 +420,7 @@
             </div>
             
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 pt-8 border-t border-stone-200/50 w-full">
-                <span class="font-extrabold tracking-tighter text-lg text-stone-900 uppercase">Storyboard GO</span>
+                <span class="font-extrabold tracking-tighter text-lg text-stone-900">Storyboard GO</span>
                 <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400">© 2026</p>
                 <div class="flex gap-6">
                     <a href="#legal" onclick="openAccordion('content-privacy')" class="text-[10px] uppercase font-bold tracking-wider text-stone-400 hover:text-stone-600 transition-colors">Privacy Policy</a>
