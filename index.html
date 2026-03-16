@@ -103,7 +103,7 @@
         </div>
         <div class="mt-auto pt-6 border-t border-stone-100">
             <p class="text-[9px] font-bold text-stone-300 uppercase tracking-widest leading-loose">
-                Professional tools <br> for filmmakers.
+                Professional tools <br> for creators.
             </p>
         </div>
     </div>
@@ -134,7 +134,7 @@
         <section id="features" class="max-w-6xl mx-auto px-6 py-24 border-t border-stone-100">
             <div class="text-center mb-16">
                 <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-stone-400 mb-4">About the App</h2>
-                <p class="text-3xl font-extrabold text-stone-900">Built for Filmmakers, by Filmmakers.</p>
+                <p class="text-3xl font-extrabold text-stone-900">Built for Creators, by Creators.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
                 <div class="space-y-4">
@@ -338,7 +338,7 @@
             Your story <span class="amber-accent tracking-tighter">starts here.</span>
         </h2>
         <p class="text-lg text-stone-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Join the filmmakers who have already transformed their workflow with Storyboard GO.
+            Join the creators who have already transformed their workflow with Storyboard GO.
         </p>
         <div class="flex justify-center">
             <a href="https://play.google.com/store" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-white px-8 py-5 rounded-2xl font-bold uppercase tracking-widest text-xs shadow-xl shadow-stone-200 hover:scale-105 transition-transform text-center">
@@ -381,11 +381,48 @@
         </div>
     </footer>
 
+    <!-- MODAL DO ZARZĄDZANIA COOKIES -->
+    <div id="cookie-manage-modal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-[110] hidden flex items-center justify-center p-6 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-[32px] p-8 max-w-md w-full shadow-2xl transform scale-95 transition-transform duration-300" id="cookie-modal-content">
+            <h3 class="font-extrabold text-stone-900 text-xl mb-2">Cookie Preferences</h3>
+            <p class="text-xs text-stone-500 mb-8 leading-relaxed">Customize your tracking preferences. Essential cookies are required for the app to function properly.</p>
+            
+            <div class="space-y-6 mb-8">
+                <!-- Essential Cookies -->
+                <div class="flex justify-between items-center pb-4 border-b border-stone-100">
+                    <div>
+                        <p class="font-bold text-stone-800 text-sm">Essential Cookies</p>
+                        <p class="text-[10px] text-stone-400 mt-1">Required for basic site functionality.</p>
+                    </div>
+                    <span class="text-[9px] font-bold text-stone-400 uppercase tracking-widest bg-stone-100 px-3 py-1.5 rounded-lg">Always Active</span>
+                </div>
+                
+                <!-- Analytics Cookies -->
+                <div class="flex justify-between items-center pb-2">
+                    <div class="pr-4">
+                        <p class="font-bold text-stone-800 text-sm">Analytics & Ads</p>
+                        <p class="text-[10px] text-stone-400 mt-1 leading-relaxed">Help us improve the app and show relevant, personalized advertisements.</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer shrink-0">
+                        <input type="checkbox" id="analytics-toggle" class="sr-only peer" checked>
+                        <div class="w-10 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D97706]"></div>
+                    </label>
+                </div>
+            </div>
+            
+            <button onclick="saveCookiePreferences()" class="w-full bg-stone-900 text-white py-4 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-stone-800 transition-colors shadow-lg shadow-stone-200">
+                Save Preferences
+            </button>
+        </div>
+    </div>
+
     <!-- SKRYPTY -->
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
         const overlay = document.getElementById('menu-overlay');
         const cookieBanner = document.getElementById('cookie-banner');
+        const cookieModal = document.getElementById('cookie-manage-modal');
+        const cookieModalContent = document.getElementById('cookie-modal-content');
 
         // Obsługa menu mobilnego
         function toggleMenu() {
@@ -414,14 +451,37 @@
             }
         }
 
-        // Obsługa banera Cookies
+        // Obsługa banera i modala Cookies
         function closeCookies() {
             cookieBanner.classList.add('hidden-banner');
             localStorage.setItem('cookiesAccepted_GO', 'true');
         }
 
         function manageCookies() {
-            alert('W tym miejscu możesz zintegrować zarządzanie ciasteczkami docelowo na podstronie. Na ten moment zamknij baner używając innych przycisków, np. "Reject".');
+            cookieModal.classList.remove('hidden');
+            // Małe opóźnienie dla przeglądarki, żeby animacja z Tailwind zadziałała płynnie
+            setTimeout(() => {
+                cookieModal.classList.remove('opacity-0');
+                cookieModalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function saveCookiePreferences() {
+            // Animacja zamykania modala
+            cookieModal.classList.add('opacity-0');
+            cookieModalContent.classList.add('scale-95');
+            
+            setTimeout(() => {
+                cookieModal.classList.add('hidden');
+            }, 300);
+            
+            // Zamknięcie głównego banera i zapis (np. do bazy/localStorage)
+            cookieBanner.classList.add('hidden-banner');
+            localStorage.setItem('cookiesAccepted_GO', 'true');
+            
+            // Przykład zapisu wyboru analityki
+            const isAnalyticsEnabled = document.getElementById('analytics-toggle').checked;
+            localStorage.setItem('analytics_GO', isAnalyticsEnabled);
         }
 
         // Sprawdzenie stanu po załadowaniu
