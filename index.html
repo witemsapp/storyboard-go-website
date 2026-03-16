@@ -79,10 +79,10 @@
             </button>
 
             <!-- LOGO (W Google Sites wgraj tutaj plik przez edytor) -->
-            <div class="flex items-center gap-2 mr-auto">
-                <img src="LOGO_2026.png" alt="Storyboard GO Logo" class="h-8 w-auto object-contain">
+            <a href="#" class="flex items-center gap-2 mr-auto hover:opacity-80 transition-opacity" aria-label="Go to top">
+                <img src="logo_anim.webp" alt="Storyboard GO Logo" class="h-8 w-auto object-contain">
                 <span class="font-extrabold tracking-tighter text-lg text-stone-900 uppercase">Storyboard GO</span>
-            </div>
+            </a>
 
             <!-- Menu Desktop -->
             <div class="hidden md:flex gap-8">
@@ -379,8 +379,8 @@
                 <span class="font-extrabold tracking-tighter text-lg text-stone-900 uppercase">Storyboard GO</span>
                 <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400">© 2026</p>
                 <div class="flex gap-6">
-                    <a href="#legal" class="text-[10px] uppercase font-bold tracking-wider text-stone-400 hover:text-stone-600 transition-colors">Privacy Policy</a>
-                    <a href="#legal" class="text-[10px] uppercase font-bold tracking-wider text-stone-400 hover:text-stone-600 transition-colors">Terms of Service</a>
+                    <a href="#legal" onclick="openAccordion('content-privacy')" class="text-[10px] uppercase font-bold tracking-wider text-stone-400 hover:text-stone-600 transition-colors">Privacy Policy</a>
+                    <a href="#legal" onclick="openAccordion('content-terms')" class="text-[10px] uppercase font-bold tracking-wider text-stone-400 hover:text-stone-600 transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -458,6 +458,18 @@
             if (!isActive) {
                 item.classList.add('accordion-active');
                 button.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        // Otwieranie akordeonów z poziomu linków
+        function openAccordion(contentId) {
+            const content = document.getElementById(contentId);
+            if (!content) return;
+            const button = content.previousElementSibling;
+            
+            // Otwórz tylko wtedy, gdy jest zamknięte
+            if (button.getAttribute('aria-expanded') !== 'true') {
+                button.click();
             }
         }
 
