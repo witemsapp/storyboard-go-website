@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyboard GO | Professional Mobile Storyboarding</title>
+
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="The professional storyboard studio in your pocket. Sketch, organize, and export industry-standard boards in seconds.">
+    <meta name="keywords" content="storyboard, filmmaking, pre-production, app, directors, visualization">
+    <meta name="author" content="Storyboard GO">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://storyboardgo.com/">
+    <meta property="og:title" content="Storyboard GO | Professional Mobile Storyboarding">
+    <meta property="og:description" content="The professional storyboard studio in your pocket. Sketch, organize, and export industry-standard boards in seconds.">
+    <meta property="og:image" content="https://storyboardgo.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://storyboardgo.com/">
+    <meta property="twitter:title" content="Storyboard GO | Professional Mobile Storyboarding">
+    <meta property="twitter:description" content="The professional storyboard studio in your pocket. Sketch, organize, and export industry-standard boards in seconds.">
+    <meta property="twitter:image" content="https://storyboardgo.com/og-image.jpg">
+    <!-- Tailwind CSS dla nowoczesnego i responsywnego wyglądu -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAF9; color: #44403C; }
+        .amber-accent { color: #D97706; }
+        .bg-amber-accent { background-color: #D97706; }
+        
+        .nav-link { 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            color: #A8A29E; 
+            transition: color 0.3s; 
+        }
+        .nav-link:hover { color: #44403C; }
+
+        /* Mobilne Menu Sidebar */
+        #mobile-menu { 
+            transition: transform 0.3s ease-in-out; 
+            transform: translateX(-100%); 
+        }
+        #mobile-menu.active { 
+            transform: translateX(0); 
+        }
+
+        /* Styl dla akordeonu prawnego */
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-active .accordion-content { max-height: 2000px; transition: max-height 0.5s ease-in; }
+        .accordion-active .arrow-icon { transform: rotate(180deg); }
+
+        /* Animacja banera Cookies */
+        #cookie-banner { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; }
+        #cookie-banner.hidden-banner { transform: translateY(150%); opacity: 0; pointer-events: none; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAWIGACJA (STALUR) -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-stone-100 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center">
+            
+            <!-- Hamburger dla mobile -->
+            <button id="hamburger-btn" aria-label="Open mobile menu" aria-expanded="false" class="md:hidden mr-4 p-2 text-stone-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 rounded-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- LOGO (W Google Sites wgraj tutaj plik przez edytor) -->
+            <div class="flex items-center gap-2 mr-auto">
+                <div id="logo-placeholder" class="w-7 h-7 bg-stone-800 rounded flex items-center justify-center text-[10px] text-white font-bold">▶</div>
+                <span class="font-extrabold tracking-tighter text-lg text-stone-900 uppercase">Storyboard GO</span>
+            </div>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex gap-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">About</a>
+                <a href="#support" class="nav-link">Support</a>
+                <a href="#legal" class="nav-link">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR MOBILNY -->
+    <div id="mobile-menu" class="fixed inset-y-0 left-0 w-64 bg-white shadow-2xl z-[60] md:hidden flex flex-col p-8">
+        <div class="flex justify-between items-center mb-10">
+            <span class="font-bold text-stone-400 uppercase text-[10px] tracking-widest">Menu</span>
+            <button id="close-menu" aria-label="Close mobile menu" class="text-stone-400 text-xl p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 rounded-md">✕</button>
+        </div>
+        <div class="flex flex-col gap-6">
+            <a href="#home" onclick="toggleMenu()" class="nav-link">Home</a>
+            <a href="#features" onclick="toggleMenu()" class="nav-link">About</a>
+            <a href="#support" onclick="toggleMenu()" class="nav-link">Support</a>
+            <a href="#legal" onclick="toggleMenu()" class="nav-link">Legal</a>
+        </div>
+        <div class="mt-auto pt-6 border-t border-stone-100">
+            <p class="text-[9px] font-bold text-stone-300 uppercase tracking-widest leading-loose">
+                Professional tools <br> for filmmakers.
+            </p>
+        </div>
+    </div>
+    <div id="menu-overlay" class="fixed inset-0 bg-stone-900/20 backdrop-blur-sm z-50 hidden md:hidden" onclick="toggleMenu()"></div>
+
+    <!-- TREŚĆ GŁÓWNA -->
+    <main id="home" class="pt-32">
+        
+        <!-- Hero Section -->
+        <section class="max-w-4xl mx-auto text-center px-6 mb-24">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-stone-900 tracking-tight mb-6">
+                From Chaos to Clarity.<br><span class="amber-accent tracking-tighter">Frame Your Vision.</span>
+            </h1>
+            <p class="text-lg text-stone-500 max-w-2xl mx-auto mb-10 leading-relaxed">
+                The professional storyboard studio in your pocket. Sketch, organize, and export industry-standard boards in seconds.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://play.google.com/store" class="bg-stone-900 text-white px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs shadow-xl shadow-stone-200 hover:scale-105 transition-transform text-center">
+                    Download on Google Play
+                </a>
+                <a href="#support" class="border border-stone-200 text-stone-400 px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-stone-50 transition-colors text-center">
+                    Get Help
+                </a>
+            </div>
+        </section>
+
+        <!-- SEKCJA FEATURES / ABOUT -->
+        <section id="features" class="max-w-6xl mx-auto px-6 py-24 border-t border-stone-100">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-stone-400 mb-4">About the App</h2>
+                <p class="text-3xl font-extrabold text-stone-900">Built for Filmmakers, by Filmmakers.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
+                <div class="space-y-4">
+                    <div class="text-3xl" aria-hidden="true">✎</div>
+                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Effortless Sketching</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">Professional tools (Pencil, Liner, Marker) designed for creative flow and tactile precision. No lag, just pure creation.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-3xl" aria-hidden="true">⧉</div>
+                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Production Precision</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">Organize scenes and panels with surgical accuracy. Manage metadata, lens info, and timing in one clean interface.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-3xl" aria-hidden="true">⤓</div>
+                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Industry Exports</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">Generate high-quality PDF and PNG sequences ready for the film set, the crew, or your professional portfolio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mockup Preview -->
+        <section class="max-w-5xl mx-auto px-6 py-10 mb-20">
+            <div class="bg-stone-100 rounded-[40px] aspect-video flex items-center justify-center border border-stone-200 overflow-hidden shadow-inner relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-stone-200/50 to-transparent"></div>
+                <span class="text-stone-300 font-bold uppercase tracking-[0.5em] text-xs z-10">[ App Interface Preview ]</span>
+            </div>
+        </section>
+
+        <!-- FORMULARZ WSPARCIA -->
+        <section id="support" class="max-w-4xl mx-auto px-6 py-24 border-t border-stone-100">
+            <div class="text-center mb-12">
+                <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-stone-400 mb-4">Support Center</h2>
+                <p class="text-3xl font-extrabold text-stone-900">Need a hand? We're here to help.</p>
+            </div>
+            <div class="bg-white rounded-[40px] border border-stone-100 p-8 md:p-12 shadow-sm">
+                <!-- KONFIGURACJA FORMSUBMIT: Podmień email na swój -->
+                <form action="https://formsubmit.co/support@storyboardgo.com" method="POST" class="space-y-6">
+                    <input type="hidden" name="_next" value="https://storyboardgo.com/thanks">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label for="support-name" class="text-[10px] font-bold text-stone-400 uppercase tracking-widest ml-1">Your Name</label>
+                            <input id="support-name" type="text" name="name" placeholder="Director Name" required class="w-full bg-stone-50 border-none rounded-xl px-4 py-4 text-sm focus:ring-2 focus:ring-amber-500/20">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="support-email" class="text-[10px] font-bold text-stone-400 uppercase tracking-widest ml-1">Email Address</label>
+                            <input id="support-email" type="email" name="email" placeholder="email@example.com" required class="w-full bg-stone-50 border-none rounded-xl px-4 py-4 text-sm focus:ring-2 focus:ring-amber-500/20">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="support-message" class="text-[10px] font-bold text-stone-400 uppercase tracking-widest ml-1">Your Message</label>
+                        <textarea id="support-message" name="message" placeholder="What's on your mind?" required rows="4" class="w-full bg-stone-50 border-none rounded-xl px-4 py-4 text-sm focus:ring-2 focus:ring-amber-500/20 resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[#D97706] text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-[11px] shadow-lg shadow-amber-100 hover:brightness-110 active:scale-95 transition-all">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- SEKCJA LEGAL (AKORDEON) -->
+        <section id="legal" class="max-w-3xl mx-auto px-6 py-24 border-t border-stone-100">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-extrabold text-stone-900">Legal Information</h2>
+                <p class="text-xs text-stone-400 uppercase tracking-widest mt-2">Transparency and Compliance</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Privacy Policy -->
+                <div class="accordion-item border border-stone-200 rounded-2xl bg-white overflow-hidden">
+                    <button onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="content-privacy" class="w-full flex justify-between items-center p-6 text-left focus:outline-none focus:bg-stone-50">
+                        <span class="font-bold text-stone-800 text-sm uppercase tracking-widest">Privacy Policy</span>
+                        <span class="arrow-icon transition-transform duration-300 text-stone-300 text-xs" aria-hidden="true">▼</span>
+                    </button>
+                    <div id="content-privacy" class="accordion-content">
+                        <div class="p-8 pt-0 text-xs text-stone-500 space-y-4 leading-relaxed border-t border-stone-50">
+                            <p class="mt-4"><strong>Last Updated: March 2026</strong></p>
+                            <p>Storyboard GO values your creative flow. We do not collect personal identifiers like your name, phone, or address. All creative data is stored locally on your device.</p>
+                            <p>We use Google AdMob for monetization. Third-party services may collect data to personalize your ad experience. Your drawings remain yours.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms of Service -->
+                <div class="accordion-item border border-stone-200 rounded-2xl bg-white overflow-hidden">
+                    <button onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="content-terms" class="w-full flex justify-between items-center p-6 text-left focus:outline-none focus:bg-stone-50">
+                        <span class="font-bold text-stone-800 text-sm uppercase tracking-widest">Terms of Service</span>
+                        <span class="arrow-icon transition-transform duration-300 text-stone-300 text-xs" aria-hidden="true">▼</span>
+                    </button>
+                    <div id="content-terms" class="accordion-content">
+                        <div class="p-8 pt-0 text-xs text-stone-500 space-y-4 leading-relaxed border-t border-stone-50">
+                            <p class="mt-4">By using Storyboard GO, you agree to these terms. You retain full ownership of all content created within the app.</p>
+                            <p>You may not reverse-engineer, modify, or attempt to steal the source code of this application. Storyboard GO is provided "as is".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BANER COOKIES (Z JAJEM) -->
+    <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md bg-white border border-stone-200 rounded-[32px] p-6 shadow-2xl z-[100] animate-in slide-in-from-bottom duration-1000">
+        <div class="flex items-start gap-4">
+            <div class="text-2xl mt-1">🍪</div>
+            <div class="flex-1">
+                <h4 class="font-bold text-stone-900 text-sm mb-1 uppercase tracking-tight">Wait, we need to leave a mark!</h4>
+                <p class="text-xs text-stone-500 leading-relaxed mb-6">
+                    Our digital pencil needs a few cookies to make your experience as smooth as a 35mm lens. We use them for analytics and to keep the app "GO-ing". Cool with you?
+                </p>
+                <div class="flex flex-col gap-2">
+                    <button onclick="closeCookies()" class="w-full bg-stone-900 text-white py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-stone-800 transition-colors">
+                        Take them all (Accept)
+                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="closeCookies()" class="flex-1 bg-stone-50 text-stone-400 py-3 rounded-xl font-bold text-[9px] uppercase tracking-widest hover:text-stone-600 transition-colors border border-stone-100">
+                            Reject
+                        </button>
+                        <button onclick="closeCookies()" class="flex-1 bg-white text-stone-400 py-3 rounded-xl font-bold text-[9px] uppercase tracking-widest hover:underline transition-all">
+                            Manage
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STOPKA -->
+    <footer class="bg-stone-50 border-t border-stone-100 py-12 text-center md:text-left">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-40">
+            <p class="text-[10px] font-bold uppercase tracking-widest">Storyboard GO © 2026</p>
+            <p class="text-[9px] font-medium uppercase tracking-[0.3em] mt-4 md:mt-0 italic">From chaos into clarity.</p>
+        </div>
+    </footer>
+
+    <!-- SKRYPTY -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('menu-overlay');
+        const cookieBanner = document.getElementById('cookie-banner');
+
+        // Obsługa menu mobilnego
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+            document.getElementById('hamburger-btn').setAttribute('aria-expanded', isActive);
+        }
+
+        document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+        document.getElementById('close-menu').addEventListener('click', toggleMenu);
+
+        // Obsługa akordeonu prawnego
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('accordion-active');
+            
+            // Zamykanie innych (opcjonalne)
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('accordion-active');
+                el.querySelector('button').setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isActive) {
+                item.classList.add('accordion-active');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        // Obsługa banera Cookies
+        function closeCookies() {
+            cookieBanner.classList.add('hidden-banner');
+            localStorage.setItem('cookiesAccepted_GO', 'true');
+        }
+
+        // Sprawdzenie stanu po załadowaniu
+        window.onload = () => {
+            if (localStorage.getItem('cookiesAccepted_GO')) {
+                cookieBanner.classList.add('hidden-banner');
+            }
+        };
+    </script>
+</body>
+</html>
