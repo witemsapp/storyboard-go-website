@@ -31,6 +31,8 @@
     <!-- Tailwind CSS dla nowoczesnego i responsywnego wyglądu -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- AOS CSS (Animacje przy scrollowaniu) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FAFAF9; color: #44403C; }
         .amber-accent { color: #D97706; }
@@ -119,13 +121,13 @@
         
         <!-- Hero Section -->
         <section class="max-w-4xl mx-auto text-center px-6 mb-24">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-stone-900 tracking-tight mb-6">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-stone-900 tracking-tight mb-6" data-aos="fade-up" data-aos-duration="1000">
                 From Chaos to Clarity.<br><span class="amber-accent tracking-tighter">Frame Your Vision.</span>
             </h1>
-            <p class="text-lg text-stone-500 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p class="text-lg text-stone-500 max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
                 The professional storyboard studio in your pocket. Sketch, organize, and export industry-standard boards in seconds.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                 <a href="https://play.google.com/store" class="bg-stone-900 text-white px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs shadow-xl shadow-stone-200 hover:scale-105 transition-transform text-center">
                     Download on Google Play
                 </a>
@@ -181,22 +183,22 @@
 
         <!-- SEKCJA FEATURES / ABOUT -->
         <section id="features" class="max-w-6xl mx-auto px-6 py-24 border-t border-stone-100">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-stone-400 mb-4">About the App</h2>
                 <p class="text-3xl font-extrabold text-stone-900">Built for Creators, by Creators.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
-                <div class="space-y-4">
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="0">
                     <div class="text-3xl" aria-hidden="true">✎</div>
                     <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Effortless Sketching</h3>
                     <p class="text-sm text-stone-500 leading-relaxed">Professional tools (Pencil, Liner, Marker) designed for creative flow and tactile precision. No lag, just pure creation.</p>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="150">
                     <div class="text-3xl" aria-hidden="true">⧉</div>
                     <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Production Precision</h3>
                     <p class="text-sm text-stone-500 leading-relaxed">Organize scenes and panels with surgical accuracy. Manage metadata, lens info, and timing in one clean interface.</p>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-3xl" aria-hidden="true">⤓</div>
                     <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Industry Exports</h3>
                     <p class="text-sm text-stone-500 leading-relaxed">Generate high-quality PDF and PNG sequences ready for the film set, the crew, or your professional portfolio.</p>
@@ -566,6 +568,17 @@
                 cookieBanner.classList.add('hidden-banner');
             }
         };
+    </script>
+    
+    <!-- AOS Library (Inicjalizacja animacji) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,            // Animacje odpala się tylko raz
+            offset: 80,            // O ile wcześciej pod ekranem mają się aktywować
+            duration: 800,         // Długość pojawiania się 0.8s (eleganckie)
+            easing: 'ease-out-cubic' // Płynne, miękkie lądowanie
+        });
     </script>
 </body>
 </html>
