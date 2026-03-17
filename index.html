@@ -677,6 +677,10 @@
             
             // Dodaj nasłuchiwanie klawiszy strzałek i esc
             document.addEventListener('keydown', handleLightboxKeyboard);
+            
+            // Dodaj nasłuchiwanie gestów przesunięcia palcem (Swipe) dla urządzeń mobilnych
+            lightbox.addEventListener('touchstart', handleTouchStart, { passive: true });
+            lightbox.addEventListener('touchend', handleTouchEnd, { passive: true });
         }
 
         function prevLightboxImage(event) {
@@ -697,6 +701,32 @@
             if (e.key === 'ArrowRight') nextLightboxImage();
         }
 
+        // --- Obsługa GESTÓW (Swipe w Lightboxie na telefonach) ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }
+
+        function handleSwipeGesture() {
+            const swipeThreshold = 50; // Minimalna długość przesunięcia w pikselach
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe w lewo -> Następne zdjęcie
+                nextLightboxImage();
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe w prawo -> Poprzednie zdjęcie
+                prevLightboxImage();
+            }
+        }
+        // ---------------------------------------------------------
+
         function closeLightbox(event) {
             // Zamknij tylko jeśli kliknięto w tło lub w krzyżyk (zignoruj kliknięcia w samo zdjęcie)
             if (event && event.target === lightboxImg) return;
@@ -711,8 +741,10 @@
                 document.body.style.overflow = '';
             }, 300);
             
-            // Zwalniamy klawiaturę
+            // Zwalniamy wszystkie nasłuchiwacze!
             document.removeEventListener('keydown', handleLightboxKeyboard);
+            lightbox.removeEventListener('touchstart', handleTouchStart);
+            lightbox.removeEventListener('touchend', handleTouchEnd);
         }
 
         // Sprawdzenie stanu po załadowaniu
