@@ -405,6 +405,13 @@
             </div>
         </div>
     </div>
+    
+    <!-- Blokada "migania" (FOUC) banera ciasteczek po odświeżeniu -->
+    <script>
+        if (localStorage.getItem('cookiesAccepted_GO')) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 
     <!-- CALL TO ACTION (CTA) -->
     <section class="max-w-4xl mx-auto text-center px-6 py-24 border-t border-stone-100">
@@ -498,11 +505,22 @@
     <!-- LIGHTBOX (PODGLĄD SCREENÓW NA DUŻYM EKRANIE) -->
     <div id="lightbox" class="fixed inset-0 z-[120] hidden flex flex-col items-center justify-center bg-stone-900/80 backdrop-blur-xl opacity-0 transition-opacity duration-300" onclick="closeLightbox(event)">
         <!-- Przycisk Zamykania Lightboxa -->
-        <button onclick="closeLightbox(event)" class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-4" aria-label="Close fullscreen preview" id="lightbox-close-btn">
+        <button onclick="closeLightbox(event)" class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-4 z-20" aria-label="Close fullscreen preview" id="lightbox-close-btn">
             <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
+        
+        <!-- Przycisk Poprzedni -->
+        <button onclick="prevLightboxImage(event)" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 z-20" aria-label="Previous image">
+            <svg class="w-10 h-10 pointer-events-none drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        
+        <!-- Przycisk Następny -->
+        <button onclick="nextLightboxImage(event)" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 z-20" aria-label="Next image">
+            <svg class="w-10 h-10 pointer-events-none drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
         <!-- Obraz -->
-        <img id="lightbox-img" src="" alt="Fullscreen App Preview" class="h-auto max-h-[90vh] w-auto max-w-[90vw] object-contain rounded-[2rem] shadow-2xl border-[8px] border-white/10 transform scale-95 transition-transform duration-300">
+        <img id="lightbox-img" src="" alt="Fullscreen App Preview" class="h-auto max-h-[90vh] w-auto max-w-[90vw] object-contain rounded-[2rem] shadow-2xl border-[8px] border-white/10 transform scale-95 transition-transform duration-300 relative z-10 select-none">
     </div>
 
     <!-- SKRYPTY -->
@@ -595,14 +613,38 @@
             }, 300);
         }
 
-        // Płynne otwieranie lightboxa
+        // Obsługa Lightboxa (Pełnoekranowa galeria)
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        
+        // Zbieramy wszystkie obrazki z karuzeli do tablicy, aby móc po nich nawigować
+        let lightboxImages = [];
+        let currentLightboxIndex = 0;
+
+        // Ta funkcja zbiera źródła zdjęć z HTML do pamięci JS
+        function initLightboxGallery() {
+            if (lightboxImages.length === 0) {
+                const imgElements = document.querySelectorAll('#preview img');
+                lightboxImages = Array.from(imgElements).map(img => img.src);
+            }
+        }
+
+        function updateLightboxImage() {
+            lightboxImg.src = lightboxImages[currentLightboxIndex];
+        }
 
         function openLightbox(src) {
-            lightboxImg.src = src;
+            initLightboxGallery();
+            
+            // Znajdź indeks klikniętego zdjęcia ignorując absolutny adres (np. domenę)
+            const clickedFilename = src.split('/').pop();
+            currentLightboxIndex = lightboxImages.findIndex(url => url.includes(clickedFilename));
+            if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+            
+            updateLightboxImage();
+            
             lightbox.classList.remove('hidden');
-            // Zmuszamy przeglądarkę do przerenderowania, by animacja wyjścia zadziałała
+            // Zmuszamy przeglądarkę do przerenderowania
             void lightbox.offsetWidth;
             
             lightbox.classList.remove('opacity-0');
@@ -611,6 +653,27 @@
             
             // Zablokuj scrollowanie głównej strony w tle
             document.body.style.overflow = 'hidden';
+            
+            // Dodaj nasłuchiwanie klawiszy strzałek i esc
+            document.addEventListener('keydown', handleLightboxKeyboard);
+        }
+
+        function prevLightboxImage(event) {
+            if (event) event.stopPropagation(); // Powstrzymaj zamykanie lightboxa kliknięciem w tło
+            currentLightboxIndex = (currentLightboxIndex > 0) ? currentLightboxIndex - 1 : lightboxImages.length - 1;
+            updateLightboxImage();
+        }
+
+        function nextLightboxImage(event) {
+            if (event) event.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex < lightboxImages.length - 1) ? currentLightboxIndex + 1 : 0;
+            updateLightboxImage();
+        }
+
+        function handleLightboxKeyboard(e) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevLightboxImage();
+            if (e.key === 'ArrowRight') nextLightboxImage();
         }
 
         function closeLightbox(event) {
@@ -626,6 +689,9 @@
                 // Odblokuj scrollowanie głównej strony
                 document.body.style.overflow = '';
             }, 300);
+            
+            // Zwalniamy klawiaturę
+            document.removeEventListener('keydown', handleLightboxKeyboard);
         }
 
         // Sprawdzenie stanu po załadowaniu
