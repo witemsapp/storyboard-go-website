@@ -120,7 +120,17 @@
     <main id="home" class="pt-32">
         
         <!-- Hero Section -->
-        <section class="max-w-4xl mx-auto text-center px-6 mb-24">
+        <section class="max-w-4xl mx-auto text-center px-6 mb-24 relative">
+            
+            <!-- Free Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm" data-aos="fade-down" data-aos-duration="1000">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                100% Free to Use
+            </div>
+
             <h1 class="text-5xl md:text-7xl font-extrabold text-stone-900 tracking-tight mb-6" data-aos="fade-up" data-aos-duration="1000">
                 From Chaos to Clarity.<br><span class="amber-accent tracking-tighter">Frame Your Vision.</span>
             </h1>
@@ -135,6 +145,9 @@
                     Get Help
                 </a>
             </div>
+            
+            <!-- Subtext pod guzikami -->
+            <p class="text-[10px] text-stone-400 mt-6 uppercase tracking-widest font-bold" data-aos="fade-up" data-aos-delay="400">No subscriptions. No hidden fees.</p>
         </section>
 
         <!-- APP PREVIEW (SCREENSHOTY) -->
@@ -234,6 +247,15 @@
                     <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Layer Panel</h3>
                     <p class="text-sm text-stone-500 leading-relaxed">Keep backgrounds, characters, and annotations separate for non-destructive editing and absolute control.</p>
                 </div>
+            </div>
+
+            <!-- PDF Manual Download Button -->
+            <div class="mt-20 text-center">
+                <a href="manual.pdf" download="Storyboard_GO_Manual.pdf" target="_blank" class="inline-flex items-center justify-center gap-3 bg-white text-stone-900 border-2 border-stone-100 px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs shadow-xl shadow-stone-200/50 hover:border-amber-500 hover:text-amber-600 hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Download PDF Manual
+                </a>
+                <p class="text-[10px] text-stone-400 mt-4 uppercase tracking-widest font-bold">Complete guide & documentation</p>
             </div>
         </section>
 
@@ -429,6 +451,9 @@
                 Get it on Google Play
             </a>
         </div>
+        
+        <!-- Dodatkowy tekst o darmowości u dołu -->
+        <p class="text-[10px] text-stone-400 mt-8 font-bold uppercase tracking-widest">Always Free. No Ads. Just Storyboarding.</p>
     </section>
 
     <!-- STOPKA -->
