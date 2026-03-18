@@ -253,7 +253,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                     Download PDF Manual
                 </a>
-                <p class="text-[10px] text-stone-400 mt-4 uppercase tracking-widest font-bold">Complete guide & documentation</p>
+                <p class="text-[10px] text-stone-400 mt-4 uppercase tracking-widest font-bold">Quick start & simple overview</p>
             </div>
         </section>
 
@@ -467,8 +467,8 @@
                 <a href="#" aria-label="Instagram" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M17,14c0,1.65-1.35,3-3,3H10c-1.65,0-3-1.35-3-3v-4 c0-1.65,1.35-3,3-3h4c1.65,0,3,1.35,3,3V14z M11,10H9v2h2V10z M15,10h-2v2h2V10z"/></svg>
                 </a>
-                <a href="#" aria-label="LinkedIn" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="#" aria-label="Reddit" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.1-1.04-.2-1.3-1.1-1.3-1.92zm16 3.8c-.82 1.8-3.4 2.4-5.3 2.4-1.9 0-4.48-.6-5.3-2.4-.16-.36.03-.78.4-.94.34-.16.76.03.92.4.52 1.15 2.5 1.64 3.98 1.64 1.48 0 3.46-.48 3.98-1.64.16-.36.58-.56.92-.4.36.16.56.58.4.94zm-8.1-1.8c-.82 0-1.5-.68-1.5-1.5s.68-1.5 1.5-1.5 1.5.68 1.5 1.5-.68 1.5-1.5 1.5zm8 0c-.82 0-1.5-.68-1.5-1.5s.68-1.5 1.5-1.5 1.5.68 1.5 1.5-.68 1.5-1.5 1.5zm-5.7-6.85c0-.6.48-1.1 1.1-1.1.6 0 1.1.48 1.1 1.1 0 .6-.48 1.1-1.1 1.1-.6 0-1.1-.48-1.1-1.1zm7.1 8.05c-.38-1.2-1.2-2.25-2.3-3.1.38-.5.96-.82 1.6-.82 1.1 0 2 .9 2 2 0 .8-.26 1.7-1.3 1.92z"/></svg>
                 </a>
             </div>
             
@@ -664,6 +664,9 @@
             
             updateLightboxImage();
             
+            // Czyść ewentualne style inline
+            lightboxImg.style = '';
+            
             lightbox.classList.remove('hidden');
             // Zmuszamy przeglądarkę do przerenderowania
             void lightbox.offsetWidth;
@@ -685,14 +688,46 @@
 
         function prevLightboxImage(event) {
             if (event) event.stopPropagation(); // Powstrzymaj zamykanie lightboxa kliknięciem w tło
-            currentLightboxIndex = (currentLightboxIndex > 0) ? currentLightboxIndex - 1 : lightboxImages.length - 1;
-            updateLightboxImage();
+            if (lightboxImg.style.opacity === '0') return; // Bloakda spamu kliknięć
+            
+            lightboxImg.style.transition = 'transform 0.25s ease-in, opacity 0.2s ease-in';
+            lightboxImg.style.transform = 'translateX(60px) scale(0.95)';
+            lightboxImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                currentLightboxIndex = (currentLightboxIndex > 0) ? currentLightboxIndex - 1 : lightboxImages.length - 1;
+                updateLightboxImage();
+                
+                lightboxImg.style.transition = 'none';
+                lightboxImg.style.transform = 'translateX(-60px) scale(0.95)';
+                void lightboxImg.offsetWidth;
+                
+                lightboxImg.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease-out';
+                lightboxImg.style.transform = 'translateX(0) scale(1)';
+                lightboxImg.style.opacity = '1';
+            }, 200);
         }
 
         function nextLightboxImage(event) {
             if (event) event.stopPropagation();
-            currentLightboxIndex = (currentLightboxIndex < lightboxImages.length - 1) ? currentLightboxIndex + 1 : 0;
-            updateLightboxImage();
+            if (lightboxImg.style.opacity === '0') return; // Blokada spamu
+            
+            lightboxImg.style.transition = 'transform 0.25s ease-in, opacity 0.2s ease-in';
+            lightboxImg.style.transform = 'translateX(-60px) scale(0.95)';
+            lightboxImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                currentLightboxIndex = (currentLightboxIndex < lightboxImages.length - 1) ? currentLightboxIndex + 1 : 0;
+                updateLightboxImage();
+                
+                lightboxImg.style.transition = 'none';
+                lightboxImg.style.transform = 'translateX(60px) scale(0.95)';
+                void lightboxImg.offsetWidth;
+                
+                lightboxImg.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease-out';
+                lightboxImg.style.transform = 'translateX(0) scale(1)';
+                lightboxImg.style.opacity = '1';
+            }, 200);
         }
 
         function handleLightboxKeyboard(e) {
@@ -701,31 +736,52 @@
             if (e.key === 'ArrowRight') nextLightboxImage();
         }
 
-        // --- Obsługa GESTÓW (Swipe w Lightboxie na telefonach) ---
+        // --- Obsługa GESTÓW (Swipe w Lightboxie na telefonach) + Zamykanie swipe'm w górę/dół ---
         let touchStartX = 0;
         let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
 
         function handleTouchStart(e) {
             touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
         }
 
         function handleTouchEnd(e) {
             touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
             handleSwipeGesture();
         }
 
         function handleSwipeGesture() {
-            const swipeThreshold = 50; // Minimalna długość przesunięcia w pikselach
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // Swipe w lewo -> Następne zdjęcie
-                nextLightboxImage();
-            }
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // Swipe w prawo -> Poprzednie zdjęcie
-                prevLightboxImage();
+            const swipeThresholdX = 50; // W poziomie
+            const swipeThresholdY = 80; // W pionie (do zamknięcia)
+            
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+
+            // Sprawdzamy czy gest był bardziej pionowy czy poziomy
+            if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > swipeThresholdY) {
+                // Koniec galerii (Zamknięcie wyrzutem w górę lub w dół)
+                lightboxImg.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
+                // Odrzuca do 1.5x przebytej drogi palca by efektownie wyleciał za ekran
+                lightboxImg.style.transform = `translateY(${diffY * 1.5}px) scale(0.8)`;
+                lightboxImg.style.opacity = '0';
+                
+                setTimeout(() => {
+                    closeLightbox();
+                }, 150);
+            } 
+            // Swipe poziomy jako next / previous
+            else if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThresholdX) {
+                if (diffX < 0) {
+                    nextLightboxImage();
+                } else {
+                    prevLightboxImage();
+                }
             }
         }
-        // ---------------------------------------------------------
+        // ------------------------------------------------------------------------------------------
 
         function closeLightbox(event) {
             // Zamknij tylko jeśli kliknięto w tło lub w krzyżyk (zignoruj kliknięcia w samo zdjęcie)
