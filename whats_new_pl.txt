@@ -1,0 +1,7 @@
+🎉 Co nowego w v1.0.0
+
+• Pierwsze publiczne wydanie Storyboard GO!
+• Pełne tworzenie storyboardów z warstwami i panelami
+• Eksport do PDF, PNG, MP4 i SGO
+• Onion skin do podglądu animacji
+• Import/eksport projektów jako pliki .sgo
