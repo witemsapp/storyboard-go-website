@@ -297,10 +297,9 @@
                 <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-stone-400 mb-4">Support Center</h2>
                 <p class="text-3xl font-extrabold text-stone-900">Need a hand? We're here to help.</p>
             </div>
-            <div class="bg-white rounded-[40px] border border-stone-100 p-8 md:p-12 shadow-sm">
+            <div class="bg-white rounded-[40px] border border-stone-100 p-8 md:p-12 shadow-sm relative overflow-hidden">
                 <!-- KONFIGURACJA FORMSUBMIT: Podmień email na swój -->
-                <form action="https://formsubmit.co/kontakt@witemsanimation.com" method="POST" class="space-y-6">
-                    <input type="hidden" name="_next" value="https://storyboardgo.com/thanks">
+                <form id="support-form" action="https://formsubmit.co/ajax/kontakt@witemsanimation.com" method="POST" class="space-y-6 transition-opacity duration-500">
                     <input type="hidden" name="_captcha" value="false">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
@@ -327,10 +326,17 @@
                         <label for="support-message" class="text-[10px] font-bold text-stone-400 uppercase tracking-widest ml-1">Your Message</label>
                         <textarea id="support-message" name="message" placeholder="What's on your mind?" required rows="4" class="w-full bg-stone-50 border-none rounded-xl px-4 py-4 text-sm focus:ring-2 focus:ring-amber-500/20 resize-none"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-[#D97706] text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-[11px] shadow-lg shadow-amber-100 hover:brightness-110 active:scale-95 transition-all">
+                    <button type="submit" id="support-submit-btn" class="w-full bg-[#D97706] text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-[11px] shadow-lg shadow-amber-100 hover:brightness-110 active:scale-95 transition-all">
                         Send Message
                     </button>
                 </form>
+
+                <!-- Okienko z podziękowaniem (ukryte domyślnie) -->
+                <div id="form-success-overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-white rounded-[40px] opacity-0 pointer-events-none transition-all duration-500 p-8 text-center">
+                    <div class="text-5xl mb-6">✉️</div>
+                    <h3 class="text-2xl font-extrabold text-stone-900 mb-3">Message Sent!</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed max-w-sm">Thank you for reaching out. We'll do our best to get back to you as soon as possible.</p>
+                </div>
             </div>
         </section>
 
@@ -685,6 +691,51 @@
                 cookieModal.classList.add('hidden');
             }, 300);
         }
+        // Obsługa formularza wsparcia (AJAX bez przeładowania strony)
+        const supportForm = document.getElementById('support-form');
+        const formOverlay = document.getElementById('form-success-overlay');
+
+        supportForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('support-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = new FormData(supportForm);
+
+            fetch(supportForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Sukces – pokaż overlay z podziękowaniem
+                    supportForm.style.opacity = '0';
+                    setTimeout(() => {
+                        formOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                        formOverlay.classList.add('opacity-100');
+                    }, 300);
+
+                    // Po 6 sekundach ukryj overlay i pokaż czysty formularz
+                    setTimeout(() => {
+                        formOverlay.classList.add('opacity-0', 'pointer-events-none');
+                        formOverlay.classList.remove('opacity-100');
+                        supportForm.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                        supportForm.style.opacity = '1';
+                    }, 6000);
+                } else {
+                    throw new Error('Server error');
+                }
+            })
+            .catch(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                alert('Something went wrong. Please try again later.');
+            });
+        });
 
         // Obsługa Lightboxa (Pełnoekranowa galeria)
         const lightbox = document.getElementById('lightbox');
