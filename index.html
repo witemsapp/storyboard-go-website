@@ -588,6 +588,27 @@
             }
         }
 
+        // Obsługa automatycznego otwierania z URL (np. /#Privacy-Policy, /#Terms)
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                const hashStr = decodeURIComponent(window.location.hash).toLowerCase();
+                
+                if (hashStr.includes('privacy')) {
+                    setTimeout(() => {
+                        const legalSection = document.getElementById('legal');
+                        if (legalSection) legalSection.scrollIntoView({ behavior: 'smooth' });
+                        openAccordion('content-privacy');
+                    }, 400); 
+                } else if (hashStr.includes('terms')) {
+                    setTimeout(() => {
+                        const legalSection = document.getElementById('legal');
+                        if (legalSection) legalSection.scrollIntoView({ behavior: 'smooth' });
+                        openAccordion('content-terms');
+                    }, 400);
+                }
+            }
+        });
+
         // Obsługa banera i modala Cookies
         function closeCookies() {
             cookieBanner.classList.add('hidden-banner');
