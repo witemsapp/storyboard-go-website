@@ -5,3 +5,4 @@
 • Eksport do PDF, PNG, MP4 i SGO
 • Onion skin do podglądu animacji
 • Import/eksport projektów jako pliki .sgo
+• Aktualizacja polityki prywatności i terms
