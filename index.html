@@ -974,12 +974,18 @@
         const lerpFactor = 0.05;
         let resumeTimeout;
 
-        // Parametry Drag-to-Scroll
+        // Parametry Drag & Momentum
         let isDragging = false;
         let startX = 0;
         let startY = 0;
         let startProgress = 0;
         let isScrolling = false;
+        let totalMovedX = false;
+        
+        let lastX = 0;
+        let lastTime = 0;
+        let velocity = 0;
+        let inertiaFrame;
 
         if (marqueeTrack) {
             marqueeAnim = marqueeTrack.animate([
@@ -993,17 +999,24 @@
             // Początkowe opóźnienie startu
             setTimeout(() => { targetRate = 1; }, 1500);
 
-            // GŁÓWNA LOGIKA INTERAKCJI
             const startDrag = (e) => {
-                if (e.type === 'mousedown') {
-                    if (e.button !== 0) return;
-                }
+                cancelAnimationFrame(inertiaFrame);
+                if (e.type === 'mousedown' && e.button !== 0) return;
                 
                 isDragging = true;
-                isScrolling = false; // Resetujemy stan scrollowania strony
+                isScrolling = false;
+                totalMovedX = false;
                 targetRate = 0;
-                startX = e.pageX || e.touches[0].pageX;
-                startY = e.pageY || e.touches[0].pageY;
+                
+                const x = e.touches ? e.touches[0].pageX : e.pageX;
+                const y = e.touches ? e.touches[0].pageY : e.pageY;
+                
+                startX = x;
+                startY = y;
+                lastX = x;
+                lastTime = performance.now();
+                velocity = 0;
+                
                 startProgress = marqueeAnim.currentTime / 80000;
                 clearTimeout(resumeTimeout);
                 
@@ -1015,13 +1028,14 @@
 
                 const currentX = e.pageX || (e.touches && e.touches[0] ? e.touches[0].pageX : startX);
                 const currentY = e.pageY || (e.touches && e.touches[0] ? e.touches[0].pageY : startY);
+                const currentTime = performance.now();
                 
                 const diffX = startX - currentX;
                 const diffY = startY - currentY;
 
                 // Jeśli ruch jest bardziej pionowy niż poziomy (na samym początku ruchu), 
                 // uznajemy że użytkownik chce scrollować stronę i wyłączamy drag karuzeli.
-                if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 5) {
+                if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 5 && !totalMovedX) {
                     isScrolling = true;
                     isDragging = false;
                     marqueeTrack.style.cursor = 'grab';
@@ -1032,6 +1046,15 @@
                 if (Math.abs(diffX) > 5) {
                     if (e.cancelable) e.preventDefault();
                     
+                    // Obliczanie prędkości dla inercji
+                    const dt = currentTime - lastTime;
+                    if (dt > 0) {
+                        const instantaneousVelocity = (lastX - currentX) / dt;
+                        velocity = velocity * 0.5 + instantaneousVelocity * 0.5; // Wygladzanie predkosci
+                    }
+                    lastX = currentX;
+                    lastTime = currentTime;
+                    
                     const trackWidth = marqueeTrack.offsetWidth / 2;
                     const progressDiff = diffX / trackWidth;
                     
@@ -1041,19 +1064,38 @@
                     marqueeAnim.currentTime = newProgress * 80000;
                     startX = currentX;
                     startProgress = newProgress;
+                    totalMovedX = true;
                 }
+            };
+
+            const applyInertia = () => {
+                if (Math.abs(velocity) < 0.05) {
+                    velocity = 0;
+                    resumeTimeout = setTimeout(() => { targetRate = 1; }, 2000);
+                    return;
+                }
+
+                const trackWidth = marqueeTrack.offsetWidth / 2;
+                const progressDiff = velocity * (16.6) / trackWidth; // 16.6ms to ok. 60fps
+                
+                let newProgress = (marqueeAnim.currentTime / 80000 + progressDiff) % 1;
+                if (newProgress < 0) newProgress += 1;
+                
+                marqueeAnim.currentTime = newProgress * 80000;
+                velocity *= 0.95; // Tarcie (Friction)
+                
+                inertiaFrame = requestAnimationFrame(applyInertia);
             };
 
             const endDrag = (e) => {
                 if (!isDragging && !isScrolling) return;
                 isDragging = false;
                 isScrolling = false;
+                totalMovedX = false;
                 marqueeTrack.style.cursor = 'grab';
                 
-                // Czekamy 2 sekundy przed wznowieniem
-                resumeTimeout = setTimeout(() => {
-                    targetRate = 1;
-                }, 2000);
+                // Odpalamy fazę ślizgu
+                applyInertia();
             };
 
             // Nasłuchiwanie myszki i dotyku
