@@ -168,58 +168,40 @@
             
         </section>
 
-        <!-- APP PREVIEW (SCREENSHOTY) -->
-        <section id="preview" class="max-w-full mx-auto mb-20 md:mb-32 overflow-hidden mt-12 md:mt-20">
-            <!-- Karuzela (Horizontal Scroll) -->
-            <div class="flex gap-6 overflow-x-auto pb-10 px-6 md:px-12 snap-x snap-mandatory hide-scroll">
-                <style>
-                    /* Ukrywanie paska przewijania, ale zostawienie funkcjonalności */
-                    .hide-scroll { scrollbar-width: none; -ms-overflow-style: none; }
-                    .hide-scroll::-webkit-scrollbar { display: none; }
-                </style>
+        <!-- APP PREVIEW (SCREENSHOTY) - SMART MARQUEE -->
+        <section id="preview" class="relative w-full overflow-hidden mb-20 md:mb-32 mt-12 md:mt-20">
+            <style>
+                .marquee-container {
+                    display: flex;
+                    width: max-content;
+                    will-change: transform; /* Optymalizacja pod GPU */
+                }
+            </style>
 
-                <!-- Screen 1 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="0">
-                    <img src="scr1.jpg" alt="Storyboard GO Mobile Interface - Drawing Canvas" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 cursor-pointer">
+            <div class="marquee-container flex gap-6 px-6" id="marquee-track">
+                <!-- Grupa 1 -->
+                <div class="flex gap-6 shrink-0">
+                    <img src="scr1.jpg" alt="Canvas" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.jpg" alt="Layers" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.jpg" alt="Panels" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.jpg" alt="Guides" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.jpg" alt="Onion" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.jpg" alt="Export" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.jpg" alt="Import" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.jpg" alt="Workflow" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
                 
-                <!-- Screen 2 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="150">
-                    <img src="scr2.jpg" alt="Storyboard GO Layers and Organization" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100 cursor-pointer">
+                <!-- Grupa 2 (Klon) -->
+                <div class="flex gap-6 shrink-0">
+                    <img src="scr1.jpg" alt="Canvas" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.jpg" alt="Layers" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.jpg" alt="Panels" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.jpg" alt="Guides" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.jpg" alt="Onion" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.jpg" alt="Export" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.jpg" alt="Import" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.jpg" alt="Workflow" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
-
-                <!-- Screen 3 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="300">
-                    <img src="scr3.jpg" alt="Storyboard GO Panel Management" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100 cursor-pointer">
-                </div>
-
-                <!-- Screen 4 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="450">
-                    <img src="scr4.jpg" alt="Storyboard GO Cinema Overlays and Guides" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100 cursor-pointer">
-                </div>
-
-                <!-- Screen 5 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="600">
-                    <img src="scr5.jpg" alt="Storyboard GO Onion Skin Feature" onclick="openLightbox(this.src)" class="h-[50vh] md:h-[60vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100 cursor-pointer">
-                </div>
-                
-                <!-- Screen 6 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="750">
-                    <img src="scr6.jpg" alt="Storyboard GO Export Options - PDF and Animatic" onclick="openLightbox(this.src)" class="h-[50vh] md:h-[60vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100 cursor-pointer">
-                </div>
-                
-                <!-- Screen 7 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="900">
-                    <img src="scr7.jpg" alt="Storyboard GO Asset Import" onclick="openLightbox(this.src)" class="h-[50vh] md:h-[60vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100 cursor-pointer">
-                </div>
-
-                <!-- Screen 8 -->
-                <div class="snap-center shrink-0 group" data-aos="fade-up" data-aos-delay="1050">
-                    <img src="scr8.jpg" alt="Storyboard GO Project Workflow" onclick="openLightbox(this.src)" class="h-[50vh] md:h-[60vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white group-hover:-translate-y-2 transition-transform duration-500 opacity-80 hover:opacity-100 cursor-pointer">
-                </div>
-
-                <!-- Pusty blok na prawym marginesie dla lepszego scrollowania do końca -->
-                <div class="shrink-0 w-4 md:w-12"></div>
             </div>
         </section>
 
@@ -982,6 +964,35 @@
             duration: 800,         // Długość pojawiania się 0.8s (eleganckie)
             easing: 'ease-out-cubic' // Płynne, miękkie lądowanie
         });
+
+        // --- SMART MARQUEE ENGINE (Płynne hamowanie i start) ---
+        const marqueeTrack = document.getElementById('marquee-track');
+        if (marqueeTrack) {
+            const marqueeAnim = marqueeTrack.animate([
+                { transform: 'translateX(0)' },
+                { transform: 'translateX(-50%)' }
+            ], {
+                duration: 80000, // Czas jednego pełnego cyklu (80s - bardzo luksusowe tempo)
+                iterations: Infinity
+            });
+
+            let currentRate = 1;
+            let targetRate = 1;
+            const lerpFactor = 0.05; // Siła wygładzania (im mniejsza, tym bardziej "maślany" efekt)
+
+            marqueeTrack.addEventListener('mouseenter', () => targetRate = 0);
+            marqueeTrack.addEventListener('mouseleave', () => targetRate = 1);
+
+            // Funkcja aktualizująca prędkość w każdej klatce (60fps)
+            function smoothMarquee() {
+                // Wyliczenie nowej prędkości (Lerp)
+                currentRate += (targetRate - currentRate) * lerpFactor;
+                marqueeAnim.playbackRate = currentRate;
+                
+                requestAnimationFrame(smoothMarquee);
+            }
+            smoothMarquee();
+        }
     </script>
 </body>
 </html>
