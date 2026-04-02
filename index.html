@@ -179,19 +179,19 @@
             </style>
 
             <div class="marquee-container flex gap-6 px-6" id="marquee-track">
-                <!-- Grupa 1 -->
+                <!-- Grupa 1 (Z animacją wejścia kaskadowego) -->
                 <div class="flex gap-6 shrink-0">
-                    <img src="scr1.jpg" alt="Canvas" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.jpg" alt="Layers" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.jpg" alt="Panels" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.jpg" alt="Guides" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr5.jpg" alt="Onion" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.jpg" alt="Export" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.jpg" alt="Import" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr8.jpg" alt="Workflow" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr1.jpg" alt="Canvas" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="0" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.jpg" alt="Layers" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="150" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.jpg" alt="Panels" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="300" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.jpg" alt="Guides" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="450" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.jpg" alt="Onion" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="600" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.jpg" alt="Export" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="750" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.jpg" alt="Import" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="900" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.jpg" alt="Workflow" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="1050" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
                 
-                <!-- Grupa 2 (Klon) -->
+                <!-- Grupa 2 (Klon - bez AOS, by nie "migał" przy pętli) -->
                 <div class="flex gap-6 shrink-0">
                     <img src="scr1.jpg" alt="Canvas" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                     <img src="scr2.jpg" alt="Layers" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
@@ -976,9 +976,14 @@
                 iterations: Infinity
             });
 
-            let currentRate = 1;
-            let targetRate = 1;
+            let currentRate = 0; // Zaczynamy od zera (stój)
+            let targetRate = 0; // Cel poczatkowy to 0
             const lerpFactor = 0.05; // Siła wygładzania (im mniejsza, tym bardziej "maślany" efekt)
+
+            // OPÓŹNIONY START (Czekamy na kaskadę AOS)
+            setTimeout(() => {
+                targetRate = 1; 
+            }, 1500);
 
             marqueeTrack.addEventListener('mouseenter', () => targetRate = 0);
             marqueeTrack.addEventListener('mouseleave', () => targetRate = 1);
