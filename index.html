@@ -174,7 +174,8 @@
                 .marquee-container {
                     display: flex;
                     width: max-content;
-                    will-change: transform; /* Optymalizacja pod GPU */
+                    will-change: transform; 
+                    touch-action: pan-y; /* Pozwala na scrollowanie strony góra/dół, blokuje tylko lewo/prawo */
                 }
             </style>
 
@@ -976,9 +977,9 @@
         // Parametry Drag-to-Scroll
         let isDragging = false;
         let startX = 0;
+        let startY = 0;
         let startProgress = 0;
-        let dragThreshold = 5; // piksele, po których uznajemy, że to ruch a nie klik
-        let totalMoved = 0;
+        let isScrolling = false;
 
         if (marqueeTrack) {
             marqueeAnim = marqueeTrack.animate([
@@ -994,47 +995,59 @@
 
             // GŁÓWNA LOGIKA INTERAKCJI
             const startDrag = (e) => {
-                // Zapobiegamy zaznaczaniu tekstu i innym domyślnym akcjom
                 if (e.type === 'mousedown') {
-                    // Pozwalamy na kliknięcie prawym przyciskiem
                     if (e.button !== 0) return;
                 }
                 
                 isDragging = true;
+                isScrolling = false; // Resetujemy stan scrollowania strony
                 targetRate = 0;
                 startX = e.pageX || e.touches[0].pageX;
+                startY = e.pageY || e.touches[0].pageY;
                 startProgress = marqueeAnim.currentTime / 80000;
-                totalMoved = 0;
                 clearTimeout(resumeTimeout);
                 
-                // Zmieniamy kursor na "grabbed"
                 marqueeTrack.style.cursor = 'grabbing';
             };
 
             const moveDrag = (e) => {
-                if (!isDragging) return;
-                
-                // Zapobiegamy przewijaniu strony na mobile podczas dragowania karuzeli
-                if (e.type === 'touchmove') e.preventDefault();
+                if (!isDragging || isScrolling) return;
 
                 const currentX = e.pageX || (e.touches && e.touches[0] ? e.touches[0].pageX : startX);
+                const currentY = e.pageY || (e.touches && e.touches[0] ? e.touches[0].pageY : startY);
+                
                 const diffX = startX - currentX;
-                totalMoved += Math.abs(diffX);
+                const diffY = startY - currentY;
 
-                const trackWidth = marqueeTrack.offsetWidth / 2;
-                const progressDiff = diffX / trackWidth;
-                
-                let newProgress = (startProgress + progressDiff) % 1;
-                if (newProgress < 0) newProgress += 1;
-                
-                marqueeAnim.currentTime = newProgress * 80000;
-                startX = currentX;
-                startProgress = newProgress;
+                // Jeśli ruch jest bardziej pionowy niż poziomy (na samym początku ruchu), 
+                // uznajemy że użytkownik chce scrollować stronę i wyłączamy drag karuzeli.
+                if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 5) {
+                    isScrolling = true;
+                    isDragging = false;
+                    marqueeTrack.style.cursor = 'grab';
+                    return;
+                }
+
+                // Blokujemy scrollowanie STRONY tylko jeśli faktycznie przesuwamy KARUZELĘ (poziomo)
+                if (Math.abs(diffX) > 5) {
+                    if (e.cancelable) e.preventDefault();
+                    
+                    const trackWidth = marqueeTrack.offsetWidth / 2;
+                    const progressDiff = diffX / trackWidth;
+                    
+                    let newProgress = (startProgress + progressDiff) % 1;
+                    if (newProgress < 0) newProgress += 1;
+                    
+                    marqueeAnim.currentTime = newProgress * 80000;
+                    startX = currentX;
+                    startProgress = newProgress;
+                }
             };
 
             const endDrag = (e) => {
-                if (!isDragging) return;
+                if (!isDragging && !isScrolling) return;
                 isDragging = false;
+                isScrolling = false;
                 marqueeTrack.style.cursor = 'grab';
                 
                 // Czekamy 2 sekundy przed wznowieniem
