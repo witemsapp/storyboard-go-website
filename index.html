@@ -176,8 +176,11 @@
         </section>
 
         <!-- APP PREVIEW (SCREENSHOTY) - SMART MARQUEE -->
-        <section id="preview" class="relative w-full overflow-hidden mb-20 md:mb-32 mt-12 md:mt-20">
+        <section id="preview" class="relative w-full overflow-hidden mb-20 md:mb-32 mt-12 md:mt-20" style="animation: previewFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; opacity: 0; transform: translateY(40px);">
             <style>
+                @keyframes previewFadeUp {
+                    to { opacity: 1; transform: translateY(0); }
+                }
                 .marquee-container {
                     display: flex;
                     width: max-content;
@@ -187,19 +190,19 @@
             </style>
 
             <div class="marquee-container flex gap-6 px-6 select-none" id="marquee-track">
-                <!-- Grupa 1 (Z animacją wejścia kaskadowego) -->
+                <!-- Grupa 1 (AOS usunięte by uniknąć zacięć i skanowania przez przeglądarkę na bieżąco) -->
                 <div class="flex gap-6 shrink-0">
-                    <img src="scr1.jpg" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="0" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.jpg" alt="Layers" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="150" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.jpg" alt="Panels" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="300" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.jpg" alt="Guides" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="450" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr5.jpg" alt="Onion" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="600" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.jpg" alt="Export" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="750" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.jpg" alt="Import" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="900" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr8.jpg" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" data-aos="fade-up" data-aos-delay="1050" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr1.jpg" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.jpg" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.jpg" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.jpg" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.jpg" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.jpg" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.jpg" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.jpg" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
                 
-                <!-- Grupa 2 (Klon - bez AOS, by nie "migał" przy pętli) -->
+                <!-- Grupa 2 (Klon - by zachować ciągłość karuzeli) -->
                 <div class="flex gap-6 shrink-0">
                     <img src="scr1.jpg" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                     <img src="scr2.jpg" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
@@ -977,7 +980,7 @@
         const marqueeTrack = document.getElementById('marquee-track');
         let marqueeAnim;
         let currentRate = 0;
-        let targetRate = 0;
+        let targetRate = 1; // Od razu ustawiamy na 1, żeby startowało bez dużego opóźnienia
         const lerpFactor = 0.05;
         let resumeTimeout;
 
@@ -1002,9 +1005,6 @@
                 duration: 80000,
                 iterations: Infinity
             });
-
-            // Początkowe opóźnienie startu
-            setTimeout(() => { targetRate = 1; }, 1500);
 
             const startDrag = (e) => {
                 cancelAnimationFrame(inertiaFrame);
@@ -1101,14 +1101,26 @@
                 totalMovedX = false;
                 marqueeTrack.style.cursor = 'grab';
                 
+                window.removeEventListener('mousemove', moveDrag);
+                window.removeEventListener('touchmove', moveDrag);
+                window.removeEventListener('mouseup', endDrag);
+                window.removeEventListener('touchend', endDrag);
+                
                 // Odpalamy fazę ślizgu
                 applyInertia();
             };
 
-            // Nasłuchiwanie myszki i dotyku
-            marqueeTrack.addEventListener('mousedown', startDrag);
-            window.addEventListener('mousemove', moveDrag, { passive: false });
-            window.addEventListener('mouseup', endDrag);
+            const startDragWrapper = (e) => {
+                startDrag(e);
+                window.addEventListener('mousemove', moveDrag, { passive: false });
+                window.addEventListener('touchmove', moveDrag, { passive: false });
+                window.addEventListener('mouseup', endDrag);
+                window.addEventListener('touchend', endDrag);
+            };
+
+            // Nasłuchiwanie myszki i dotyku (dynamiczne podłączanie ruchu, by chronić FPS podczas zwykłego scrollowania w dół)
+            marqueeTrack.addEventListener('mousedown', startDragWrapper);
+            marqueeTrack.addEventListener('touchstart', startDragWrapper, { passive: true });
             
             // Zabezpieczenie: puszczenie myszki poza oknem lub utrata focusu
             window.addEventListener('blur', endDrag);
@@ -1116,10 +1128,6 @@
 
             // Blokujemy natywny dragstart na obrazkach wewnatrz
             marqueeTrack.addEventListener('dragstart', (e) => e.preventDefault());
-
-            marqueeTrack.addEventListener('touchstart', startDrag, { passive: true });
-            window.addEventListener('touchmove', moveDrag, { passive: false });
-            window.addEventListener('touchend', endDrag);
 
             // Hover (tylko na komputerach - zapobiegamy blokadzie na mobile)
             marqueeTrack.addEventListener('mouseenter', () => {

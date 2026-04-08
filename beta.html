@@ -184,7 +184,8 @@
                     <div class="ml-form-successContent text-center py-8">
                         <div class="text-5xl mb-4">✨</div>
                         <h4 class="text-center w-full">Awesome! You're on the list.</h4>
-                        <p class="text-center w-full">We'll send you an invite with instructions as soon as the next beta build is ready! Redirecting to home page...</p>
+                        <p class="text-center w-full">We'll send you an invite with instructions as soon as the next beta build is ready!</p>
+                        <p class="text-[10px] text-stone-400 font-bold uppercase tracking-widest mt-6">Redirecting to home in <span id="redirect-countdown" class="text-amber-500 text-sm">10</span>s</p>
                     </div>
                 </div>
                 </div>
@@ -197,10 +198,18 @@
                 $('.ml-subscribe-form-38907276 .row-success').show();
                 $('.ml-subscribe-form-38907276 .row-form').hide();
 
-                // Przekierowanie na stronę główną po 4 sekundach od zapisu
-                setTimeout(function() {
-                    window.location.href = "/";
-                }, 4000);
+                var secondsLeft = 10;
+                var countdownElement = document.getElementById('redirect-countdown');
+                
+                var countdownInterval = setInterval(function() {
+                    secondsLeft--;
+                    if (countdownElement) countdownElement.textContent = secondsLeft;
+                    
+                    if (secondsLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        window.location.href = "/";
+                    }
+                }, 1000);
             }
             </script>
             <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
