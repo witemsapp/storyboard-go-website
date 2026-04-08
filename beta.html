@@ -244,5 +244,108 @@
         </a>
     </div>
 
+    <!-- BANER COOKIES (Z JAJEM) -->
+    <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md bg-white border border-stone-200 rounded-[32px] p-6 shadow-2xl z-[100] animate-in slide-in-from-bottom duration-1000">
+        <div class="flex items-start gap-4">
+            <div class="text-2xl mt-1">🍪</div>
+            <div class="flex-1">
+                <h4 class="font-bold text-stone-900 text-sm mb-1 uppercase tracking-tight">Let’s keep it GO-ing.</h4>
+                <p class="text-xs text-stone-500 leading-relaxed mb-6">
+                    We use cookies! They help us see which parts of our landing page you find most interesting, so we can focus on what matters to you. Help us make our website as fast as your workflow.
+                </p>
+                <div class="flex flex-col gap-2">
+                    <button onclick="closeCookies()" class="w-full bg-stone-900 text-white py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-stone-800 transition-colors">
+                        Take them all (Accept)
+                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="closeCookies()" class="flex-1 bg-stone-50 text-stone-400 py-3 rounded-xl font-bold text-[9px] uppercase tracking-widest hover:text-stone-600 transition-colors border border-stone-100">
+                            Reject
+                        </button>
+                        <button onclick="manageCookies()" class="flex-1 bg-white text-stone-400 py-3 rounded-xl font-bold text-[9px] uppercase tracking-widest hover:underline transition-all">
+                            Manage
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DO ZARZĄDZANIA COOKIES -->
+    <div id="cookie-manage-modal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-[110] hidden flex items-center justify-center p-6 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-[32px] p-8 max-w-md w-full shadow-2xl transform scale-95 transition-transform duration-300 relative" id="cookie-modal-content">
+            <button onclick="closeCookieModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-900 transition-colors" aria-label="Close modal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="font-extrabold text-stone-900 text-xl mb-2">Cookie Preferences</h3>
+            <p class="text-xs text-stone-500 mb-8 leading-relaxed">Customize your tracking preferences. Essential cookies are required for the app to function properly.</p>
+            <div class="space-y-6 mb-8">
+                <div class="flex justify-between items-center pb-4 border-b border-stone-100">
+                    <div>
+                        <p class="font-bold text-stone-800 text-sm">Essential Cookies</p>
+                        <p class="text-[10px] text-stone-400 mt-1">Required for basic site functionality.</p>
+                    </div>
+                    <span class="text-[9px] font-bold text-stone-400 uppercase tracking-widest bg-stone-100 px-3 py-1.5 rounded-lg">Always Active</span>
+                </div>
+                <div class="flex justify-between items-center pb-2">
+                    <div class="pr-4">
+                        <p class="font-bold text-stone-800 text-sm">Analytics</p>
+                        <p class="text-[10px] text-stone-400 mt-1 leading-relaxed">Help us improve the app by anonymously tracking page views and usage statistics.</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer shrink-0">
+                        <input type="checkbox" id="analytics-toggle" class="sr-only peer" checked>
+                        <div class="w-10 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D97706]"></div>
+                    </label>
+                </div>
+            </div>
+            <button onclick="saveCookiePreferences()" class="w-full bg-stone-900 text-white py-4 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-stone-800 transition-colors shadow-lg shadow-stone-200">
+                Save Preferences
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const cookieBanner = document.getElementById('cookie-banner');
+        const cookieModal = document.getElementById('cookie-manage-modal');
+        const cookieModalContent = document.getElementById('cookie-modal-content');
+
+        function closeCookies() {
+            cookieBanner.style.display = 'none';
+            localStorage.setItem('cookiesAccepted_GO', 'true');
+        }
+
+        function manageCookies() {
+            cookieModal.classList.remove('hidden');
+            setTimeout(() => {
+                cookieModal.classList.remove('opacity-0');
+                cookieModalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function saveCookiePreferences() {
+            cookieModal.classList.add('opacity-0');
+            cookieModalContent.classList.add('scale-95');
+            setTimeout(() => {
+                cookieModal.classList.add('hidden');
+            }, 300);
+            cookieBanner.style.display = 'none';
+            localStorage.setItem('cookiesAccepted_GO', 'true');
+            const isAnalyticsEnabled = document.getElementById('analytics-toggle').checked;
+            localStorage.setItem('analytics_GO', isAnalyticsEnabled);
+        }
+
+        function closeCookieModal() {
+            cookieModal.classList.add('opacity-0');
+            cookieModalContent.classList.add('scale-95');
+            setTimeout(() => {
+                cookieModal.classList.add('hidden');
+            }, 300);
+        }
+
+        window.onload = () => {
+            if (localStorage.getItem('cookiesAccepted_GO')) {
+                cookieBanner.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>
