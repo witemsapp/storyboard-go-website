@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Storyboard GO</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="LOGO_2026.png">
+    <link rel="apple-touch-icon" href="LOGO_2026.png">
+    
+    <!-- SEO -->
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAF9; color: #44403C; }
+        .amber-accent { color: #D97706; }
+        
+        /* Pływająca animacja dla numeru 404 */
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: floating 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- NAWIGACJA -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-stone-100 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <img src="logo_anim.webp" alt="Storyboard GO Logo" class="h-8 w-auto object-contain">
+                <span class="font-extrabold tracking-tighter text-lg text-stone-900">Storyboard GO</span>
+            </a>
+            <a href="/" class="text-[10px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- GŁÓWNA ZAWARTOŚĆ 404 -->
+    <main class="flex-grow flex flex-col items-center justify-center text-center px-6 pt-32 pb-24">
+        
+        <!-- Duży numer 404 z klapsem animacyjnym -->
+        <div class="animate-float mb-6 relative">
+            <h1 class="text-9xl md:text-[150px] font-extrabold text-stone-200 tracking-tighter select-none">
+                404
+            </h1>
+            <div class="absolute inset-0 flex items-center justify-center text-5xl pb-4">
+                🎬
+            </div>
+        </div>
+
+        <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900 tracking-tight mb-4">
+            Cut! <span class="amber-accent">Scene Missing.</span>
+        </h2>
+        
+        <p class="text-base text-stone-500 max-w-md mx-auto mb-10 leading-relaxed">
+            Looks like this storyboard panel was deleted or moved. Let's get you back to the main sequence.
+        </p>
+
+        <a href="/" class="bg-[#D97706] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-amber-100/50">
+            Return to Homepage
+        </a>
+
+    </main>
+
+    <!-- STOPKA -->
+    <footer class="bg-stone-50 border-t border-stone-100 py-12 text-center mt-auto">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col items-center gap-6">
+            <div class="flex flex-col items-center gap-2 w-full">
+                <span class="font-extrabold tracking-tighter text-sm text-stone-900">Storyboard GO</span>
+                <p class="text-[9px] font-bold uppercase tracking-widest text-stone-400">© 2026</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
