@@ -90,6 +90,53 @@
         /* Animacja banera Cookies */
         #cookie-banner { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; }
         #cookie-banner.hidden-banner { transform: translateY(150%); opacity: 0; pointer-events: none; }
+
+        /* Animacja sekcji Beta */
+        .beta-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            /* Zamykanie: wolniejsze, bardzo miękkie wjeżdżanie sekcji do góry */
+            transition: grid-template-rows 0.8s cubic-bezier(0.22, 1, 0.36, 1), margin-top 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            margin-top: 0;
+            will-change: grid-template-rows, margin-top;
+        }
+        .beta-wrapper.open {
+            grid-template-rows: 1fr;
+            margin-top: 2rem;
+            /* Otwieranie: nieco szybsze, sprężyste rozwijanie */
+            transition: grid-template-rows 0.6s cubic-bezier(0.25, 1, 0.5, 1), margin-top 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .beta-inner {
+            min-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-out, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-10px);
+            will-change: opacity, transform;
+        }
+        .beta-wrapper.open .beta-inner {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out 0.1s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Faza 1 zamykania: zanikanie zawartości ZANIM grid się zwinie */
+        .beta-wrapper.open .beta-inner.closing {
+            opacity: 0;
+            transform: translateY(-12px);
+            transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+        }
+
+        /* Przycisk Beta Pulse */
+        @keyframes beta-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.6); border-color: rgba(217, 119, 6, 0.6); }
+            70% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0); border-color: rgba(217, 119, 6, 0.2); }
+            100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); border-color: rgba(217, 119, 6, 0.6); }
+        }
+        .btn-beta-pulse {
+            animation: beta-pulse 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+            color: #D97706 !important;
+            font-weight: 800 !important;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -166,9 +213,226 @@
                 <a href="https://play.google.com/store/apps/details?id=com.storyboardgo.app&pcampaignid=web_share" target="_blank" class="hover:scale-105 transition-transform flex items-center justify-center">
                     <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" class="h-14 w-auto drop-shadow-md">
                 </a>
+                <!-- Przycisk Get Help tymczasowo schowany -->
+                <!--
                 <a href="#support" class="flex items-center justify-center border border-stone-200/80 text-stone-500 px-8 py-[13px] rounded-lg font-bold uppercase tracking-widest text-[11px] hover:bg-stone-50 hover:text-stone-800 transition-colors bg-white shadow-sm mt-1 sm:mt-0">
                     Get Help
                 </a>
+                -->
+                <button id="beta-toggle-btn" onclick="toggleBetaSection()" class="btn-beta-pulse flex items-center justify-center border border-stone-200/80 text-stone-500 px-8 py-[13px] rounded-lg font-bold uppercase tracking-widest text-[11px] hover:bg-stone-50 hover:text-stone-800 transition-all bg-white shadow-md mt-1 sm:mt-0">
+                    Join Beta Tests
+                </button>
+            </div>
+
+            <!-- BETA SECTION WRAPPER -->
+            <div id="beta-wrapper" class="beta-wrapper max-w-4xl mx-auto w-full text-left relative z-10" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                <div class="beta-inner">
+                    <div class="w-full bg-white shadow-2xl shadow-stone-200/50 rounded-[2rem] p-6 md:p-10 border border-stone-100 relative">
+                        <!-- ========================================== -->
+                        <!-- MESSAGE WHEN SIGNUPS ARE CLOSED (HIDDEN BY DEFAULT) -->
+                        <!-- ========================================== -->
+                        <div id="closed-message" class="hidden text-center py-12 px-6">
+                            <div class="text-6xl mb-6">🔒</div>
+                            <h2 class="text-3xl font-extrabold text-stone-900 mb-4">Beta Signups Closed</h2>
+                            <p class="text-stone-500 mb-8 max-w-md mx-auto">Thank you for your overwhelming interest! We have reached our limit of 90 beta testers for this round. Stay tuned for future updates and public releases.</p>
+                            <button onclick="toggleBetaSection()" class="inline-block bg-stone-900 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-stone-800 transition-colors">Close</button>
+                        </div>
+
+                        <!-- Restored Content Android Notice -->
+                        <div class="px-2 mb-4 mt-2">
+                            <div class="bg-sky-50 border border-sky-100 rounded-xl p-3 flex gap-3 items-start">
+                                <div class="text-xl mt-0.5">🤖</div>
+                                <div class="flex-1">
+                                    <p class="text-sky-900 text-[11px] leading-relaxed">
+                                        Currently, we are only accepting beta testers for <strong>Android</strong>. iOS (TestFlight) onboarding will begin at a later stage.
+                                    </p>
+                                    <p class="text-sky-900 text-[11px] font-bold mt-1">
+                                        ⚠️ Important: Use an email address associated with your Google Account to join.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Region Notice -->
+                        <div class="px-2 mb-6">
+                            <div class="bg-stone-50 border border-stone-100 rounded-xl p-3 flex gap-3 items-start">
+                                <div class="text-xl mt-0.5">🌍</div>
+                                <div class="flex-1">
+                                    <p class="text-stone-600 text-[11px] leading-relaxed">
+                                        <strong>Regional Availability:</strong> To participate, your Google Play account must be registered in the <strong>US, Canada, Australia, New Zealand, or Europe</strong> (EU/UK/CH/NO).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========================================== -->
+                        <!-- MAILERLITE FORM -->
+                        <!-- ========================================== -->
+                        <div id="active-form">
+                            <!-- Wklejony kod MailerLite poniżej -->
+                            <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1773928");</style>
+                            <style type="text/css">
+                            /* LOADER */
+                            .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+                            .g-recaptcha { transform: scale(1); -webkit-transform: scale(1); transform-origin: 0 0; -webkit-transform-origin: 0 0; }
+                            .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+                            .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #fff; border-color: #ffffff #ffffff #ffffff transparent; animation: ml-form-embedSubmitLoad 1.2s linear infinite; }
+                            @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                            #mlb2-38907276.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0 auto; position: static; width: 100% !important; }
+                            #mlb2-38907276.ml-form-embedContainer h4, #mlb2-38907276.ml-form-embedContainer p, #mlb2-38907276.ml-form-embedContainer span, #mlb2-38907276.ml-form-embedContainer button { text-transform: none !important; letter-spacing: normal !important; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper { background-color: #ffffff; border-width: 0px; box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative; width: 100%;}
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-align-left { text-align: left; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-align-center { text-align: center; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody, #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding: 20px 20px 0 20px; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4, #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 { color: #000000; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 800; margin: 0 0 10px 0; text-align: left; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p, #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p { color: #78716c; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 400; line-height: 20px; margin: 0 0 20px 0; text-align: left; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group { text-align: left!important; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input { background-color: #fafaf9 !important; color: #333 !important; border-color: #e5e5e5; border-radius: 12px !important; border-style: solid !important; border-width: 1px !important; font-family: 'Inter', Arial, sans-serif; font-size: 15px !important; padding: 14px 16px !important; width: 100% !important; box-sizing: border-box !important; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow { height: auto; width: 100%; float: left; }
+                            .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 68%; float: left; }
+                            .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal { width: 32%; float: left; }
+                            .ml-form-formContent.horozintalForm .ml-form-horizontalRow .horizontal-fields { box-sizing: border-box; float: left; padding-right: 12px; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input { background-color: #fafaf9; color: #333; border-color: #e5e5e5; border-radius: 12px; border-style: solid; border-width: 1px; font-family: 'Inter', Arial, sans-serif; font-size: 15px; padding: 14px 16px; width: 100%; box-sizing: border-box; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button { background-color: #D97706 !important; border: none; border-radius: 12px; color: #ffffff !important; cursor: pointer; font-family: 'Inter', Arial, sans-serif; font-size: 14px !important; font-weight: 700; padding: 14px !important; width: 100%; transition: opacity 0.2s; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover { opacity: 0.9; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type="checkbox"] { box-sizing: border-box; padding: 0; position: absolute; z-index: -1; opacity: 0; margin-top: 5px; margin-left: -1.5rem; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description { color: #000000; display: block; font-family: 'Inter', Arial, sans-serif; font-size: 12px; text-align: left; margin-bottom: 0; position: relative; vertical-align: top; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label { font-weight: normal; margin: 0; padding: 0; position: relative; display: block; min-height: 24px; padding-left: 28px; margin-top: 15px; margin-bottom: 15px; cursor: pointer; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label a { color: #D97706; text-decoration: underline; font-weight: 600;}
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label p { color: #57534e !important; font-family: 'Inter', Arial, sans-serif !important; font-size: 13px !important; line-height: 18px !important; margin: 0 !important; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before { position: absolute; top: 0px; left: -28px; display: block; width: 18px; height: 18px; border: 2px solid #d6d3d1; border-radius: 4px; content: ""; background-color: #fff; box-sizing: border-box; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before { border-color: #D97706!important; background-color: #D97706!important; }
+                            #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::after { position: absolute; top: 0px; left: -28px; display: block; width: 18px; height: 18px; content: ""; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: center; background-size: 10px; }
+                            
+                            .ml-error input { border-color: red!important; }
+                            .ml-error .label-description p { color: #ff0000 !important; }
+
+                            @media only screen and (max-width: 660px){
+                                .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 100%!important; }
+                                .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal > div { padding-right: 0px!important; padding-bottom: 12px; }
+                                .ml-form-formContent.horozintalForm .ml-button-horizontal { width: 100%!important; display: none!important; }
+                                .ml-mobileButton-horizontal { display: block !important; width:100%; }
+                                .ml-form-recaptcha { transform: scale(0.8); transform-origin: left top; }
+                                #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody { padding: 15px 10px 0 10px !important; }
+                            }
+                            .ml-mobileButton-horizontal { display: none; margin-top: 10px; }
+                            .ml-mobileButton-horizontal button { background-color: #D97706 !important; border: none !important; border-radius: 12px !important; color: #ffffff !important; font-family: 'Inter', Arial, sans-serif !important; font-size: 15px !important; font-weight: 700 !important; padding: 14px !important; width: 100% !important; cursor: pointer; }
+                            </style>
+
+                            <div id="mlb2-38907276" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38907276">
+                            <div class="ml-form-align-center ">
+                                <div class="ml-form-embedWrapper embedForm">
+
+                                <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+
+                                    <div class="ml-form-embedContent">
+                                        <h4>Get Early Access</h4>
+                                        <p>Join Storyboard GO Closed Beta and help me improve the app!</p>
+                                    </div>
+
+                                    <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2217454/forms/182819660980291505/subscribe" data-code="" method="post" target="_blank">
+                                    
+                                    <div class="ml-form-formContent horozintalForm">
+                                        <div class="ml-form-horizontalRow">
+                                        <div class="ml-input-horizontal">
+                                            <div style="width: 100%;" class="horizontal-fields">
+                                                <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                                <input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email address" autocomplete="email">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="ml-button-horizontal primary ">
+                                            <button type="submit" class="primary">Join the Beta</button>
+                                            <button disabled="disabled" style="display: none;" type="button" class="loading">
+                                            <div class="ml-form-embedSubmitLoad"></div>
+                                            <span class="sr-only">Loading...</span>
+                                            </button>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clear-both"></div>
+
+                                    <div class="ml-form-checkboxRow ml-validate-required">
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            <div class="label-description">
+                                            <p>I agree to the <a href="#legal" onclick="openAccordion('content-privacy')" class="text-amber-600 hover:underline">Privacy Policy</a> and consent to being contacted regarding Storyboard GO tests.</p>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="ml-form-recaptcha ml-validate-required" style="float: left; width: 100%; margin-bottom: 20px;">
+                                        <script src="https://www.google.com/recaptcha/api.js"></script>
+                                        <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
+                                    </div>
+                                    
+                                    <input type="hidden" name="ml-submit" value="1">
+
+                                    <div class="ml-mobileButton-horizontal">
+                                        <button type="submit" class="primary">Join the Beta</button>
+                                        <button disabled="disabled" style="display: none;" type="button" class="loading">
+                                        <div class="ml-form-embedSubmitLoad"></div>
+                                        <span class="sr-only">Loading...</span>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" name="anticsrf" value="true">
+                                    </form>
+                                </div>
+
+                                <div class="ml-form-successBody row-success" style="display: none">
+                                    <div class="ml-form-successContent text-center py-8">
+                                        <div class="text-5xl mb-4">✨</div>
+                                        <h4 class="text-center w-full">Awesome! You're on the list.</h4>
+                                        <p class="text-center w-full">We'll send you an invite with instructions as soon as the next beta build is ready!</p>
+                                        <button onclick="toggleBetaSection()" class="mt-6 inline-block bg-stone-900 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-stone-800 transition-colors">Close</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <script>
+                            function ml_webform_success_38907276() {
+                                var $ = ml_jQuery || jQuery;
+                                $('.ml-subscribe-form-38907276 .row-success').show();
+                                $('.ml-subscribe-form-38907276 .row-form').hide();
+                            }
+                            </script>
+                            <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+                            <script>
+                                fetch("https://assets.mailerlite.com/jsonp/2217454/forms/182819660980291505/takel")
+                            </script>
+                        </div>
+
+                        <!-- COMPACT COMMUNITY SECTION -->
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <a href="https://discord.gg/frjApdegwf" target="_blank" class="inline-flex items-center gap-2 bg-[#5865F2] text-white px-4 py-2 rounded-lg font-bold text-[11px] hover:opacity-90 transition-all shadow-sm">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" class="w-4 h-4" alt="Discord">
+                                    Join Discord
+                                </a>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <a href="https://www.instagram.com/storyboard_go" target="_blank" class="grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all">
+                                    <img src="https://img.icons8.com/ios-filled/50/44403c/instagram-new.png" class="w-5 h-5" alt="Instagram">
+                                </a>
+                                <a href="https://www.tiktok.com/@storyboard.go" target="_blank" class="grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all">
+                                    <img src="https://img.icons8.com/ios-filled/50/44403c/tiktok.png" class="w-5 h-5" alt="TikTok">
+                                </a>
+                                <a href="https://x.com/WITemsAPP" target="_blank" class="grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all">
+                                    <img src="https://img.icons8.com/ios-filled/50/44403c/twitterx.png" class="w-5 h-5" alt="X">
+                                </a>
+                                <a href="https://www.facebook.com/profile.php?id=61577665506672" target="_blank" class="grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all">
+                                    <img src="https://img.icons8.com/ios-filled/50/44403c/facebook-new.png" class="w-5 h-5" alt="Facebook">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             
         </section>
@@ -676,7 +940,61 @@
             }
         }
 
-        // Obsługa automatycznego otwierania z URL (np. /#Privacy-Policy, /#Terms)
+        // Funkcja do otwierania/zamykania sekcji Beta
+        let betaClosing = false; // blokada podwójnego kliknięcia
+        function toggleBetaSection() {
+            const wrapper = document.getElementById('beta-wrapper');
+            const btn = document.getElementById('beta-toggle-btn');
+            const inner = wrapper ? wrapper.querySelector('.beta-inner') : null;
+            
+            if (!wrapper || !btn || !inner) return;
+            if (betaClosing) return; // zablokuj kliknięcia w trakcie animacji zamykania
+            
+            if (wrapper.classList.contains('open')) {
+                // === ZAMYKANIE: dwuetapowa animacja ===
+                betaClosing = true;
+                
+                // Krok 1: Zanikanie zawartości (fade out + translate up)
+                inner.classList.add('closing');
+                btn.textContent = 'Join Beta Tests';
+                btn.classList.remove('bg-stone-50', 'text-stone-800');
+                btn.classList.add('bg-white', 'text-stone-500', 'btn-beta-pulse');
+                
+                if (window.location.hash === '#beta') {
+                    history.pushState(null, null, window.location.pathname + window.location.search);
+                }
+                
+                // Krok 2: Po zanikaniu — zwijamy grid
+                setTimeout(() => {
+                    wrapper.classList.remove('open');
+                    inner.classList.remove('closing');
+                    betaClosing = false;
+                }, 350);
+                
+            } else {
+                // === OTWIERANIE ===
+                wrapper.classList.add('open');
+                btn.textContent = 'Close Beta Signups';
+                btn.classList.remove('bg-white', 'text-stone-500', 'btn-beta-pulse');
+                btn.classList.add('bg-stone-50', 'text-stone-800');
+                
+                if (window.location.hash !== '#beta') {
+                    history.pushState(null, null, '#beta');
+                }
+                
+                setTimeout(() => {
+                    const offset = document.querySelector('nav').offsetHeight + 20;
+                    const elementPosition = btn.parentElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }, 150);
+            }
+        }
+
+        // Obsługa automatycznego otwierania z URL (np. /#Privacy-Policy, /#Terms, /#beta)
         document.addEventListener('DOMContentLoaded', () => {
             if (window.location.hash) {
                 const hashStr = decodeURIComponent(window.location.hash).toLowerCase();
@@ -693,7 +1011,24 @@
                         if (legalSection) legalSection.scrollIntoView({ behavior: 'smooth' });
                         openAccordion('content-terms');
                     }, 400);
+                } else if (hashStr === '#beta') {
+                    setTimeout(() => {
+                        const btn = document.getElementById('beta-toggle-btn');
+                        if (btn && !document.getElementById('beta-wrapper').classList.contains('open')) {
+                            btn.click();
+                        }
+                    }, 400);
                 }
+            }
+            
+            // Jesli ktos sprobowal wejsc przez pathname konczace sie na /beta (np. przez router lokalny lub serwer)
+            if (window.location.pathname.toLowerCase().endsWith('/beta') || window.location.pathname.toLowerCase().endsWith('/beta.html')) {
+                setTimeout(() => {
+                    const btn = document.getElementById('beta-toggle-btn');
+                    if (btn && !document.getElementById('beta-wrapper').classList.contains('open')) {
+                        btn.click();
+                    }
+                }, 400);
             }
         });
 
