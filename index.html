@@ -108,6 +108,7 @@
         }
         .beta-inner {
             min-height: 0;
+            min-width: 0; /* blokuje rozciąganie szerokości siatki przez reCAPTCHA */
             overflow: hidden;
             opacity: 0;
             transition: opacity 0.3s ease-out, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -227,7 +228,7 @@
             <!-- BETA SECTION WRAPPER -->
             <div id="beta-wrapper" class="beta-wrapper max-w-4xl mx-auto w-full text-left relative z-10" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                 <div class="beta-inner">
-                    <div class="w-full bg-white shadow-2xl shadow-stone-200/50 rounded-[2rem] p-6 md:p-10 border border-stone-100 relative">
+                    <div class="w-full bg-white shadow-2xl shadow-stone-200/50 rounded-[2rem] p-4 sm:p-6 md:p-10 border border-stone-100 relative overflow-hidden">
                         <!-- ========================================== -->
                         <!-- MESSAGE WHEN SIGNUPS ARE CLOSED (HIDDEN BY DEFAULT) -->
                         <!-- ========================================== -->
@@ -278,7 +279,7 @@
                             .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
                             .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #fff; border-color: #ffffff #ffffff #ffffff transparent; animation: ml-form-embedSubmitLoad 1.2s linear infinite; }
                             @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                            #mlb2-38907276.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0 auto; position: static; width: 100% !important; }
+                            #mlb2-38907276.ml-form-embedContainer { box-sizing: border-box; display: block !important; margin: 0 auto; position: static; width: 100% !important; }
                             #mlb2-38907276.ml-form-embedContainer h4, #mlb2-38907276.ml-form-embedContainer p, #mlb2-38907276.ml-form-embedContainer span, #mlb2-38907276.ml-form-embedContainer button { text-transform: none !important; letter-spacing: normal !important; }
                             #mlb2-38907276.ml-form-embedContainer .ml-form-embedWrapper { background-color: #ffffff; border-width: 0px; box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative; width: 100%;}
                             #mlb2-38907276.ml-form-embedContainer .ml-form-align-left { text-align: left; }
