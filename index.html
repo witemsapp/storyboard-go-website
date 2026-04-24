@@ -1012,6 +1012,11 @@
                         if (legalSection) legalSection.scrollIntoView({ behavior: 'smooth' });
                         openAccordion('content-terms');
                     }, 400);
+                } else if (hashStr.includes('contact')) {
+                    setTimeout(() => {
+                        const supportSection = document.getElementById('support');
+                        if (supportSection) supportSection.scrollIntoView({ behavior: 'smooth' });
+                    }, 400);
                 } else if (hashStr === '#beta') {
                     setTimeout(() => {
                         const btn = document.getElementById('beta-toggle-btn');
