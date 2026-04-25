@@ -1,8 +1,19 @@
-🎉 What's New in v1.0.0
+🎉 What's New in v1.0.1
 
+Critical Fixes & Optimizations
+• ISSUE-001 (SGO Import Sync): Resolved! New panels created or duplicated immediately after an .sgo import will now save correctly every time. The save system is now properly initialized from the moment you open your project.
+• Landscape Mode: Optimized margins and layouts across all screens.
+• Technical Limits: Introduced a 4096px scene size limit to ensure smooth performance on older devices without sacrificing your creative space.
+
+UI/UX & Quality of Life
+• Video Tutorials: New banners with direct links to YouTube tutorials to help you get started.
+• Bug Reporting: Added a dedicated "Report a Bug" button directly in the Settings.
+• Language Indicator: A new checkmark in the language selector shows your currently active language.
+
+Core Features (v1.0.0)
 • First public release of Storyboard GO!
-• Full storyboard creation with layers and panels
-• Export to PDF, PNG, MP4, and SGO
-• Onion skin for animation previews
-• Import/export projects as .sgo files
-• Privacy and Terms update
+• Full storyboard creation with layers and panels.
+• Export to PDF, PNG, MP4, and SGO.
+• Onion skin for animation previews.
+• Import/export projects as .sgo files.
+• Privacy and Terms update.
