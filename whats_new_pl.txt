@@ -1,8 +1,19 @@
-🎉 Co nowego w v1.0.0
+🎉 Co nowego w v1.0.1
 
+Krytyczne poprawki i optymalizacje
+• ISSUE-001 (Synchronizacja importu SGO): Naprawiono! Panele tworzone lub duplikowane zaraz po imporcie .sgo zapisują się teraz poprawnie za każdym razem. System zapisu jest teraz prawidłowo inicjowany od momentu otwarcia projektu.
+• Tryb poziomy (Landscape): Zoptymalizowano marginesy i układy na wszystkich ekranach.
+• Ograniczenia techniczne: Wprowadzono limit rozmiaru sceny 4096px, aby zapewnić płynne działanie na starszych urządzeniach bez utraty jakości Twojej pracy.
+
+UI/UX i wygoda użytkowania
+• Poradniki wideo: Nowe banery z bezpośrednimi linkami do samouczków na YouTube, które ułatwią Ci start.
+• Zgłaszanie błędów: Dodano dedykowany przycisk „Zgłoś błąd” bezpośrednio w ustawieniach.
+• Wskaźnik języka: Nowy znacznik przy wyborze języka pokazuje, który jest aktualnie aktywny.
+
+Funkcje podstawowe (v1.0.0)
 • Pierwsze publiczne wydanie Storyboard GO!
-• Pełne tworzenie storyboardów z warstwami i panelami
-• Eksport do PDF, PNG, MP4 i SGO
-• Onion skin do podglądu animacji
-• Import/eksport projektów jako pliki .sgo
-• Aktualizacja polityki prywatności i terms
+• Tworzenie pełnych storyboardów z warstwami i panelami.
+• Eksport do PDF, PNG, MP4 i SGO.
+• Onion skin dla podglądu animacji.
+• Import/eksport projektów jako pliki .sgo.
+• Aktualizacja polityki prywatności i regulaminu.
