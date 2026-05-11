@@ -1,19 +1,19 @@
-🎉 What's New in v1.0.1
+🎉 What's New in v1.0.2
+• Panel Data Swipe: Switch between panels instantly! Swipe left or right within the Panel Data menu to change frames without closing the window.
+• Double-Tap Gestures: Stay in the flow! Double-tap the left side of the screen to Undo and the right side to Redo.
+• Enhanced Burn-ins: New pro export options for MP4. You can now burn in Scene & Panel numbers and Frame Countdowns.
+• Social Hub: Connect with us! Direct links to Discord, TikTok, and YouTube are now available in Settings.
+• Updated Manual: The User Manual now includes detailed guides for all new features.
 
-Critical Fixes & Optimizations
-• ISSUE-001 (SGO Import Sync): Resolved! New panels created or duplicated immediately after an .sgo import will now save correctly every time. The save system is now properly initialized from the moment you open your project.
-• Landscape Mode: Optimized margins and layouts across all screens.
-• Technical Limits: Introduced a 4096px scene size limit to ensure smooth performance on older devices without sacrificing your creative space.
-
-UI/UX & Quality of Life
-• Video Tutorials: New banners with direct links to YouTube tutorials to help you get started.
-• Bug Reporting: Added a dedicated "Report a Bug" button directly in the Settings.
-• Language Indicator: A new checkmark in the language selector shows your currently active language.
+Previous Updates (v1.0.1)
+• Issue-001 Fixed: Resolved project sync issues after .sgo imports.
+• Landscape Optimization: Improved layouts and margins for horizontal work.
+• UX Upgrades: Added YouTube banners, bug reporting, and language indicators.
+• Performance: 4096px limit for better stability on all devices.
 
 Core Features (v1.0.0)
-• First public release of Storyboard GO!
-• Full storyboard creation with layers and panels.
-• Export to PDF, PNG, MP4, and SGO.
-• Onion skin for animation previews.
-• Import/export projects as .sgo files.
-• Privacy and Terms update.
+• Complete storyboard creation with layers and panels.
+• Export options for PDF, PNG, MP4, and SGO formats.
+• Onion skinning for animation and movement previews.
+• Secure project import/export system via .sgo files.
+• Full control over panel durations and camera settings.
