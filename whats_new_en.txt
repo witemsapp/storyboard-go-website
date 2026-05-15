@@ -1,6 +1,6 @@
-🎉 What's New in v1.0.2
+🎉 What's New in v1.0.3
 • Panel Data Swipe: Switch between panels instantly! Swipe left or right within the Panel Data menu to change frames without closing the window.
-• Double-Tap Gestures: Stay in the flow! Double-tap the left side of the screen to Undo and the right side to Redo.
+• Tap Gestures: Stay in the flow! Two-finger tap to Undo and three-finger tap to Redo.
 • Enhanced Burn-ins: New pro export options for MP4. You can now burn in Scene & Panel numbers and Frame Countdowns.
 • Social Hub: Connect with us! Direct links to Discord, TikTok, and YouTube are now available in Settings.
 • Updated Manual: The User Manual now includes detailed guides for all new features.
