@@ -1,6 +1,6 @@
-🎉 Nowości w v1.0.2
+🎉 Nowości w v1.0.3
 • Swipe w Panel Data: Przełączaj się między panelami błyskawicznie! Przesuń palcem w lewo lub prawo w menu Panel Data, aby zmienić klatkę bez zamykania okna.
-• Gesty Double-Tap: Nie przerywaj rysowania! Dotknij dwukrotnie lewej strony ekranu, aby Cofnąć (Undo) i prawej, aby Ponowić (Redo).
+• Gesty stuknięcia: Nie wypadaj z rytmu! Stuknij dwoma palcami, aby cofnąć, i trzema palcami, aby ponowić.
 • Ulepszone oznaczenia (Burn-ins): Nowe opcje eksportu MP4. Możesz teraz wypalić na animatiku numery Scen i Paneli oraz odliczanie klatek.
 • Centrum Społeczności: Dodaliśmy bezpośrednie linki do naszego Discorda, TikToka i YouTube w menu Ustawień.
 • Zaktualizowana instrukcja: Instrukcja użytkownika zawiera teraz szczegółowe opisy wszystkich nowych gestów.
