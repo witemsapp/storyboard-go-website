@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tytuł strony wyświetlany w karcie przeglądarki -->
+    <title>Tutorials - Storyboard GO</title>
+
+    <!-- Ikonka wyświetlana w przeglądarce i przy zapisywaniu na telefon (Favicon) -->
+    <link rel="icon" type="image/png" href="LOGO_2026.png">
+    <link rel="apple-touch-icon" href="LOGO_2026.png">
+
+    <!-- Tailwind CSS dla nowoczesnego i responsywnego wyglądu -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- AOS CSS (Animacje przy scrollowaniu) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAF9; color: #44403C; }
+        .amber-accent { color: #D97706; }
+        .bg-amber-accent { background-color: #D97706; }
+        
+        .nav-link { 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            color: #A8A29E; 
+            transition: color 0.3s; 
+        }
+        .nav-link:hover { color: #44403C; }
+        .nav-link.active { color: #D97706; }
+
+        /* Mobilne Menu Sidebar */
+        #mobile-menu { 
+            transition: transform 0.3s ease-in-out; 
+            transform: translateX(-100%); 
+        }
+        #mobile-menu.active { 
+            transform: translateX(0); 
+        }
+        
+        /* Card styling */
+        .tutorial-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAWIGACJA (STALUR) -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-stone-100 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center">
+            
+            <!-- Hamburger dla mobile -->
+            <button id="hamburger-btn" aria-label="Open mobile menu" aria-expanded="false" class="md:hidden mr-4 p-2 text-stone-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 rounded-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- LOGO -->
+            <a href="index.html" class="flex items-center gap-2 mr-auto hover:opacity-80 transition-opacity" aria-label="Go to home">
+                <img src="logo_anim.webp" alt="Storyboard GO Logo" class="h-8 w-auto object-contain">
+                <span class="font-extrabold tracking-tighter text-lg text-stone-900">Storyboard GO</span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex gap-8">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">About</a>
+                <a href="tutorials.html" class="nav-link active">Tutorials</a>
+                <a href="index.html#support" class="nav-link">Support</a>
+                <a href="index.html#legal" class="nav-link">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR MOBILNY -->
+    <div id="mobile-menu" class="fixed inset-y-0 left-0 w-64 bg-white shadow-2xl z-[60] md:hidden flex flex-col p-8">
+        <div class="flex justify-between items-center mb-10">
+            <span class="font-bold text-stone-400 uppercase text-[10px] tracking-widest">Menu</span>
+            <button id="close-menu" aria-label="Close mobile menu" class="text-stone-400 text-xl p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 rounded-md">✕</button>
+        </div>
+        <div class="flex flex-col gap-6">
+            <a href="index.html#home" onclick="toggleMenu()" class="nav-link">Home</a>
+            <a href="index.html#features" onclick="toggleMenu()" class="nav-link">About</a>
+            <a href="tutorials.html" onclick="toggleMenu()" class="nav-link active">Tutorials</a>
+            <a href="index.html#support" onclick="toggleMenu()" class="nav-link">Support</a>
+            <a href="index.html#legal" onclick="toggleMenu()" class="nav-link">Legal</a>
+        </div>
+        <div class="mt-auto pt-6 border-t border-stone-100">
+            <p class="text-[9px] font-bold text-stone-300 uppercase tracking-widest leading-loose">
+                Professional tools <br> for creators.
+            </p>
+        </div>
+    </div>
+    <div id="menu-overlay" class="fixed inset-0 bg-stone-900/20 backdrop-blur-sm z-50 hidden md:hidden" onclick="toggleMenu()"></div>
+
+    <!-- TREŚĆ GŁÓWNA -->
+    <main class="pt-32 pb-24 min-h-screen">
+        
+        <!-- Header -->
+        <section class="max-w-6xl mx-auto px-6 mb-16 text-center" data-aos="fade-down">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-stone-900 mb-6 tracking-tight">
+                <span class="text-amber-600">Learn</span> Storyboard GO
+            </h1>
+            <p class="text-lg text-stone-500 max-w-2xl mx-auto">
+                Watch our short guides and tutorials to master mobile storyboarding!
+            </p>
+        </section>
+
+        <!-- Container for Tutorials Grid -->
+        <section class="max-w-6xl mx-auto px-6">
+            <div id="tutorials-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tutorials will be injected here by JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL WIDEO (LIGHTBOX) -->
+    <div id="video-modal" class="fixed inset-0 bg-stone-900/90 backdrop-blur-md z-[100] hidden flex items-center justify-center p-4 md:p-6 opacity-0 transition-opacity duration-300">
+        <div class="relative w-full max-w-md bg-black rounded-[2rem] overflow-hidden shadow-2xl flex flex-col transform scale-95 transition-transform duration-300 border border-stone-800" id="video-modal-content">
+            <!-- Przycisk Zamknięcia -->
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white/50 hover:text-white bg-black/50 hover:bg-black/80 rounded-full p-3 z-50 transition-all backdrop-blur-sm" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <!-- Kontener na Iframe (Proporcja 9:16 dla TikTok) -->
+            <div id="iframe-container" class="w-full flex justify-center items-center bg-stone-950 aspect-[9/16] relative">
+                <!-- Ładowanie wskaźnik -->
+                <div class="absolute inset-0 flex items-center justify-center text-stone-700">
+                    <svg class="animate-spin h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                </div>
+                <!-- Iframe będzie tu dodany przez JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (Skrócony do głównych elementów, dostosowany) -->
+    <footer class="bg-white border-t border-stone-100 py-16 relative z-10 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center">
+            
+            <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900 tracking-tight text-center mb-10">
+                Ready to create?
+            </h2>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.storyboardgo.app" target="_blank" class="mb-16 hover:scale-105 transition-transform" aria-label="Get it on Google Play">
+                <img src="GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" class="h-16 w-auto drop-shadow-md">
+            </a>
+            
+            <!-- Social Media -->
+            <div class="flex gap-8 items-center justify-center flex-wrap mb-10">
+                <a href="https://www.youtube.com/@StoryboardGO" target="_blank" aria-label="YouTube" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418c-0.86,0.23-1.538,0.908-1.768,1.768 C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768C5.746,20,12,20,12,20s6.254,0,7.814-0.418 c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15L15.5,12L10,9V15z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@storyboard.go" target="_blank" aria-label="TikTok" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.05c0 1.22-.19 2.45-.63 3.59-.47 1.21-1.23 2.3-2.22 3.12-1 .83-2.18 1.4-3.46 1.64-1.28.23-2.61.22-3.88-.06-1.28-.29-2.48-.9-3.46-1.74-1.01-.86-1.78-1.95-2.25-3.17-.46-1.22-.62-2.54-.52-3.84.11-1.3.49-2.55 1.12-3.65C2.56 9.8 4.2 8.61 6.13 8.08c1.3-.34 2.66-.43 3.99-.24v4.11c-.34-.07-.69-.09-1.04-.08a3.17 3.17 0 0 0-2.46 1.1c-.56.63-.89 1.43-.99 2.27-.1.84.05 1.7.42 2.45.38.74.96 1.34 1.66 1.73.69.38 1.48.55 2.26.5.78-.05 1.52-.3 2.14-.73.61-.41 1.09-.98 1.4-1.64.3-.64.44-1.35.43-2.07v-15.5z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/storyboard_go" target="_blank" aria-label="Instagram" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                </a>
+                <a href="https://discord.gg/frjApdegwf" target="_blank" aria-label="Discord" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M17,14c0,1.65-1.35,3-3,3H10c-1.65,0-3-1.35-3-3v-4 c0-1.65,1.35-3,3-3h4c1.65,0,3,1.35,3,3V14z M11,10H9v2h2V10z M15,10h-2v2h2V10z"/></svg>
+                </a>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 pt-8 border-t border-stone-200/50 w-full">
+                <span class="font-extrabold tracking-tighter text-lg text-stone-900">Storyboard GO</span>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400">© 2026</p>
+                <div class="flex gap-6">
+                    <a href="index.html#legal" class="text-[10px] uppercase font-bold tracking-wider text-stone-400 hover:text-stone-600 transition-colors">Privacy Policy</a>
+                    <a href="index.html#legal" class="text-[10px] uppercase font-bold tracking-wider text-stone-400 hover:text-stone-600 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SKRYPTY -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('menu-overlay');
+        const videoModal = document.getElementById('video-modal');
+        const videoModalContent = document.getElementById('video-modal-content');
+        const iframeContainer = document.getElementById('iframe-container');
+
+        // Obsługa menu mobilnego
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+            document.getElementById('hamburger-btn').setAttribute('aria-expanded', isActive);
+        }
+
+        document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+        document.getElementById('close-menu').addEventListener('click', toggleMenu);
+
+        // --- BAZA TUTORIALI ---
+        // Aby dodać kolejny tutorial, wystarczy dopisać nowy blok w tej tablicy.
+        // Opcjonalnie możesz dodać pole `thumbnail: "nazwa_pliku.jpg"`, aby ustawić własną miniaturkę.
+        // Jeśli nie podasz 'thumbnail', wygeneruje się ładne, kolorowe tło.
+        const tutorialsData = [
+            {
+                url: "https://www.tiktok.com/@storyboard.go/video/7629738662602755360",
+                title: "Storyboard GO - Quick Start Guide",
+                description: "Learn the basics and navigate the app like a pro.",
+                thumbnail: "thumbnail1.jpg",
+                duration: "0:45" // Opcjonalnie: wpisz czas trwania (np. "1:24")
+            },
+            {
+                url: "https://www.tiktok.com/@storyboard.go/video/7632410128515419424",
+                title: "Advanced Drawing Tools",
+                description: "Discover pro features to make your animatics stand out.",
+                thumbnail: "thumbnail2.jpg",
+                duration: "0:45" // Opcjonalnie: wpisz czas trwania
+            }
+        ];
+
+        // Otwieranie wideo w lightboxie (duży ekran)
+        function openVideoModal(videoId) {
+            // Dodajemy iframe z wideo z TikToka
+            // TikTok domyślnie pozwala na iframe pod adresem /embed/v2/{id}
+            iframeContainer.innerHTML = `
+                <!-- Zostawiamy wskaźnik ładowania, który będzie pod spodem -->
+                <div class="absolute inset-0 flex items-center justify-center text-stone-700">
+                    <svg class="animate-spin h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                </div>
+                <iframe 
+                    class="w-full h-full relative z-10" 
+                    src="https://www.tiktok.com/embed/v2/${videoId}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share" 
+                    allowfullscreen>
+                </iframe>
+            `;
+
+            videoModal.classList.remove('hidden');
+            // Zmuszamy przeglądarkę do przerenderowania żeby animacja opacity zadziałała
+            void videoModal.offsetWidth;
+            
+            videoModal.classList.remove('opacity-0');
+            videoModalContent.classList.remove('scale-95');
+            document.body.style.overflow = 'hidden'; // blokuj scroll
+            
+            // Zamknij na ESC
+            document.addEventListener('keydown', handleEsc);
+        }
+
+        // Zamykanie lightboxa
+        function closeVideoModal() {
+            // Natychmiast usuwamy iframe, żeby pozbyć się "ścinki" powodowanej przez ciężki skrypt TikToka i zwolnić pamięć
+            iframeContainer.innerHTML = '';
+            
+            videoModal.classList.add('opacity-0');
+            videoModalContent.classList.add('scale-95');
+            
+            setTimeout(() => {
+                videoModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+            
+            document.removeEventListener('keydown', handleEsc);
+        }
+
+        function handleEsc(e) {
+            if (e.key === 'Escape') closeVideoModal();
+        }
+
+        // Zamknij modal klikając w tło
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) closeVideoModal();
+        });
+
+        // Funkcja generująca kafelki z przyciskiem PLAY
+        function renderTutorials() {
+            const container = document.getElementById('tutorials-container');
+            
+            tutorialsData.forEach((tutorial, index) => {
+                const match = tutorial.url.match(/video\/(\d+)/);
+                const videoId = match ? match[1] : '';
+
+                if (videoId) {
+                    const tile = document.createElement('div');
+                    tile.className = 'tutorial-card flex flex-col h-full bg-white border border-stone-100 group cursor-pointer';
+                    tile.setAttribute('data-aos', 'fade-up');
+                    tile.setAttribute('data-aos-delay', (index * 100).toString());
+                    tile.onclick = () => openVideoModal(videoId);
+
+                    // Dynamiczne generowanie gradientów jako fallback
+                    const gradients = [
+                        'from-amber-500 to-orange-600',
+                        'from-stone-700 to-stone-900',
+                        'from-orange-400 to-amber-500',
+                        'from-stone-600 to-stone-800'
+                    ];
+                    const bgClass = gradients[index % gradients.length];
+
+                    // Jeśli użytkownik podał miniaturkę w JS, używamy obrazka, jeśli nie – gradientu. Dodane transform-gpu poprawia płynność
+                    const backgroundHtml = tutorial.thumbnail 
+                        ? `<img src="${tutorial.thumbnail}" alt="${tutorial.title}" class="absolute inset-0 w-full h-full object-cover transform-gpu will-change-transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                           <div class="absolute inset-0 bg-stone-900/30 group-hover:bg-stone-900/10 transition-colors"></div>`
+                        : `<div class="absolute inset-0 bg-gradient-to-br ${bgClass} opacity-90 transform-gpu will-change-transform group-hover:scale-105 transition-transform duration-700 ease-out"></div>
+                           <div class="absolute inset-0 flex items-center justify-center opacity-10">
+                               <span class="text-white text-6xl font-black uppercase tracking-tighter transform -rotate-12">Tutorial</span>
+                           </div>`;
+
+                    // Czas trwania nagrania
+                    const durationHtml = tutorial.duration 
+                        ? `<div class="absolute bottom-4 right-4 z-10 text-white font-bold text-xs tracking-wider bg-black/70 px-2 py-1 rounded-md backdrop-blur-md border border-white/10 shadow-lg">
+                               ${tutorial.duration}
+                           </div>`
+                        : '';
+
+                    tile.innerHTML = `
+                        <!-- Sekcja "Thumbnail" z przyciskiem PLAY -->
+                        <div class="w-full relative bg-stone-100 overflow-hidden h-56 flex items-center justify-center">
+                            ${backgroundHtml}
+
+                            <!-- Ikona Play -->
+                            <!-- UWAGA: Aby samodzielnie zmienić przeźroczystość, zmień klasy poniżej:
+                                 bg-transparent -> brak tła
+                                 bg-black/30 -> czarne tło o przezroczystości 30%
+                                 bg-white/10 -> białe tło o przezroczystości 10%
+                                 backdrop-blur-sm -> dodaje rozmycie tła
+                            -->
+                            <div class="relative z-10 w-16 h-16 bg-transparent rounded-full flex items-center justify-center group-hover:bg-black/20 transition-all drop-shadow-2xl group-hover:scale-110 duration-300">
+                                <svg class="w-12 h-12 text-white ml-1 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            
+                            <div class="absolute bottom-4 left-4 z-10 text-white font-bold text-[10px] uppercase tracking-widest bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/10">
+                                Watch Video
+                            </div>
+
+                            ${durationHtml}
+                        </div>
+
+                        <!-- Opis pod miniaturką -->
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-stone-900 mb-2 leading-tight group-hover:text-amber-600 transition-colors">${tutorial.title}</h3>
+                                <p class="text-sm text-stone-500 leading-relaxed">${tutorial.description}</p>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(tile);
+                }
+            });
+        }
+
+        // Renderuj tutoriale po załadowaniu DOM
+        document.addEventListener('DOMContentLoaded', renderTutorials);
+    </script>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>
