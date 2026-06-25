@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tytuł strony wyświetlany w karcie przeglądarki -->
@@ -54,7 +55,7 @@
     }
     </script>
     <!-- Tailwind CSS dla nowoczesnego i responsywnego wyglądu -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <!-- AOS CSS (Animacje przy scrollowaniu) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -214,7 +215,7 @@
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                 <a href="https://play.google.com/store/apps/details?id=com.storyboardgo.app&pcampaignid=web_share" target="_blank" class="hover:scale-105 transition-transform flex items-center justify-center">
-                    <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" class="h-14 w-auto drop-shadow-md">
+                    <img src="GetItOnGooglePlay_Badge_Web_color_English.webp" loading="lazy" width="478" height="142" alt="Get it on Google Play" class="h-14 w-auto drop-shadow-md">
                 </a>
                 <!-- Przycisk Get Help tymczasowo schowany -->
                 <!--
@@ -367,7 +368,7 @@
                                     </div>
 
                                     <div class="ml-form-recaptcha ml-validate-required" style="float: left; width: 100%; margin-bottom: 20px;">
-                                        <script src="https://www.google.com/recaptcha/api.js"></script>
+                                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                                         <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
                                     </div>
                                     
@@ -457,26 +458,26 @@
             <div class="marquee-container flex gap-6 px-6 select-none" id="marquee-track">
                 <!-- Grupa 1 (AOS usunięte by uniknąć zacięć i skanowania przez przeglądarkę na bieżąco) -->
                 <div class="flex gap-6 shrink-0">
-                    <img src="scr1.jpg" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.jpg" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.jpg" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.jpg" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr5.jpg" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.jpg" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.jpg" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr8.jpg" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.webp" loading="lazy" width="1000" height="1998" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.webp" loading="lazy" width="1000" height="1998" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.webp" loading="lazy" width="1000" height="1998" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.webp" loading="lazy" width="1000" height="1998" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.webp" loading="lazy" width="1000" height="1998" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
                 
                 <!-- Grupa 2 (Klon - by zachować ciągłość karuzeli) -->
                 <div class="flex gap-6 shrink-0">
-                    <img src="scr1.jpg" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.jpg" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.jpg" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.jpg" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr5.jpg" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.jpg" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.jpg" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr8.jpg" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.webp" loading="lazy" width="1000" height="1998" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.webp" loading="lazy" width="1000" height="1998" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.webp" loading="lazy" width="1000" height="1998" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.webp" loading="lazy" width="1000" height="1998" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.webp" loading="lazy" width="1000" height="1998" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
             </div>
         </section>
@@ -789,7 +790,7 @@
         </p>
         <div class="flex justify-center">
             <a href="https://play.google.com/store/apps/details?id=com.storyboardgo.app&pcampaignid=web_share" target="_blank" class="inline-flex items-center justify-center hover:scale-105 transition-transform">
-                <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" class="h-16 w-auto drop-shadow-xl hover:drop-shadow-2xl transition-all">
+                <img src="GetItOnGooglePlay_Badge_Web_color_English.webp" loading="lazy" width="478" height="142" alt="Get it on Google Play" class="h-16 w-auto drop-shadow-xl hover:drop-shadow-2xl transition-all">
             </a>
         </div>
         
