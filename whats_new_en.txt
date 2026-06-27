@@ -1,5 +1,4 @@
-🚀 ENGLISH VERSION (EN)
-What's New in v1.0.5
+🎉 What's New in v1.0.5
 • Layer Duplicate: Added the option to duplicate layers easily.
 • Layer Opacity: Adjust individual layer transparency for better control over your workflow.
 • Color Alpha Slider: Control brush transparency directly within the color picker.
