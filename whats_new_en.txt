@@ -6,7 +6,7 @@ What's New in v1.0.5
 • Two-Finger Undo Fix: Optimized gesture logic to prevent accidental Undo triggers while drawing.
 • Social Hub UI: Improved the layout and display of the social media community links.
 
-Previous Updates (v1.0.2)
+Previous Updates (v1.0.2 & v1.0.4)
 • Panel Data Swipe: Switch between panels instantly by swiping left or right without closing the menu.
 • Double-Tap Gestures: Double-tap the left side to Undo and the right side to Redo without breaking your flow.
 • Enhanced Burn-ins: New export options to burn in Scene/Panel numbers and Frame Countdowns in MP4.
