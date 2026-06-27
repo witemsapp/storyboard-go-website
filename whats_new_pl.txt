@@ -1,19 +1,18 @@
-🎉 Nowości w v1.0.4
-• Swipe w Panel Data: Przełączaj się między panelami błyskawicznie! Przesuń palcem w lewo lub prawo w menu Panel Data, aby zmienić klatkę bez zamykania okna.
-• Gesty stuknięcia: Nie wypadaj z rytmu! Stuknij dwoma palcami, aby cofnąć, i trzema palcami, aby ponowić.
-• Ulepszone oznaczenia (Burn-ins): Nowe opcje eksportu MP4. Możesz teraz wypalić na animatiku numery Scen i Paneli oraz odliczanie klatek.
-• Centrum Społeczności: Dodaliśmy bezpośrednie linki do naszego Discorda, TikToka i YouTube w menu Ustawień.
-• Zaktualizowana instrukcja: Instrukcja użytkownika zawiera teraz szczegółowe opisy wszystkich nowych gestów.
+🎉 Nowości w v1.0.5
+• Kopiowanie warstw: Dodano możliwość szybkiego kopiowania i duplikowania wybranych warstw.
+• Opacity warstw: Wprowadzono kontrolę przezroczystości dla poszczególnych warstw.
+• Kanał Alpha w kolorach: Dodano suwak zmiany przezroczystości (Alpha) podczas wyboru koloru pędzla.
+• Poprawka gestu Cofania: Naprawiono gest dwoma palcami – przypadkowe dotknięcie ekranu podczas rysowania nie wywołuje już akcji Undo.
+• Wyświetlanie Social Mediów: Poprawiono wygląd i układ listy mediów społecznościowych w menu.
 
-Poprzednie aktualizacje
-• Poprawka błędu (ISSUE-001): Rozwiązano problem z zapisem paneli tworzonych natychmiast po imporcie pliku .sgo.
-• Optymalizacja Landscape: Poprawione marginesy, układy i przewijanie ekranów w trybie poziomym.
-• Ulepszenia UX: Dodano banery z tutorialami YouTube, przycisk „Zgłoś błąd” i wskaźnik wybranego języka.
-• Wydajność: Limit wielkości sceny (4096px) dla stabilnego działania na każdym urządzeniu.
+Poprzednie aktualizacje (v1.0.2 & v1.0.4)
+• Swipe w Panel Data: Szybkie przełączanie między panelami za pomocą gestu swipe bez zamykania okna.
+• Gesty Double-Tap: Szybkie cofanie (lewa strona) i ponawianie (prawa strona) poprzez dwukrotne dotknięcie ekranu.
+• Ulepszone oznaczenia: Opcja wypalania numerów Scen, Paneli oraz odliczania klatek przy eksporcie MP4.
 
-Podstawowe funkcje
+Podstawowe funkcje (v1.0.0 & v1.0.1)
 • Pełne tworzenie storyboardów z podziałem na warstwy i panele.
 • Eksport projektów do formatów PDF, PNG, MP4 oraz natywnego .sgo.
 • Onion skinning: Podgląd poprzednich klatek ułatwiający planowanie ruchu.
-• System importu i eksportu całych projektów jako pliki .sgo.
-• Pełna kontrola nad czasem trwania paneli i ustawieniami kamery.
+• Poprawka błędu ISSUE-001 (stabilizacja zapisu po imporcie .sgo).
+• Limit wielkości sceny (4096px) dla stabilnego działania na każdym urządzeniu.
