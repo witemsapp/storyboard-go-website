@@ -1,3 +1,8 @@
+Cześć! 
+Fajnie że jesteś tutaj z nami! Właśnie wystartowały otwarte beta testy Storyboard GO! 
+Jako twórcy tej aplikacji czeka mnie jeszcze trochę pracy, dlatego z góry bardzo przepraszam za wszelkie błędy i niedogodności, na które możesz natrafić. Twoje wsparcie jest dla mnie bezcenne!
+Gorąco zachęcam do dzielenia się swoimi uwagami, zgłaszania błędów i podrzucania pomysłów na naszym Discordzie. Razem stwórzmy najlepsze narzędzie do storyboardów! Pozdrawiam cieplutko - Witek
+
 🎉 Nowości w v1.0.5
 • Kopiowanie warstw: Dodano możliwość szybkiego kopiowania i duplikowania wybranych warstw.
 • Opacity warstw: Wprowadzono kontrolę przezroczystości dla poszczególnych warstw.
