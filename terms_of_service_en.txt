@@ -1,0 +1,43 @@
+TERMS OF SERVICE FOR STORYBOARD GO
+
+Last updated: 2026-07-09
+
+1. ACCEPTANCE OF TERMS
+By downloading or using the Storyboard GO application, you agree to these Terms of Service. If you disagree with any part of these terms, you may not use the application.
+
+2. USE OF THE APP
+Storyboard GO is a mobile application tool for creating storyboards and animatics.
+- You agree to use the app only for lawful purposes.
+- You are solely responsible for any content, images, scenarios, or stories you create, import, or export using the app.
+
+3. INTELLECTUAL PROPERTY & USER CONTENT
+- Your Content: We do not claim any ownership rights over the storyboards, drawings, narratives, texts, or project files (including .sgo files) you create. You retain all copyright, title, and interest to your original creations made using Storyboard GO.
+- App Content: All interface elements, logos, icons, algorithms, and the underlying codebase of Storyboard GO are our exclusive property and are protected by international copyright laws.
+- Watermarks: The application may append a promotional watermark to your exported files. This watermark is part of the App Content and is applied solely as a branding overlay. Its presence does not transfer any ownership rights of your original creations to us.
+- Website Resources: Any sample project files (.sgo), animatics, or multimedia content provided for download on our website are provided solely for educational and demonstration purposes. You do not acquire any copyright to these files. You may not resell, redistribute, or use the artwork contained within them for commercial purposes.
+
+4. ADVERTISEMENTS AND APP LIMITS
+- The app may be supported by advertising.
+- You may be required to watch an advertisement to unlock certain features within the app (e.g., to create additional projects, add more panels, use more layers, or export your work in various formats including PDF, PNG, MP4, and SGO).
+
+5. AVAILABILITY
+Storyboard GO is available in select countries and regions. We do not guarantee availability, full functionality, or localized support in all jurisdictions.
+
+6. DISCLAIMER OF WARRANTIES
+Storyboard GO is provided on an "AS IS" and "AS AVAILABLE" basis. We do not warrant that the application will be uninterrupted, bug-free, or completely secure. We are not responsible for the loss of your unexported, cached, or locally saved data. Please backup your exported files regularly.
+
+7. LIMITATION OF LIABILITY
+To the maximum extent permitted by applicable law, in no event shall the developer of Storyboard GO be liable for any indirect, incidental, special, or consequential damages arising out of your use of the app (including, but not limited to, lost profits, project deadlines missed, data loss, or device damage).
+
+8. CHANGES TO THESE TERMS
+We reserve the right to update or modify these Terms of Service at any time. Your continued use of the app after changes are made constitutes your acceptance of the new terms.
+
+9. GOVERNING LAW & DISPUTE RESOLUTION
+These Terms shall be governed by and construed in accordance with the laws of the Republic of Poland. Any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of the Republic of Poland.
+
+10. CONTACT
+If you have any questions about these Terms of Service, please contact us at:
+WITems WITOLD ŹREBIEC
+Ul. Zamknięta 10-1.5, 30-554 Kraków, Poland
+Tax ID (NIP): 6871974694
+Email: contact@storyboardgo.com
