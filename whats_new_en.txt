@@ -1,3 +1,8 @@
+Hello there!
+It's great to have you here with us! The open beta for Storyboard GO has just launched!
+As the creator of this app, I still have some work ahead of me, so I sincerely apologize in advance for any bugs or inconveniences you might encounter. Your support is invaluable to me!
+I highly encourage you to share your feedback, report bugs, and drop your ideas on our Discord. Let's build the best storyboarding tool together! Warm regards - Witek
+
 🎉 What's New in v1.0.5
 • Layer Duplicate: Added the option to duplicate layers easily.
 • Layer Opacity: Adjust individual layer transparency for better control over your workflow.
