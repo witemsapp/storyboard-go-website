@@ -1,0 +1,56 @@
+PRIVACY POLICY FOR STORYBOARD GO
+
+Last updated: 2026-07-04
+
+1. INTRODUCTION
+Welcome to Storyboard GO. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your data when you use our application and our website.
+
+2. DATA CONTROLLER
+WITems WITOLD ŹREBIEC
+Ul. Zamknięta 10-1.5, 30-554 Kraków, Poland
+Tax ID (NIP): 6871974694
+Email: contact@storyboardgo.com
+
+3. DATA WE COLLECT
+- Local App Data: All your projects, drawings, and metadata are saved locally on your device. We do not store or transmit your projects to our servers.
+- Website & Beta Testing Data: If you sign up for closed beta testing via our website, we collect your email address. This data is securely processed by our email service provider (MailerLite) strictly for the purpose of communicating beta tests and app updates.
+- Automatically Collected Data: Our app's ad partner (Google AdMob) may collect certain information automatically, including IP address, device ID, advertising IDs, and usage statistics to provide relevant advertisements.
+
+4. LEGAL BASIS FOR PROCESSING (GDPR)
+We process your personal data based on the following legal grounds:
+- Consent: For beta testing email collection and personalized advertising.
+- Legitimate Interest: For providing core app functionality and improving our services.
+
+5. DATA RETENTION
+- Beta testing email addresses are retained until you unsubscribe or until the beta testing program ends, whichever comes first.
+- Advertising-related data collected by Google AdMob is managed and retained by Google in accordance with their own privacy policy and data retention practices.
+- Local app data (your projects) is stored on your device and retained until you delete it.
+
+6. DEVICE PERMISSIONS
+To function properly, the app requests the following device permissions:
+- Storage / Photos / Media: Required to import background images, open project files (.sgo), and to save/export your projects as PDF, PNG, MP4, or native .sgo files directly to your device storage.
+
+7. THIRD-PARTY SERVICES (ADS)
+We use Google AdMob to display advertisements. AdMob may use device identifiers and cookies to serve personalized ads.
+We also use MailerLite for processing beta testing email communications.
+- EU Users (GDPR): You will be asked for explicit consent to receive personalized ads via a consent form. You can withdraw this consent at any time.
+- US Users (CCPA/CPRA): You have the right to opt-out of the "sale" or "sharing" of your personal information used for targeted advertising.
+
+8. INTERNATIONAL DATA TRANSFERS
+Your data may be transferred to and processed on servers located outside your country of residence, including the United States, by our third-party service providers (Google, MailerLite). These providers implement appropriate safeguards for international data transfers, including the EU-U.S. Data Privacy Framework and Standard Contractual Clauses where applicable.
+
+9. CHILDREN'S PRIVACY (COPPA)
+Our application is not explicitly directed at children under the age of 13. We do not knowingly collect personal information from children under 13.
+
+10. YOUR DATA RIGHTS
+Depending on your jurisdiction, applicable data protection laws (including but not limited to the GDPR, CCPA/CPRA, LGPD, PIPA, APPI, PDPL, and other local regulations) may grant you rights regarding your personal data, such as the right to access, correct, delete, restrict processing, or request portability of your data.
+- App Data: Since your project files (storyboards) are stored locally on your device, you have full control over them and can delete them directly within the app.
+- Beta Testing Data: You have the right to withdraw your consent and request the deletion of your email from our beta testing list at any time. To do so, please contact us at contact@storyboardgo.com or use the provided "unsubscribe" link in our emails.
+To exercise any of your data rights, please contact us at contact@storyboardgo.com.
+
+11. CHANGES TO THIS POLICY
+We reserve the right to update this Privacy Policy at any time. We will notify users of significant changes through the app or our website.
+
+12. CONTACT US
+If you have any questions about this Privacy Policy, please contact us at:
+Email: contact@storyboardgo.com
