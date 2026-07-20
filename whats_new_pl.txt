@@ -1,13 +1,39 @@
 Cześć! 
-Fajnie że jesteś tutaj z nami! Właśnie wystartowały otwarte beta testy Storyboard GO! 
-Jako twórcy tej aplikacji czeka mnie jeszcze trochę pracy, dlatego z góry bardzo przepraszam za wszelkie błędy i niedogodności, na które możesz natrafić. Twoje wsparcie jest dla mnie bezcenne!
+Fajnie, że jesteś tutaj z nami! Właśnie wystartowały otwarte beta testy Storyboard GO! 
+Jako twórcę tej aplikacji czeka mnie jeszcze trochę pracy, dlatego z góry bardzo przepraszam za wszelkie błędy i niedogodności, na które możesz natrafić. Twoje wsparcie jest dla mnie bezcenne!
 Gorąco zachęcam do dzielenia się swoimi uwagami, zgłaszania błędów i podrzucania pomysłów na naszym Discordzie. Razem stwórzmy najlepsze narzędzie do storyboardów! Pozdrawiam cieplutko - Witek
 
-🎉 Nowości w v1.0.5
+🚀 Nowości w v1.0.6 (Pierwsze usprawnienia w becie!)
+• Zoom punktowy: Lepsza logika przybliżania (pinch-to-zoom) względem punktu styku palców oraz nowy, znacznie wyższy poziom maksymalnego przybliżenia!
+• Inteligentne dodawanie: Nowo dodany panel pojawia się teraz tuż obok aktualnie wybranego.
+• Kopiowanie przezroczystości: Poziom krycia warstw (opacity) jest teraz w pełni zachowywany podczas duplikowania paneli.
+• Suwak Alpha: W próbniku kolorów dodano suwak do łatwiejszej kontroli przezroczystości (Alpha) pędzla.
+• Import SGO: Płynne importowanie plików .sgo bezpośrednio z menedżera plików i innych aplikacji.
+• Zaktualizowana instrukcja: Instrukcja wewnątrz aplikacji wzbogaciła się o nową zakładkę "Import".
+• Miniaturki: Usprawniono ładowanie i pojawianie się miniaturek scen na pasku paneli.
+• Rysowanie i mazanie: Płynniejsze i bardziej niezawodne działanie narzędzi do rysowania oraz wymazywania.
+• Renderowanie eksportu: Usprawniono ogólną wydajność renderowania przy eksporcie plików PDF oraz MP4.
+• Scroll w informacjach: Przełączanie się między danymi paneli (swipe) idealnie zachowuje teraz poziom przewinięcia ekranu z poprzedniego panelu.
+• Nazwy w PDF: Naprawiono błąd z zapisywaniem własnych nazw i numerów paneli w wyeksportowanych plikach PDF.
+• Czyste duplikowanie: Usunięto dopisek "copy" z nazw warstw przy kopiowaniu całych paneli.
+
+🎉 Poprzednie aktualizacje (v1.0.5)
 • Kopiowanie warstw: Dodano możliwość szybkiego kopiowania i duplikowania wybranych warstw.
 • Opacity warstw: Wprowadzono kontrolę przezroczystości dla poszczególnych warstw.
-• Kanał Alpha w kolorach: Dodano suwak zmiany przezroczystości (Alpha) podczas wyboru koloru pędzla.
 • Poprawka gestu Cofania: Naprawiono gest dwoma palcami – przypadkowe dotknięcie ekranu podczas rysowania nie wywołuje już akcji Undo.
+• Wyświetlanie Social Mediów: Poprawiono wygląd i układ listy mediów społecznościowych w menu.
+
+Starsze aktualizacje (v1.0.2 & v1.0.4)
+• Swipe w Panel Data: Szybkie przełączanie między panelami za pomocą gestu swipe bez zamykania okna.
+• Gesty Double-Tap: Szybkie cofanie (lewa strona) i ponawianie (prawa strona) poprzez dwukrotne dotknięcie ekranu.
+• Ulepszone oznaczenia: Opcja wypalania numerów Scen, Paneli oraz odliczania klatek przy eksporcie MP4.
+
+Podstawowe funkcje (v1.0.0 & v1.0.1)
+• Pełne tworzenie storyboardów z podziałem na warstwy i panele.
+• Eksport projektów do formatów PDF, PNG, MP4 oraz natywnego .sgo.
+• Onion skinning: Podgląd poprzednich klatek ułatwiający planowanie ruchu.
+• Poprawka błędu ISSUE-001 (stabilizacja zapisu po imporcie .sgo).
+• Limit wielkości sceny (4096px) dla stabilnego działania na każdym urządzeniu.
 • Wyświetlanie Social Mediów: Poprawiono wygląd i układ listy mediów społecznościowych w menu.
 
 Poprzednie aktualizacje (v1.0.2 & v1.0.4)
