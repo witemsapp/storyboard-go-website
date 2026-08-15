@@ -1,0 +1,43 @@
+REGULAMIN APLIKACJI STORYBOARD GO (TERMS OF SERVICE)
+
+Ostatnia aktualizacja: 2026-07-09
+
+1. AKCEPTACJA WARUNKÓW
+Pobierając lub korzystając z aplikacji Storyboard GO, wyrażasz zgodę na niniejszy Regulamin. Jeśli nie zgadzasz się z jakąkolwiek częścią tych warunków, nie możesz korzystać z aplikacji.
+
+2. KORZYSTANIE Z APLIKACJI
+Storyboard GO to mobilna aplikacja służąca do tworzenia storyboardów i animatików.
+- Zgadzasz się korzystać z aplikacji wyłącznie w celach zgodnych z prawem.
+- Ponosisz wyłączną odpowiedzialność za wszelkie treści, obrazy, scenariusze i historie, które tworzysz, importujesz lub eksportujesz za pomocą aplikacji.
+
+3. WŁASNOŚĆ INTELEKTUALNA I TREŚCI UŻYTKOWNIKA
+- Twoje Treści: Nie rościmy sobie żadnych praw własności do storyboardów, rysunków, narracji, tekstów ani plików projektów (w tym plików .sgo), które tworzysz. Zachowujesz wszelkie prawa autorskie, tytuły i udziały do swoich oryginalnych dzieł stworzonych przy użyciu Storyboard GO.
+- Zawartość Aplikacji: Wszystkie elementy interfejsu, logo, ikony, algorytmy i kod źródłowy Storyboard GO są naszą wyłączną własnością i są chronione międzynarodowymi prawami autorskimi.
+- Znaki Wodne (Watermarks): Aplikacja może dodawać promocyjny znak wodny do wyeksportowanych plików. Znak wodny stanowi Zawartość Aplikacji i jest stosowany wyłącznie w celach promocyjnych. Jego obecność na wyeksportowanym dokumencie w żaden sposób nie odbiera Ci praw do Twoich oryginalnych dzieł.
+- Materiały ze Strony WWW: Wszelkie przykładowe pliki projektów (.sgo), animatiki oraz treści multimedialne udostępniane do pobrania na naszej stronie internetowej są dostarczane wyłącznie w celach edukacyjnych i demonstracyjnych. Użytkownik nie nabywa do nich żadnych praw autorskich. Zabrania się ich odsprzedaży, redystrybucji oraz komercyjnego wykorzystywania zawartych w nich grafik.
+
+4. REKLAMY I LIMITY W APLIKACJI
+- Aplikacja wspierana jest przez wyświetlanie reklam.
+- Możesz zostać poproszony o obejrzenie reklamy w celu odblokowania pewnych funkcji w aplikacji (np. aby stworzyć dodatkowe projekty, dodać więcej paneli, korzystać z większej liczby warstw lub wyeksportować swoją pracę w różnych formatach, w tym PDF, PNG, MP4 i SGO).
+
+5. DOSTĘPNOŚĆ
+Storyboard GO jest dostępne w wybranych krajach i regionach. Nie gwarantujemy dostępności, pełnej funkcjonalności ani zlokalizowanego wsparcia we wszystkich jurysdykcjach.
+
+6. WYŁĄCZENIE GWARANCJI
+Storyboard GO jest dostarczane na zasadzie "TAK JAK JEST" (AS IS) oraz "W MIARĘ DOSTĘPNOŚCI". Nie gwarantujemy, że aplikacja będzie działać nieprzerwanie, będzie wolna od błędów lub całkowicie bezpieczna. Nie ponosimy odpowiedzialności za utratę nieeksportowanych, buforowanych lub zapisanych lokalnie danych. Prosimy o regularne tworzenie kopii zapasowych wyeksportowanych plików.
+
+7. OGRANICZENIE ODPOWIEDZIALNOŚCI
+W maksymalnym zakresie dozwolonym przez obowiązujące prawo, twórca Storyboard GO w żadnym wypadku nie ponosi odpowiedzialności za jakiekolwiek szkody pośrednie, przypadkowe, specjalne lub wtórne wynikające z korzystania z aplikacji (w tym, ale nie ograniczając się do, utraconych zysków, niedotrzymania terminów projektów, utraty danych lub uszkodzenia urządzenia).
+
+8. ZMIANY W REGULAMINIE
+Zastrzegamy sobie prawo do aktualizacji lub modyfikacji niniejszego Regulaminu w dowolnym momencie. Dalsze korzystanie z aplikacji po wprowadzeniu zmian oznacza akceptację nowych warunków.
+
+9. PRAWO WŁAŚCIWE I ROZSTRZYGANIE SPORÓW
+Niniejszy Regulamin podlega prawu Rzeczypospolitej Polskiej i jest zgodnie z nim interpretowany. Wszelkie spory wynikające z niniejszego Regulaminu lub z nim związane podlegają wyłącznej jurysdykcji sądów Rzeczypospolitej Polskiej.
+
+10. KONTAKT
+Jeśli masz jakiekolwiek pytania dotyczące niniejszego Regulaminu, skontaktuj się z nami:
+WITems WITOLD ŹREBIEC
+Ul. Zamknięta 10-1.5, 30-554 Kraków, Poland
+NIP: 6871974694
+Email: contact@storyboardgo.com
