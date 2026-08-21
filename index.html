@@ -4,16 +4,17 @@
     <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Tytuł strony wyświetlany w karcie przeglądarki -->
+    <!-- Tytuł strony wyświetlany w wyszukiwarkach (SEO) i dynamiczna krótka nazwa karty -->
     <title>Storyboard GO | Professional Mobile Storyboard & Animatic App</title>
+    <script>document.title = "Storyboard GO";</script>
 
     <!-- Ikonka wyświetlana w przeglądarce i przy zapisywaniu na telefon (Favicon) -->
     <link rel="icon" type="image/png" href="LOGO_2026.png">
     <link rel="apple-touch-icon" href="LOGO_2026.png">
 
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="Storyboard GO: The professional mobile storyboard studio for artists and filmmakers. Sketch, organize, and export industry-standard storyboards and animatics on the go.">
-    <meta name="keywords" content="storyboard app, mobile app, mobile storyboarding, filmmaking tools, animatic creator, android drawing app, iphone storyboard app, ios, pre-production software, how to storyboard">
+    <meta name="description" content="Storyboard GO: The professional storyboard and animatic software for artists and filmmakers. Sketch, organize, and export industry-standard storyboards and animatics on the go.">
+    <meta name="keywords" content="storyboard app, storyboard software, mobile storyboarding, desktop storyboard app, pc storyboard software, filmmaking tools, animatic creator, android drawing app, iphone storyboard app, ios, windows, mac, pre-production software">
     <meta name="author" content="Witek Creator">
     <link rel="canonical" href="https://storyboardgo.com/">
 
@@ -28,7 +29,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://storyboardgo.com/">
     <meta property="twitter:title" content="Storyboard GO | Professional Mobile Storyboard & Animatic App">
-    <meta property="twitter:description" content="Professional filmmaking tools on your Android device. Create storyboards and animatics anywhere.">
+    <meta property="twitter:description" content="Professional filmmaking tools on your device. Create storyboards and animatics anywhere.">
     <meta property="twitter:image" content="https://storyboardgo.com/social_preview.jpg">
 
     <!-- JSON-LD Structured Data for Google -->
@@ -37,9 +38,9 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Storyboard GO",
-      "operatingSystem": "Android",
+      "operatingSystem": "Android, iOS, Windows, macOS",
       "applicationCategory": "DesignApplication, MultimediaApplication",
-      "description": "Professional mobile storyboard studio for artists, filmmakers and animators. Storyboard GO allows you to sketch, organize, and export industry-standard storyboards and animatics with onion skin, layer management, and PDF/MP4 export directly from your Android device.",
+      "description": "Professional mobile and desktop storyboard studio for artists, filmmakers and animators. Storyboard GO allows you to sketch, organize, and export industry-standard storyboards and animatics with onion skin, layer management, and PDF/MP4 export directly on mobile, tablet, and desktop.",
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61577665506672",
         "https://x.com/WITemsAPP",
@@ -54,11 +55,16 @@
       }
     }
     </script>
+    <!-- Preconnect do zewnętrznych CDN (eliminuje opóźnienia DNS/TLS przy pierwszym ładowaniu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
     <!-- Tailwind CSS dla nowoczesnego i responsywnego wyglądu -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- AOS CSS (Animacje przy scrollowaniu) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FAFAF9; color: #44403C; }
         .amber-accent { color: #D97706; }
@@ -597,6 +603,9 @@
                 <a href="https://x.com/WITemsAPP" target="_blank" aria-label="X (Twitter)" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
                     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
+                <a href="https://www.reddit.com/r/StoryboardGO" target="_blank" aria-label="Reddit" class="text-stone-400 hover:text-stone-900 hover:scale-110 transition-all">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+                </a>
             </div>
             
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 pt-8 border-t border-stone-200/50 w-full">
@@ -1003,23 +1012,25 @@
         }
 
         // Sprawdzenie stanu po załadowaniu
-        window.onload = () => {
+        document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('cookiesAccepted_GO')) {
                 cookieBanner.classList.add('hidden-banner');
             }
-        };
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                once: true,            // Animacje odpala się tylko raz
+                offset: 80,            // O ile wcześciej pod ekranem mają się aktywować
+                duration: 800,         // Długość pojawiania się 0.8s (eleganckie)
+                easing: 'ease-out-cubic' // Płynne, miękkie lądowanie
+            });
+        });
     </script>
     
     <!-- AOS Library (Inicjalizacja animacji) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,            // Animacje odpala się tylko raz
-            offset: 80,            // O ile wcześciej pod ekranem mają się aktywować
-            duration: 800,         // Długość pojawiania się 0.8s (eleganckie)
-            easing: 'ease-out-cubic' // Płynne, miękkie lądowanie
-        });
-
         // --- SMART MARQUEE ENGINE (Interactive Edition) ---
         const marqueeTrack = document.getElementById('marquee-track');
         let marqueeAnim;
