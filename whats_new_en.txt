@@ -1,14 +1,44 @@
 Hello there!
-It's great to have you here with us! The open beta for Storyboard GO has just launched!
+It's great to have you here with us! 
+
 As the creator of this app, I still have some work ahead of me, so I sincerely apologize in advance for any bugs or inconveniences you might encounter. Your support is invaluable to me!
+
 I highly encourage you to share your feedback, report bugs, and drop your ideas on our Discord. Let's build the best storyboarding tool together! Warm regards - Witek
 
-🚀 What's New in v1.0.6 (First Beta Improvements!)
+🚀 What's New in v1.0.7
+
+• Layer Scaling & Transform: It’s finally here! You can now freely move, scale, and rotate your layers.
+• Animatic Dialogues: Display character dialogues directly inside your animatic.
+• Lightning-Fast Exports: Rendering is now much, much faster!
+• Vector Line Rendering Fix: Improved rendering of lines drawn on the stage—I fixed (I hope) the annoying bug where the vector wasn't being baked to the raster.
+• Alpha & Opacity Fixes: Added a dedicated Alpha slider to the color picker. Plus, layer opacity is fully preserved when duplicating panels.
+• Smart Panel Add: Adding a new panel now places it directly next to your active one, not at the very end of the project.
+• Proper Naming & Numbers: Now, in the Data panel, there is a breakdown by Scene / Shot / Panel.
+• Smart Layer Panel Close: Clicking outside the layer panel now automatically closes it to keep your workspace clean. Exception: If you tap a scene thumbnail in the panel strip, the layer window stays open.
+• Reddit Community: Added a quick link to our brand-new Reddit community in the "Join Our Community" section!
+• The SGO Origin Story: Added a brand new "The Storyboard GO Journey" section in the About tab.
+• Official SGO File Icons: Your phone will now proudly display the official SGO icon in your device manager for all .sgo files.
+• Custom Loading Icon: Rendering Animatics and PDFs now displays the animated SGO app icon as a sleek loading indicator.
+• Clean Duplication: Removed the annoying "copy" suffix from layer names when duplicating entire panels.
+
+🎉 Previous Updates (v1.0.6)
 • Focal Zoom: Better focal pinch-to-zoom logic and a new, much higher zoom level!
-• Smart Panel Add: Adding a new panel now places it right next to your active one.
-• Duplicate Opacity: Layer opacity is fully preserved when duplicating panels.
-• Alpha Slider: Color picker now features an Alpha slider for easier control.
 • SGO Import: Seamless import of SGO files from the file manager and other apps.
+• Thumbnails & Manual: Improved loading of scene thumbnails and updated the in-app manual with an "Import" tab.
+• Rendering & Performance: Smoother drawing/erasing experience and improved rendering performance for PDF and MP4 exports.
+• Panel Info Scroll: Swiping through panel data now perfectly preserves your scroll position.
+
+Older Updates (v1.0.2 - v1.0.5)
+• Layer Duplicate & Opacity: Easily duplicate layers and adjust individual layer transparency.
+• Two-Finger Undo Fix: Optimized gesture logic to prevent accidental Undo triggers while drawing.
+• Panel Data Swipe: Switch between panels instantly by swiping left or right.
+• Double-Tap Gestures: Double-tap the left side to Undo and the right side to Redo.
+• Enhanced Burn-ins: Options to burn in Scene/Panel numbers and Frame Countdowns in MP4.
+
+Core Features (v1.0.0 & v1.0.1)
+• Complete storyboard creation with layers and panels.
+• Export options for PDF, PNG, MP4, and SGO formats.
+• Onion skinning for animation and movement previews.
 • Manual Updated: Updated the in-app manual with a new "Import" tab.
 • Thumbnails: Improved loading and display of scene thumbnails in the panel strip.
 • Drawing & Erasing: Smoother and more reliable drawing and erasing experience.
