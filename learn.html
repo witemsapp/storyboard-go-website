@@ -137,10 +137,40 @@
             <div id="tutorials-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Tutorials will be injected here by JavaScript -->
             </div>
+            
+            <div id="extra-tutorials-wrapper" class="overflow-hidden transition-all duration-700 ease-in-out" style="max-height: 0;">
+                <div id="extra-tutorials-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
+                    <!-- Extra tutorials will be injected here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- "See More" Divider -->
+            <div id="see-more-container" class="mt-8 flex items-center justify-center relative hidden">
+                <style>
+                    @keyframes soft-ping {
+                        0% { transform: scale(1); opacity: 0.5; }
+                        50% { transform: scale(1.15); opacity: 0; }
+                        100% { transform: scale(1); opacity: 0; }
+                    }
+                    .animate-soft-ping {
+                        animation: soft-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+                    }
+                </style>
+                <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-amber-600/30"></div>
+                
+                <div class="relative z-10 flex group cursor-pointer" id="see-more-btn">
+                    <!-- Tło pulsacji (zmniejszone) -->
+                    <div class="absolute inset-0 bg-amber-500 rounded-full animate-soft-ping group-hover:opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                    <!-- Właściwy przycisk (bez ramki na start) -->
+                    <button id="see-more-btn-inner" class="relative bg-amber-500 text-white px-8 py-2 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-amber-500/20 pointer-events-none">
+                        See More
+                    </button>
+                </div>
+            </div>
         </section>
 
         <!-- Downloadable Resources Section -->
-        <section class="max-w-6xl mx-auto px-6 pt-24 mt-16 border-t border-stone-200" data-aos="fade-up">
+        <section class="max-w-6xl mx-auto px-6 mt-16" data-aos="fade-up">
             <h2 class="text-3xl font-extrabold text-stone-900 mb-4 text-center">
                 Downloadable <span class="text-amber-600">Examples</span>
             </h2>
@@ -369,47 +399,48 @@
         document.getElementById('close-menu').addEventListener('click', toggleMenu);
 
         // --- BAZA TUTORIALI ---
-        // Aby dodać kolejny tutorial, wystarczy dopisać nowy blok w tej tablicy.
-        // Opcjonalnie możesz dodać pole `thumbnail: "nazwa_pliku.jpg"`, aby ustawić własną miniaturkę.
-        // Jeśli nie podasz 'thumbnail', wygeneruje się ładne, kolorowe tło.
         const tutorialsData = [
             {
-                url: "https://www.tiktok.com/@storyboard.go/video/7629738662602755360",
+                url: "https://www.youtube.com/shorts/KOqtnAP34zs",
                 title: "How to Create a New Project – Quick Start",
                 description: "Learn the basics of creating your first project in Storyboard GO. Watch this quick mobile storyboarding guide!",
                 thumbnail: "thumbnail1.jpg",
-                duration: "0:45" // Opcjonalnie: wpisz czas trwania (np. "1:24")
+                duration: "0:45"
             },
             {
-                url: "https://www.tiktok.com/@storyboard.go/video/7632410128515419424",
+                url: "https://www.youtube.com/shorts/yf3LYgY3-yM",
                 title: "How to Use the Toolbar",
                 description: "Discover pro features and essential drawing tools to make your animatics stand out.",
                 thumbnail: "thumbnail2.jpg",
-                duration: "0:45" // Opcjonalnie: wpisz czas trwania
+                duration: "0:45"
             },
             {
-                url: "https://www.tiktok.com/@storyboard.go/video/7657993822022077729",
+                url: "https://www.youtube.com/shorts/kTdgmObqhlI",
                 title: "How to Manage Panels",
-                description: "Master the panel strip! Learn how to manage your panels and scenes, input panel data, and ensure your mobile storyboard looks polished and professional.",
+                description: "Master the panel strip! Learn how to manage your panels and scenes, input panel data, and ensure your mobile storyboard looks polished.",
                 thumbnail: "thumbnail3.webp",
-                duration: "1:35" // Opcjonalnie: wpisz czas trwania
+                duration: "1:35"
+            },
+            {
+                url: "https://www.youtube.com/shorts/nNtUTIecuoc",
+                title: "How To Use Layers",
+                description: "Organize your workflow. Learn how to separate characters and backgrounds using layers for full control.",
+                thumbnail: "thumbnail4.jpg",
+                duration: "1:00"
             }
         ];
 
         // Otwieranie wideo w lightboxie (duży ekran)
         function openVideoModal(videoId) {
-            // Dodajemy iframe z wideo z TikToka
-            // TikTok domyślnie pozwala na iframe pod adresem /embed/v2/{id}
             iframeContainer.innerHTML = `
-                <!-- Zostawiamy wskaźnik ładowania, który będzie pod spodem -->
                 <div class="absolute inset-0 flex items-center justify-center text-stone-700">
                     <svg class="animate-spin h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                 </div>
                 <iframe 
-                    class="w-full h-full relative z-10" 
-                    src="https://www.tiktok.com/embed/v2/${videoId}" 
+                    class="w-full h-full relative z-10 rounded-lg" 
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
                     allowfullscreen>
                 </iframe>
             `;
@@ -454,16 +485,27 @@
         // Funkcja generująca kafelki z przyciskiem PLAY
         function renderTutorials() {
             const container = document.getElementById('tutorials-container');
+            const extraContainer = document.getElementById('extra-tutorials-container');
+            const seeMoreContainer = document.getElementById('see-more-container');
             
             tutorialsData.forEach((tutorial, index) => {
-                const match = tutorial.url.match(/video\/(\d+)/);
+                const match = tutorial.url.match(/(?:shorts\/|youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
                 const videoId = match ? match[1] : '';
 
                 if (videoId) {
                     const tile = document.createElement('div');
                     tile.className = 'tutorial-card flex flex-col h-full bg-white border border-stone-100 group cursor-pointer';
-                    tile.setAttribute('data-aos', 'fade-up');
-                    tile.setAttribute('data-aos-delay', (index * 100).toString());
+                    
+                    if (index >= 3) {
+                        tile.classList.add('extra-tutorial');
+                        if (seeMoreContainer) seeMoreContainer.classList.remove('hidden');
+                        extraContainer.appendChild(tile);
+                    } else {
+                        tile.setAttribute('data-aos', 'fade-up');
+                        tile.setAttribute('data-aos-delay', (index * 100).toString());
+                        container.appendChild(tile);
+                    }
+                    
                     tile.onclick = () => openVideoModal(videoId);
 
                     // Dynamiczne generowanie gradientów jako fallback
@@ -522,13 +564,55 @@
                             </div>
                         </div>
                     `;
-                    container.appendChild(tile);
                 }
             });
         }
 
         // Renderuj tutoriale po załadowaniu DOM
-        document.addEventListener('DOMContentLoaded', renderTutorials);
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTutorials();
+            
+            const seeMoreBtn = document.getElementById('see-more-btn');
+            const seeMoreBtnInner = document.getElementById('see-more-btn-inner');
+            const wrapper = document.getElementById('extra-tutorials-wrapper');
+            let isExpanded = false;
+
+            if (seeMoreBtn && wrapper) {
+                seeMoreBtn.addEventListener('click', () => {
+                    isExpanded = !isExpanded;
+
+                    if (isExpanded) {
+                        // Rozwijamy listę poprzez animację wysokości z easingiem
+                        wrapper.style.maxHeight = wrapper.scrollHeight + 50 + 'px'; // +50px dla pewności
+                        
+                        // Zmiana przycisku na "Zwiń" (białe tło z pomarańczową ramką)
+                        seeMoreBtnInner.textContent = 'Show Less';
+                        seeMoreBtnInner.classList.remove('bg-amber-500', 'text-white');
+                        seeMoreBtnInner.classList.add('bg-white', 'text-amber-500', 'border-2', 'border-amber-500');
+
+                        // Scrollowanie strony, uwzględniając wysokość przyklejonego paska nawigacji
+                        const gridContainer = document.getElementById('tutorials-container');
+                        window.scrollTo({
+                            top: gridContainer.getBoundingClientRect().top + window.scrollY - 100, // -100px na navbar
+                            behavior: 'smooth'
+                        });
+
+                    } else {
+                        // Zwijamy listę
+                        wrapper.style.maxHeight = '0';
+                        
+                        // Powrót przycisku do "Rozwiń" (pomarańczowy bez ramki)
+                        seeMoreBtnInner.textContent = 'See More';
+                        seeMoreBtnInner.classList.add('bg-amber-500', 'text-white');
+                        seeMoreBtnInner.classList.remove('bg-white', 'text-amber-500', 'border-2', 'border-amber-500');
+                    }
+                    
+                    if (typeof AOS !== 'undefined') {
+                        setTimeout(() => AOS.refresh(), 800); // po zakończeniu animacji (700ms)
+                    }
+                });
+            }
+        });
     </script>
 
     <!-- AOS Library -->
