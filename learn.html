@@ -590,10 +590,9 @@
                         seeMoreBtnInner.classList.remove('bg-amber-500', 'text-white');
                         seeMoreBtnInner.classList.add('bg-white', 'text-amber-500', 'border-2', 'border-amber-500');
 
-                        // Scrollowanie strony, uwzględniając wysokość przyklejonego paska nawigacji
-                        const gridContainer = document.getElementById('tutorials-container');
+                        // Scrollowanie strony do nowo odkrytych tutoriali, uwzględniając wysokość paska nawigacji
                         window.scrollTo({
-                            top: gridContainer.getBoundingClientRect().top + window.scrollY - 100, // -100px na navbar
+                            top: wrapper.getBoundingClientRect().top + window.scrollY - 100, // -100px na navbar
                             behavior: 'smooth'
                         });
 
@@ -605,6 +604,13 @@
                         seeMoreBtnInner.textContent = 'See More';
                         seeMoreBtnInner.classList.add('bg-amber-500', 'text-white');
                         seeMoreBtnInner.classList.remove('bg-white', 'text-amber-500', 'border-2', 'border-amber-500');
+
+                        // Scrollowanie z powrotem na górę (do głównych tutoriali)
+                        const gridContainer = document.getElementById('tutorials-container');
+                        window.scrollTo({
+                            top: gridContainer.getBoundingClientRect().top + window.scrollY - 100, // -100px na navbar
+                            behavior: 'smooth'
+                        });
                     }
                     
                     if (typeof AOS !== 'undefined') {
