@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tytuł strony wyświetlany w wyszukiwarkach (SEO) i dynamiczna krótka nazwa karty -->
@@ -61,7 +61,7 @@
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
     <!-- Tailwind CSS dla nowoczesnego i responsywnego wyglądu -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20261117">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
@@ -234,24 +234,24 @@
                 <!-- Grupa 1 (AOS usunięte by uniknąć zacięć i skanowania przez przeglądarkę na bieżąco) -->
                 <div class="flex gap-6 shrink-0">
                     <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.webp" loading="lazy" width="1000" height="2233" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.webp" loading="lazy" width="1000" height="2233" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.webp" loading="lazy" width="1000" height="2233" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                     <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.webp" loading="lazy" width="1000" height="2233" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.webp" loading="lazy" width="1000" height="2233" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                     <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
                 
                 <!-- Grupa 2 (Klon - by zachować ciągłość karuzeli) -->
                 <div class="flex gap-6 shrink-0">
                     <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.webp" loading="lazy" width="1000" height="2233" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.webp" loading="lazy" width="1000" height="2233" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.webp" loading="lazy" width="1000" height="2233" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                     <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.webp" loading="lazy" width="1000" height="2233" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.webp" loading="lazy" width="1000" height="2233" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                     <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
             </div>
@@ -581,7 +581,7 @@
 
                             <!-- Telefon (Pionowy, nałożony na prawy dolny róg) -->
                             <div class="absolute bottom-0 right-0 w-[30%] sm:w-[27%] max-w-[165px] rounded-[1.5rem] sm:rounded-[2rem] p-[5px] sm:p-[6px] bg-white shadow-2xl shadow-stone-900/20 ring-1 ring-stone-200/90">
-                                <img src="scr4.webp" loading="lazy" width="1000" height="2233" alt="Storyboard GO interface on Phone" class="w-full h-auto block rounded-[1.15rem] sm:rounded-[1.6rem] object-cover">
+                                <img src="scr4.webp?v=20261117" loading="lazy" width="1000" height="2233" alt="Storyboard GO interface on Phone" class="w-full h-auto block rounded-[1.15rem] sm:rounded-[1.6rem] object-cover">
                             </div>
                         </div>
                     </div>
