@@ -166,26 +166,38 @@
     <div id="menu-overlay" class="fixed inset-0 bg-stone-900/20 backdrop-blur-sm z-50 hidden md:hidden" onclick="toggleMenu()"></div>
 
     <!-- TREŚĆ GŁÓWNA -->
-    <main id="home" class="pt-32">
+    <main id="home">
+        
+        <!-- HERO + KARUZELA Z FILMEM W TLE -->
+        <div class="relative overflow-hidden bg-[#FAFAF9] pt-28 pb-20 md:pb-32">
+            
+            <!-- Wideo w tle + jasna mgiełka i łagodne zanikanie na dole -->
+            <div class="absolute inset-x-0 top-0 h-[72vh] md:h-auto md:w-full md:aspect-video md:max-h-full z-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+                <video id="hero-bg-video" class="w-full h-full object-cover object-center opacity-40" autoplay loop muted playsinline preload="auto" poster="resources/hero-poster.webp" tabindex="-1">
+                    <source src="resources/hero-bg.webm" type="video/webm">
+                    <source src="resources/hero-bg.mp4" type="video/mp4">
+                </video>
+                <!-- Jasna mgiełka pod tekstem dla pełnej czytelności -->
+                <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 55% at 50% 35%, rgba(250, 250, 249, 0.78) 0%, rgba(250, 250, 249, 0.35) 60%, rgba(250, 250, 249, 0.1) 100%);"></div>
+                <!-- Płynne przejście w kolor tła strony przed sekcją About -->
+                <div class="absolute inset-x-0 bottom-0 h-40 md:h-56 bg-gradient-to-b from-transparent via-[#FAFAF9]/75 to-[#FAFAF9]"></div>
+            </div>
         
         <!-- Hero Section -->
-        <section class="max-w-4xl mx-auto text-center px-6 mb-24 relative">
+        <section class="max-w-4xl mx-auto text-center px-6 mb-10 md:mb-12 relative z-10">
             
             <!-- Free Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm" data-aos="fade-down" data-aos-duration="1000">
+            <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-amber-50/90 backdrop-blur-sm border border-amber-200 text-amber-600 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.18em] mb-8 shadow-sm" data-aos="fade-down" data-aos-duration="1000">
                 <span class="relative flex h-2 w-2">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                 </span>
-                Free to Download
+                Free to Download &middot; Phones &amp; Tablets
             </div>
 
-            <h1 class="text-5xl md:text-7xl font-extrabold text-stone-900 tracking-tight mb-6" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-stone-900 tracking-tight mb-24 md:mb-32" data-aos="fade-up" data-aos-duration="1000">
                 From Chaos to Clarity.<br><span class="amber-accent tracking-tighter">Frame Your Vision.</span>
             </h1>
-            <p class="text-lg text-stone-500 max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
-                The professional storyboard studio in your pocket. Sketch, organize, and export industry-standard boards in seconds.
-            </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                 <a href="https://play.google.com/store/apps/details?id=com.storyboardgo.app&pcampaignid=web_share" target="_blank" class="hover:scale-105 transition-transform flex items-center justify-center">
                     <img src="GetItOnGooglePlay_Badge_Web_color_English.webp" loading="lazy" width="478" height="142" alt="Get it on Google Play" class="h-14 w-auto drop-shadow-md">
@@ -202,7 +214,7 @@
         </section>
 
         <!-- APP PREVIEW (SCREENSHOTY) - SMART MARQUEE -->
-        <section id="preview" class="relative w-full overflow-hidden mb-20 md:mb-32 mt-12 md:mt-20" style="animation: previewFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; opacity: 0; transform: translateY(40px);">
+        <section id="preview" class="relative z-10 w-full py-6 mt-4 md:mt-6" style="animation: previewFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; opacity: 0; transform: translateY(40px);">
             <style>
                 @keyframes previewFadeUp {
                     to { opacity: 1; transform: translateY(0); }
@@ -213,125 +225,366 @@
                     will-change: transform; 
                     touch-action: pan-y; /* Pozwala na scrollowanie strony góra/dół, blokuje tylko lewo/prawo */
                 }
+                @media (prefers-reduced-motion: reduce) {
+                    #hero-bg-video { display: none; }
+                }
             </style>
 
             <div class="marquee-container flex gap-6 px-6 select-none" id="marquee-track">
                 <!-- Grupa 1 (AOS usunięte by uniknąć zacięć i skanowania przez przeglądarkę na bieżąco) -->
                 <div class="flex gap-6 shrink-0">
-                    <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.webp" loading="lazy" width="1000" height="1998" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.webp" loading="lazy" width="1000" height="1998" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.webp" loading="lazy" width="1000" height="1998" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.webp" loading="lazy" width="1000" height="1998" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.webp" loading="lazy" width="1000" height="1998" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.webp" loading="lazy" width="1000" height="2233" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.webp" loading="lazy" width="1000" height="2233" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.webp" loading="lazy" width="1000" height="2233" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.webp" loading="lazy" width="1000" height="2233" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.webp" loading="lazy" width="1000" height="2233" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
                 
                 <!-- Grupa 2 (Klon - by zachować ciągłość karuzeli) -->
                 <div class="flex gap-6 shrink-0">
-                    <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr2.webp" loading="lazy" width="1000" height="1998" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr3.webp" loading="lazy" width="1000" height="1998" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr4.webp" loading="lazy" width="1000" height="1998" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr6.webp" loading="lazy" width="1000" height="1998" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr7.webp" loading="lazy" width="1000" height="1998" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
-                    <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-300 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr1.webp" loading="lazy" width="1000" height="1998" alt="Canvas" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr2.webp" loading="lazy" width="1000" height="2233" alt="Layers" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr3.webp" loading="lazy" width="1000" height="2233" alt="Panels" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr4.webp" loading="lazy" width="1000" height="2233" alt="Guides" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr5.webp" loading="lazy" width="1000" height="1998" alt="Onion" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr6.webp" loading="lazy" width="1000" height="2233" alt="Export" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr7.webp" loading="lazy" width="1000" height="2233" alt="Import" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
+                    <img src="scr8.webp" loading="lazy" width="1000" height="1998" alt="Workflow" draggable="false" onclick="openLightbox(this.src)" class="h-[55vh] md:h-[70vh] w-auto object-contain rounded-[2.5rem] shadow-2xl shadow-stone-400/40 border-[8px] border-white cursor-pointer hover:scale-[1.02] transition-transform duration-500">
                 </div>
             </div>
         </section>
 
-                <!-- SEKCJA FEATURES / ABOUT -->
+        </div>
+
+        <!-- SEKCJA FEATURES / ABOUT -->
         <section id="features" class="max-w-6xl mx-auto px-6 pt-24 pb-24 border-t border-b border-stone-100 mb-10">
-            <div class="text-center mb-20">
+            <div class="text-center mb-20 md:mb-28" data-aos="fade-up">
                 <p class="text-sm font-bold uppercase tracking-[0.3em] text-stone-400 mb-4">About the App</p>
-                <h2 class="text-3xl font-extrabold text-stone-900">Built for Creators, by Creators.</h2>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900 tracking-tight">Built for Creators, by Creators.</h2>
+                <p class="text-lg text-stone-500 max-w-2xl mx-auto mt-5 leading-relaxed">
+                    The professional storyboard studio in your pocket. Sketch, organize, and export industry-standard boards in seconds.
+                </p>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-y-16 gap-x-12 text-center md:text-left justify-center">
-                <!-- ROW 1 (Core) -->
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+
+            <!-- ROZBUDOWANE BLOKI ONE-PAGE -->
+            <div class="space-y-24 md:space-y-32">
+
+                <!-- BLOK 1: From Board to Final Film (Tekst po lewej, szerokie porównanie 16:9 po prawej) -->
+                <div class="grid md:grid-cols-12 gap-10 md:gap-12 items-center" data-aos="fade-up">
+                    <div class="md:col-span-5 space-y-6 text-center md:text-left">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-600 text-[10px] font-bold uppercase tracking-[0.2em]">
+                            01 · Production Ready
+                        </span>
+                        <h3 class="text-2xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+                            From Storyboard to Final Film.
+                        </h3>
+                        <p class="text-base text-stone-500 leading-relaxed max-w-xl mx-auto md:mx-0">
+                            Bridge pre-production and final animation seamlessly. Export timed MP4 animatics, print-ready A4 PDF sheets with shot notes and dialogue, transparent PNG sequences, or native .SGO files.
+                        </p>
+                        <ul class="space-y-2.5 text-sm text-stone-600 pt-1">
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>MP4 Animatics with audio, timing &amp; optional guides</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Print-ready A4 PDF storyboards &amp; PNG sequences</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Portable .SGO projects for backups and collaboration</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Effortless Sketching</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Professional tools (Pencil, Liner, Brush) designed for creative flow and tactile precision. No lag, just pure creation.</p>
-                </div>
-                
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4 relative h-8 w-8 mx-auto md:mx-0" aria-hidden="true">
-                        <svg class="absolute inset-0 w-8 h-8 text-amber-500/20" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="14" height="14" rx="2"/></svg>
-                        <svg class="absolute inset-0 w-8 h-8 text-amber-500/50" fill="currentColor" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-                        <svg class="absolute inset-0 w-8 h-8 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/></svg>
+
+                    <div class="md:col-span-7">
+                        <div id="compare-frame" class="relative w-full aspect-video rounded-[1.5rem] md:rounded-[2rem] p-[7px] bg-white shadow-2xl shadow-stone-300/70 ring-1 ring-stone-200/80 select-none cursor-ew-resize touch-pan-y">
+                            <div id="compare-viewport" class="relative w-full h-full rounded-[1.15rem] md:rounded-[1.6rem] overflow-hidden bg-stone-900">
+                                <!-- Warstwa bazowa: Finalna animacja -->
+                                <video id="compare-final-video" class="absolute inset-0 w-full h-full object-cover pointer-events-none" muted playsinline preload="auto" aria-label="Final color animation">
+                                    <source src="resources/Sweet_Expedition_Scene.webm" type="video/webm">
+                                    <source src="resources/Sweet_Expedition_Scene.mp4" type="video/mp4">
+                                </video>
+                                <!-- Warstwa górna: Animatic z Storyboard GO (przycinana suwakiem) -->
+                                <video id="compare-animatic-video" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: inset(0 50% 0 0);" muted playsinline preload="auto" aria-label="Storyboard GO animatic">
+                                    <source src="resources/Animatic_Sweet%20Expedition.webm" type="video/webm">
+                                    <source src="resources/Animatic_Sweet%20Expedition.mp4" type="video/mp4">
+                                </video>
+
+                                <!-- Narożne etykiety -->
+                                <span id="compare-label-animatic" class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-stone-900/70 text-white text-[9px] font-bold uppercase tracking-widest backdrop-blur-sm pointer-events-none transition-opacity duration-200">
+                                    Animatic
+                                </span>
+                                <span id="compare-label-final" class="absolute bottom-3 right-3 z-10 px-2.5 py-1 rounded-full bg-amber-600/90 text-white text-[9px] font-bold uppercase tracking-widest backdrop-blur-sm pointer-events-none transition-opacity duration-200">
+                                    Final Film
+                                </span>
+                            </div>
+
+                            <!-- Cienka linia podziału + uchwyt przeniesiony na dolną krawędź ramki (nie zasłania animacji) -->
+                            <div class="pointer-events-none absolute inset-[7px] z-20">
+                                <div id="compare-divider" style="left: 50%;" class="absolute inset-y-0 w-[2px] -ml-[1px] bg-white/95 shadow-[0_0_10px_rgba(0,0,0,0.45)]">
+                                    <div id="compare-handle" role="slider" tabindex="0" aria-label="Compare Storyboard GO animatic and final animation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" class="pointer-events-auto absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-11 h-7 rounded-full bg-white text-stone-900 shadow-lg ring-2 ring-amber-500 flex items-center justify-center hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400 transition-transform cursor-ew-resize">
+                                        <svg class="w-4 h-4 text-stone-800" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center px-3 mt-5 text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                            <span>Storyboard GO Animatic</span>
+                            <span class="text-amber-600 hidden sm:inline">&larr; Drag Slider to Compare &rarr;</span>
+                            <span>Final Color Animation</span>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Onion Skin</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Reference previous and upcoming frames transparently to draw with perfect continuity and fluid motion.</p>
                 </div>
 
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
+                <!-- BLOK 2: Sketch & Layers (Wideo po lewej, tekst po prawej) -->
+                <div class="grid md:grid-cols-12 gap-10 md:gap-12 items-center" data-aos="fade-up">
+                    <div class="md:col-span-5 flex justify-center order-2 md:order-1">
+                        <div class="w-[240px] sm:w-[270px] lg:w-[285px] aspect-[1080/2412] rounded-[2.25rem] p-[7px] bg-white shadow-2xl shadow-stone-300/70 ring-1 ring-stone-200/80">
+                            <video class="feature-video w-full h-full object-cover rounded-[1.85rem] bg-stone-100" loop muted playsinline preload="metadata" aria-label="Sketching tools and Layer Panel in Storyboard GO">
+                                <source src="resources/sketching.webm" type="video/webm">
+                                <source src="resources/sketching.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Layer Panel</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Keep backgrounds, characters, and annotations separate for non-destructive editing and absolute control.</p>
+                    <div class="md:col-span-7 order-1 md:order-2 space-y-6 text-center md:text-left">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-600 text-[10px] font-bold uppercase tracking-[0.2em]">
+                            02 · Drawing & Layers
+                        </span>
+                        <h3 class="text-2xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+                            Sketch Effortlessly. Organize in Layers.
+                        </h3>
+                        <p class="text-base text-stone-500 leading-relaxed max-w-xl mx-auto md:mx-0">
+                            Responsive Pencil, Liner, and Brush tools built for pure creative flow — paired with a dedicated Layer Panel to keep foreground characters, backgrounds, and camera notes separate without ever risking your linework.
+                        </p>
+                        <ul class="space-y-2.5 text-sm text-stone-600 pt-1">
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Pencil, pressure-sensitive Brush, Line &amp; Arrow tools</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Non-destructive Layer Panel with opacity, lock &amp; visibility</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Smooth two-finger zoom, pan, and canvas rotation</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- ROW 2 (Filmmaking Workflow) -->
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM8 5v14h2V5H8zm6 0v14h2V5h-2zM5 8h14v2H5V8zm0 6h14v2H5v-2z"/>
-                        </svg>
+                <!-- BLOK 3: Audio & Live Animatic Player (Tekst po lewej, wideo z przełącznikiem po prawej) -->
+                <div class="grid md:grid-cols-12 gap-10 md:gap-12 items-center" data-aos="fade-up">
+                    <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-600 text-[10px] font-bold uppercase tracking-[0.2em]">
+                            03 · Audio &amp; Animatic Player
+                        </span>
+                        <h3 class="text-2xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+                            Multi-Track Audio &amp; Real-Time Playback.
+                        </h3>
+                        <p class="text-base text-stone-500 leading-relaxed max-w-xl mx-auto md:mx-0">
+                            Test pacing and rhythm directly inside the app. Drop voiceovers, music, and sound effects across multiple tracks, sculpt volume with keyframes, slide clips into place, and watch your timed animatic play back live.
+                        </p>
+
+                        <!-- Przełącznik trybów wideo: Odtwarzanie vs Klatki kluczowe -->
+                        <div class="flex justify-center md:justify-start pt-1">
+                            <div class="inline-flex p-1.5 rounded-2xl bg-stone-100 border border-stone-200/70 gap-1" role="group" aria-label="Audio & Animatic demo modes">
+                                <button id="audio-tab-playback" type="button" onclick="switchAudioDemo('playback')" aria-pressed="true" class="px-4 py-2 rounded-xl text-[11px] font-bold uppercase tracking-wider bg-white text-stone-900 shadow-sm transition-all cursor-pointer">
+                                    Live Playback
+                                </button>
+                                <button id="audio-tab-keyframes" type="button" onclick="switchAudioDemo('keyframes')" aria-pressed="false" class="px-4 py-2 rounded-xl text-[11px] font-bold uppercase tracking-wider text-stone-500 hover:text-stone-800 transition-all cursor-pointer">
+                                    Keyframes &amp; Clips
+                                </button>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-sm text-stone-600 pt-1">
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Live animatic preview synced to panel timings</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Multi-track audio timeline with draggable clips</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Keyframe volume automation right on the timeline</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Cinema Overlays</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Frame every shot like a pro. Toggle built-in composition guides like the Rule of Thirds and Action Safe areas instantly.</p>
+
+                    <div class="md:col-span-5 flex flex-col items-center">
+                        <div class="relative w-[240px] sm:w-[270px] lg:w-[285px] aspect-[1080/2412] rounded-[2.25rem] p-[7px] bg-white shadow-2xl shadow-stone-300/70 ring-1 ring-stone-200/80">
+                            <div class="relative w-full h-full rounded-[1.85rem] overflow-hidden bg-stone-100">
+                                <video id="video-audio-playback" class="feature-video absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-100" loop muted playsinline preload="metadata" aria-label="Live animatic playback with multi-track audio in Storyboard GO">
+                                    <source src="resources/animatic-audio.webm" type="video/webm">
+                                    <source src="resources/animatic-audio.mp4" type="video/mp4">
+                                </video>
+                                <video id="video-audio-keyframes" class="feature-video hidden-tab-video absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 pointer-events-none" loop muted playsinline preload="metadata" aria-label="Audio keyframes and clip editing in Storyboard GO">
+                                    <source src="resources/animatic-audio-klatki.webm" type="video/webm">
+                                    <source src="resources/animatic-audio-klatki.mp4" type="video/mp4">
+                                </video>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8h-3zM5 19l3-4 2 3 3-4 4 5H5z"/>
-                        </svg>
+                <!-- BLOK 4: Appearance Shop & Tilt-Reactive Ornaments (Wideo po lewej, tekst po prawej) -->
+                <div class="grid md:grid-cols-12 gap-10 md:gap-12 items-center" data-aos="fade-up">
+                    <div class="md:col-span-5 flex justify-center order-2 md:order-1">
+                        <div class="w-[240px] sm:w-[270px] lg:w-[285px] aspect-[1080/2412] rounded-[2.25rem] p-[7px] bg-white shadow-2xl shadow-stone-300/70 ring-1 ring-stone-200/80">
+                            <video class="feature-video w-full h-full object-cover rounded-[1.85rem] bg-stone-100" loop muted playsinline preload="metadata" aria-label="Appearance Shop tilt-reactive workspace ornaments in Storyboard GO">
+                                <source src="resources/appearance.webm" type="video/webm">
+                                <source src="resources/appearance.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Asset Import</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Need a specific background or reference? Import your own image assets directly onto the canvas to speed up your workflow.</p>
+                    <div class="md:col-span-7 order-1 md:order-2 space-y-6 text-center md:text-left">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-600 text-[10px] font-bold uppercase tracking-[0.2em]">
+                            04 · Appearance Shop
+                        </span>
+                        <h3 class="text-2xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+                            Decorate Your Main Workspace.
+                        </h3>
+                        <p class="text-base text-stone-500 leading-relaxed max-w-xl mx-auto md:mx-0">
+                            Give your studio personality. Unlock hanging ornaments in the Appearance Shop that drape beneath your panel strip, sway naturally as you tilt your phone, and feature animated companions like a climbing spider or twinkling lights.
+                        </p>
+                        <ul class="space-y-2.5 text-sm text-stone-600 pt-1">
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Tilt-reactive physics powered by your device motion</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Animated ornaments (Spider &amp; Cobweb, Moon &amp; Sun, Fairy Lights)</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Instant live preview right inside the shop</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24"><path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zM10 5v6h5V5h-5zm6 0v6h5V5h-5z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Production Precision</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Organize scenes and panels with surgical accuracy. Manage metadata, lens info, and timing in one clean interface.</p>
+            </div>
+
+            <!-- SIATKA DODATKOWYCH NARZĘDZI -->
+            <div class="mt-28 pt-20 border-t border-stone-100">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <p class="text-xs font-bold uppercase tracking-[0.3em] text-stone-400 mb-3">Built-In Toolkit</p>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-stone-900">Everything Else You Need on Set.</h3>
                 </div>
 
-                <!-- ROW 3 (Output Deliverables) -->
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-12 text-center md:text-left">
+                    <div class="space-y-3 sm:max-w-sm mx-auto md:mx-0" data-aos="fade-up">
+                        <div class="mb-4 relative h-8 w-8 mx-auto md:mx-0" aria-hidden="true">
+                            <svg class="absolute inset-0 w-8 h-8 text-amber-500/20" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="14" height="14" rx="2"/></svg>
+                            <svg class="absolute inset-0 w-8 h-8 text-amber-500/50" fill="currentColor" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+                            <svg class="absolute inset-0 w-8 h-8 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/></svg>
+                        </div>
+                        <h4 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Onion Skin</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">Reference previous and upcoming frames transparently to draw with perfect continuity and fluid motion.</p>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Export to Animatic</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Bring your storyboards to life instantly. Export sequences as timed animatics to test pacing and rhythm.</p>
-                </div>
 
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M6 2C4.895 2 4 2.895 4 4v16c0 1.105.895 2 2 2h12c1.105 0 2-.895 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5z"/>
-                            <text x="12" y="17" font-family="sans-serif" font-weight="900" font-size="5.5" text-anchor="middle" fill="#ffffff" letter-spacing="-0.2">.SGO</text>
-                        </svg>
+                    <div class="space-y-3 sm:max-w-sm mx-auto md:mx-0" data-aos="fade-up" data-aos-delay="75">
+                        <div class="mb-4" aria-hidden="true">
+                            <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM8 5v14h2V5H8zm6 0v14h2V5h-2zM5 8h14v2H5V8zm0 6h14v2H5v-2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Cinema Overlays</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">Frame every shot like a pro. Toggle built-in composition guides like the Rule of Thirds and Action Safe areas instantly.</p>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Native .SGO Format</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Seamlessly export and import your projects. Share your work with collaborators or move between devices without losing quality.</p>
-                </div>
 
-                <div class="space-y-4 sm:max-w-sm mx-auto md:mx-0">
-                    <div class="mb-4" aria-hidden="true">
-                        <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24"><path d="M16 5l-1.42 1.42-1.59-1.59V16h-2V4.83L9.41 6.41 8 5l4-4 4 4zm4 5v11c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3v2H6v11h12V10h-3V8h3c1.1 0 2 .9 2 2z"/></svg>
+                    <div class="space-y-3 sm:max-w-sm mx-auto md:mx-0" data-aos="fade-up" data-aos-delay="150">
+                        <div class="mb-4" aria-hidden="true">
+                            <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8h-3zM5 19l3-4 2 3 3-4 4 5H5z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Asset Import &amp; Transform</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">Import reference images or backgrounds straight onto the canvas, then scale, rotate, and position them freely.</p>
                     </div>
-                    <h3 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Industry Exports</h3>
-                    <p class="text-sm text-stone-500 leading-relaxed">Generate high-quality PDF and PNG sequences. Ready for the film set, animatics, pitch meetings, or your portfolio.</p>
+
+                    <div class="space-y-3 sm:max-w-sm mx-auto md:mx-0" data-aos="fade-up">
+                        <div class="mb-4" aria-hidden="true">
+                            <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 2C4.895 2 4 2.895 4 4v16c0 1.105.895 2 2 2h12c1.105 0 2-.895 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5z"/>
+                                <text x="12" y="17" font-family="sans-serif" font-weight="900" font-size="5.5" text-anchor="middle" fill="#ffffff" letter-spacing="-0.2">.SGO</text>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Native .SGO Format</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">Seamlessly export and import complete projects with layers, audio, and timing intact across devices.</p>
+                    </div>
+
+                    <div class="space-y-3 sm:max-w-sm mx-auto md:mx-0" data-aos="fade-up" data-aos-delay="75">
+                        <div class="mb-4" aria-hidden="true">
+                            <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24"><path d="M16 5l-1.42 1.42-1.59-1.59V16h-2V4.83L9.41 6.41 8 5l4-4 4 4zm4 5v11c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3v2H6v11h12V10h-3V8h3c1.1 0 2 .9 2 2z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-stone-900 uppercase text-xs tracking-widest">PDF &amp; PNG Exports</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">Generate high-quality print-ready PDF storyboards and transparent PNG sequences for pitch meetings or post-production.</p>
+                    </div>
+
+                    <div class="space-y-3 sm:max-w-sm mx-auto md:mx-0" data-aos="fade-up" data-aos-delay="150">
+                        <div class="mb-4" aria-hidden="true">
+                            <svg class="w-8 h-8 text-amber-500 mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24"><path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zM10 5v6h5V5h-5zm6 0v6h5V5h-5z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-stone-900 uppercase text-xs tracking-widest">Panel Notes &amp; Timecode</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">Organize scenes, shots, dialogue, camera direction, and exact panel durations — ready to burn directly into exports.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOK URZĄDZEŃ: TELEFONY I TABLETY -->
+            <div class="mt-28 pt-20 border-t border-stone-100">
+                <div class="grid md:grid-cols-12 gap-12 lg:gap-14 items-center" data-aos="fade-up">
+                    <div class="md:col-span-5 space-y-6 text-center md:text-left">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-600 text-[10px] font-bold uppercase tracking-[0.2em]">
+                            Phones &amp; Tablets
+                        </span>
+                        <h3 class="text-2xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+                            Built for Pocket Speed &amp; Tablet Precision.
+                        </h3>
+                        <p class="text-base text-stone-500 leading-relaxed max-w-xl mx-auto md:mx-0">
+                            Storyboard GO adapts naturally to your screen. Catch spontaneous ideas on your phone anywhere, or open your project on a tablet for a spacious studio layout with stylus support.
+                        </p>
+                        <ul class="space-y-2.5 text-sm text-stone-600 pt-1">
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Adaptive UI — compact on phones, expanded sidebar on tablets</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Pressure-sensitive brush support for tablet styluses</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                                <span>Seamless .SGO project transfer between Android devices</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="md:col-span-7">
+                        <div class="relative pb-8 pr-6 sm:pb-10 sm:pr-10">
+                            <!-- Tablet (Poziomy) -->
+                            <div class="w-full rounded-[1.5rem] sm:rounded-[2rem] p-[7px] bg-white shadow-2xl shadow-stone-300/70 ring-1 ring-stone-200/80">
+                                <img src="Scr_Tablet.webp" loading="lazy" width="1400" height="875" alt="Storyboard GO adaptive workspace on Tablet" class="w-full h-auto block rounded-[1.15rem] sm:rounded-[1.6rem] object-cover">
+                            </div>
+
+                            <!-- Telefon (Pionowy, nałożony na prawy dolny róg) -->
+                            <div class="absolute bottom-0 right-0 w-[30%] sm:w-[27%] max-w-[165px] rounded-[1.5rem] sm:rounded-[2rem] p-[5px] sm:p-[6px] bg-white shadow-2xl shadow-stone-900/20 ring-1 ring-stone-200/90">
+                                <img src="scr4.webp" loading="lazy" width="1000" height="2233" alt="Storyboard GO interface on Phone" class="w-full h-auto block rounded-[1.15rem] sm:rounded-[1.6rem] object-cover">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1028,6 +1281,206 @@
         });
     </script>
     
+    <script>
+        // --- INTERACTIVE FEATURE SHOWCASE, LAZY VIDEO PLAYBACK & SPLIT SLIDER ---
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const featureVideos = document.querySelectorAll('.feature-video');
+
+        function syncFeatureVideoPlayback(videoEl, shouldPlay) {
+            if (!videoEl || prefersReducedMotion) return;
+            if (shouldPlay && !videoEl.classList.contains('hidden-tab-video')) {
+                videoEl.play().catch(() => {});
+            } else {
+                videoEl.pause();
+            }
+        }
+
+        if ('IntersectionObserver' in window && !prefersReducedMotion) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    syncFeatureVideoPlayback(entry.target, entry.isIntersecting);
+                });
+            }, { threshold: 0.25 });
+
+            featureVideos.forEach(video => videoObserver.observe(video));
+        }
+
+        function switchAudioDemo(tab) {
+            const playbackVideo = document.getElementById('video-audio-playback');
+            const keyframesVideo = document.getElementById('video-audio-keyframes');
+            const tabPlayback = document.getElementById('audio-tab-playback');
+            const tabKeyframes = document.getElementById('audio-tab-keyframes');
+
+            if (!playbackVideo || !keyframesVideo || !tabPlayback || !tabKeyframes) return;
+
+            const showPlayback = tab === 'playback';
+
+            playbackVideo.classList.toggle('opacity-100', showPlayback);
+            playbackVideo.classList.toggle('opacity-0', !showPlayback);
+            playbackVideo.classList.toggle('pointer-events-none', !showPlayback);
+            playbackVideo.classList.toggle('hidden-tab-video', !showPlayback);
+
+            keyframesVideo.classList.toggle('opacity-100', !showPlayback);
+            keyframesVideo.classList.toggle('opacity-0', showPlayback);
+            keyframesVideo.classList.toggle('pointer-events-none', showPlayback);
+            keyframesVideo.classList.toggle('hidden-tab-video', showPlayback);
+
+            const activeVideo = showPlayback ? playbackVideo : keyframesVideo;
+            const inactiveVideo = showPlayback ? keyframesVideo : playbackVideo;
+
+            inactiveVideo.pause();
+            activeVideo.currentTime = 0;
+            if (!prefersReducedMotion) {
+                activeVideo.play().catch(() => {});
+            }
+
+            const activeClasses = ['bg-white', 'text-stone-900', 'shadow-sm'];
+            const inactiveClasses = ['text-stone-500', 'hover:text-stone-800'];
+
+            if (showPlayback) {
+                tabPlayback.classList.add(...activeClasses);
+                tabPlayback.classList.remove(...inactiveClasses);
+                tabPlayback.setAttribute('aria-pressed', 'true');
+                tabKeyframes.classList.remove(...activeClasses);
+                tabKeyframes.classList.add(...inactiveClasses);
+                tabKeyframes.setAttribute('aria-pressed', 'false');
+            } else {
+                tabKeyframes.classList.add(...activeClasses);
+                tabKeyframes.classList.remove(...inactiveClasses);
+                tabKeyframes.setAttribute('aria-pressed', 'true');
+                tabPlayback.classList.remove(...activeClasses);
+                tabPlayback.classList.add(...inactiveClasses);
+                tabPlayback.setAttribute('aria-pressed', 'false');
+            }
+        }
+
+        // --- BEFORE/AFTER COMPARISON SLIDER (Synchronized 10s Scene 1 loop) ---
+        (function initComparisonSlider() {
+            const frame = document.getElementById('compare-frame');
+            const viewport = document.getElementById('compare-viewport');
+            const finalVideo = document.getElementById('compare-final-video');
+            const animaticVideo = document.getElementById('compare-animatic-video');
+            const divider = document.getElementById('compare-divider');
+            const handle = document.getElementById('compare-handle');
+            const labelAnimatic = document.getElementById('compare-label-animatic');
+            const labelFinal = document.getElementById('compare-label-final');
+
+            if (!viewport || !finalVideo || !animaticVideo || !divider || !handle) return;
+
+            let sliderPercent = 50;
+            let isDraggingSlider = false;
+            let isCompareVisible = false;
+
+            function setSliderPosition(pct) {
+                sliderPercent = Math.max(0, Math.min(100, pct));
+                animaticVideo.style.clipPath = `inset(0 ${100 - sliderPercent}% 0 0)`;
+                divider.style.left = `${sliderPercent}%`;
+                handle.setAttribute('aria-valuenow', String(Math.round(sliderPercent)));
+
+                if (labelAnimatic) labelAnimatic.style.opacity = sliderPercent < 14 ? '0' : '1';
+                if (labelFinal) labelFinal.style.opacity = sliderPercent > 86 ? '0' : '1';
+            }
+
+            function updateFromClientX(clientX) {
+                const rect = viewport.getBoundingClientRect();
+                if (!rect.width) return;
+                const pct = ((clientX - rect.left) / rect.width) * 100;
+                setSliderPosition(pct);
+            }
+
+            const dragSurface = frame || viewport;
+            dragSurface.addEventListener('pointerdown', (e) => {
+                isDraggingSlider = true;
+                try { dragSurface.setPointerCapture(e.pointerId); } catch (_) {}
+                updateFromClientX(e.clientX);
+            });
+
+            dragSurface.addEventListener('pointermove', (e) => {
+                if (!isDraggingSlider) return;
+                updateFromClientX(e.clientX);
+            });
+
+            const stopDrag = () => { isDraggingSlider = false; };
+            dragSurface.addEventListener('pointerup', stopDrag);
+            dragSurface.addEventListener('pointercancel', stopDrag);
+
+            handle.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') { e.preventDefault(); setSliderPosition(sliderPercent - 4); }
+                else if (e.key === 'ArrowRight') { e.preventDefault(); setSliderPosition(sliderPercent + 4); }
+                else if (e.key === 'Home') { e.preventDefault(); setSliderPosition(0); }
+                else if (e.key === 'End') { e.preventDefault(); setSliderPosition(100); }
+            });
+
+            function tryStartSyncedPlayback() {
+                if (!isCompareVisible || prefersReducedMotion) return;
+                if (finalVideo.readyState < 2 || animaticVideo.readyState < 2) return;
+
+                const loopEnd = (Number.isFinite(finalVideo.duration) && finalVideo.duration > 1)
+                    ? finalVideo.duration
+                    : 10;
+
+                if (finalVideo.ended || finalVideo.currentTime >= loopEnd - 0.05) {
+                    finalVideo.currentTime = 0;
+                    animaticVideo.currentTime = 0;
+                } else if (Math.abs(animaticVideo.currentTime - finalVideo.currentTime) > 0.1) {
+                    animaticVideo.currentTime = finalVideo.currentTime;
+                }
+
+                finalVideo.play().catch(() => {});
+                animaticVideo.play().catch(() => {});
+            }
+
+            finalVideo.addEventListener('canplay', tryStartSyncedPlayback);
+            animaticVideo.addEventListener('canplay', tryStartSyncedPlayback);
+
+            finalVideo.addEventListener('ended', () => {
+                finalVideo.currentTime = 0;
+                animaticVideo.currentTime = 0;
+                tryStartSyncedPlayback();
+            });
+
+            finalVideo.addEventListener('timeupdate', () => {
+                if (!isCompareVisible || finalVideo.paused) return;
+                const loopEnd = (Number.isFinite(finalVideo.duration) && finalVideo.duration > 1)
+                    ? finalVideo.duration
+                    : 10;
+
+                if (finalVideo.currentTime >= loopEnd - 0.05 || animaticVideo.currentTime >= loopEnd) {
+                    finalVideo.currentTime = 0;
+                    animaticVideo.currentTime = 0;
+                    return;
+                }
+
+                if (Math.abs(animaticVideo.currentTime - finalVideo.currentTime) > 0.12) {
+                    animaticVideo.currentTime = finalVideo.currentTime;
+                }
+            });
+
+            if (prefersReducedMotion) {
+                const seekToHeroFrame = (v) => {
+                    v.addEventListener('loadedmetadata', () => { v.currentTime = 7.8; }, { once: true });
+                };
+                seekToHeroFrame(finalVideo);
+                seekToHeroFrame(animaticVideo);
+            } else if ('IntersectionObserver' in window) {
+                const compareObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        isCompareVisible = entry.isIntersecting;
+                        if (isCompareVisible) {
+                            tryStartSyncedPlayback();
+                        } else {
+                            finalVideo.pause();
+                            animaticVideo.pause();
+                        }
+                    });
+                }, { threshold: 0.25 });
+                compareObserver.observe(viewport);
+            }
+
+            setSliderPosition(50);
+        })();
+    </script>
+
     <!-- AOS Library (Inicjalizacja animacji) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
