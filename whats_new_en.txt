@@ -1,80 +1,44 @@
-VIDEO: https://www.youtube.com/shorts/OfD-maLW_Dw
+VIDEO: https://www.youtube.com/shorts/S0rwM-b-6LM
+Hey there! 
+Awesome to have you here!
 
+As the solo creator behind this app, there's still plenty of work ahead, so I truly apologize for any bugs or quirks you might run into. Thank you so much for your support!
 
-Hello there!
-It's great to have you here with us! 
+I warmly invite you to share your feedback, report issues, and drop feature ideas on our Discord community. Together, we're building the ultimate mobile storyboard tool! Warm regards, ~Wit 🧡
 
-As the creator of this app, I still have some work ahead of me, so I sincerely apologize in advance for any bugs or inconveniences you might encounter. Your support is invaluable to me!
+🚀 What's New in v1.0.8
 
-I highly encourage you to share your feedback, report bugs, and drop your ideas on our Discord. Let's build the best storyboarding tool together! Warm regards - Witek
+• Multi-Track Audio Timeline: A feature so many of you asked for! You can now layer dialogues, music, and sound effects across multiple independent audio tracks and align them with your animatic.
+• Volume Keyframes: Craft buttery-smooth fades (fade-in, fade-out) and take precise control over individual clip volume (e.g. ducking music under character voices).
+• Audio Clip Tools: Drag, trim, and split audio clips right at the playhead position (Split clip) with a single tap.
+• Live Preview Playback: Watch your animatics directly on the canvas with full audio sync—no more waiting for video exports just to check your scene timing!
+• Studio Appearance & Decor: A little personal passion project! Deck out your workspace with charming ornaments that physically sway and react to your device’s gyroscope and tilt.
+• Smoother Canvas Gestures: Upgraded two-finger canvas rotation—the pivot point now naturally follows your touch focal point, and quick turns no longer accidentally trigger Undo.
+• New Export Modals for All Formats: Choose the save directory, customize the number of panels per PDF sheet, scale MP4 and PNG resolutions up or down, and fine-tune many other parameters!
+• Audio-Enabled Video & .SGO Export: Export animatics to MP4 with full multi-track audio mixdown, and safely archive your projects in .sgo format with all audio intact.
+• Follow for Panels! From now until further notice, follow Storyboard GO on our social media and get a permanent +1 panel boost for each! (Note: this is stored locally on your device rather than linked to a Google account; if you use multiple devices, simply tap follow again and the app will detect it and add +1 to your panel limit).
+• Rotation lock when panning across the canvas.
+• Easier tool expansion from the drawing toolbar.
+• Optimized Landscape Mode: The appearance sheet and audio timeline automatically adapt to landscape orientation.
+• Interactive User Manual: Explore brand-new interactive mockups in the user manual demonstrating audio, keyframes, and appearance settings.
+• Fresh new look for our website: www.storyboardgo.com!
 
-🚀 What's New in v1.0.7
+🎉 Previous Updates (v1.0.7)
 
-• Layer Scaling & Transform: It’s finally here! You can now freely move, scale, and rotate your layers.
-• Animatic Dialogues: Display character dialogues directly inside your animatic.
-• Lightning-Fast Exports: Rendering is now much, much faster!
-• Vector Line Rendering Fix: Improved rendering of lines drawn on the stage—I fixed (I hope) the annoying bug where the vector wasn't being baked to the raster.
-• Alpha & Opacity Fixes: Added a dedicated Alpha slider to the color picker. Plus, layer opacity is fully preserved when duplicating panels.
-• Smart Panel Add: Adding a new panel now places it directly next to your active one, not at the very end of the project.
-• Proper Naming & Numbers: Now, in the Data panel, there is a breakdown by Scene / Shot / Panel.
-• Smart Layer Panel Close: Clicking outside the layer panel now automatically closes it to keep your workspace clean. Exception: If you tap a scene thumbnail in the panel strip, the layer window stays open.
-• Reddit Community: Added a quick link to our brand-new Reddit community in the "Join Our Community" section!
-• The SGO Origin Story: Added a brand new "The Storyboard GO Journey" section in the About tab.
-• Official SGO File Icons: Your phone will now proudly display the official SGO icon in your device manager for all .sgo files.
-• Custom Loading Icon: Rendering Animatics and PDFs now displays the animated SGO app icon as a sleek loading indicator.
-• Clean Duplication: Removed the annoying "copy" suffix from layer names when duplicating entire panels.
+• Layer Transform: Move, scale, and rotate drawing layers and imported assets freely.
+• Animatic Dialogues: Display character dialogue overlays directly in animatic mode.
+• Faster Exports: Substantially accelerated rendering speeds for PDF, PNG sequences, and MP4 videos.
+• Stroke Rasterization Fix: Improved vector-to-raster baking for smooth, glitch-free line rendering.
+• Alpha Slider: Dedicated opacity slider in the color picker, plus persistent layer opacity when duplicating.
+• Smart Panel Insertion: New panels now insert right next to your active panel instead of the very end.
+• Scene / Shot / Panel Numbering: Clear production breakdown in Panel Data.
+• Storyboard GO Journey: Added our origin story section to the About screen.
+• Official .sgo file icons in device file managers.
 
-🎉 Previous Updates (v1.0.6)
-• Focal Zoom: Better focal pinch-to-zoom logic and a new, much higher zoom level!
-• SGO Import: Seamless import of SGO files from the file manager and other apps.
-• Thumbnails & Manual: Improved loading of scene thumbnails and updated the in-app manual with an "Import" tab.
-• Rendering & Performance: Smoother drawing/erasing experience and improved rendering performance for PDF and MP4 exports.
-• Panel Info Scroll: Swiping through panel data now perfectly preserves your scroll position.
+🎉 Earlier Highlights (v1.0.2 - v1.0.6)
 
-Older Updates (v1.0.2 - v1.0.5)
-• Layer Duplicate & Opacity: Easily duplicate layers and adjust individual layer transparency.
-• Two-Finger Undo Fix: Optimized gesture logic to prevent accidental Undo triggers while drawing.
-• Panel Data Swipe: Switch between panels instantly by swiping left or right.
-• Double-Tap Gestures: Double-tap the left side to Undo and the right side to Redo.
-• Enhanced Burn-ins: Options to burn in Scene/Panel numbers and Frame Countdowns in MP4.
-
-Core Features (v1.0.0 & v1.0.1)
-• Complete storyboard creation with layers and panels.
-• Export options for PDF, PNG, MP4, and SGO formats.
-• Onion skinning for animation and movement previews.
-• Manual Updated: Updated the in-app manual with a new "Import" tab.
-• Thumbnails: Improved loading and display of scene thumbnails in the panel strip.
-• Drawing & Erasing: Smoother and more reliable drawing and erasing experience.
-• Export Rendering: Improved overall rendering performance for PDF and MP4 exports.
-• Panel Info Scroll: Swiping through panel data now perfectly preserves your scroll position.
-• PDF Panel Names: Fixed an issue where custom panel names/numbers weren't saving correctly in PDFs.
-• Clean Duplication: Removed the "copy" suffix from layer names when duplicating entire panels.
-
-🎉 Previous Updates (v1.0.5)
-• Layer Duplicate: Added the option to duplicate layers easily.
-• Layer Opacity: Adjust individual layer transparency for better control over your workflow.
-• Two-Finger Undo Fix: Optimized gesture logic to prevent accidental Undo triggers while drawing.
-• Social Hub UI: Improved the layout and display of the social media community links.
-
-Older Updates (v1.0.2 & v1.0.4)
-• Panel Data Swipe: Switch between panels instantly by swiping left or right without closing the menu.
-• Double-Tap Gestures: Double-tap the left side to Undo and the right side to Redo without breaking your flow.
-• Enhanced Burn-ins: New export options to burn in Scene/Panel numbers and Frame Countdowns in MP4.
-
-Core Features (v1.0.0 & v1.0.1)
-• Complete storyboard creation with layers and panels.
-• Export options for PDF, PNG, MP4, and SGO formats.
-• Onion skinning for animation and movement previews.
-• Issue-001 Fixed: Resolved project sync issues after .sgo imports.
-• Performance: 4096px limit for better stability on all devices.
-Previous Updates (v1.0.2 & v1.0.4)
-• Panel Data Swipe: Switch between panels instantly by swiping left or right without closing the menu.
-• Double-Tap Gestures: Double-tap the left side to Undo and the right side to Redo without breaking your flow.
-• Enhanced Burn-ins: New export options to burn in Scene/Panel numbers and Frame Countdowns in MP4.
-
-Core Features (v1.0.0 & v1.0.1)
-• Complete storyboard creation with layers and panels.
-• Export options for PDF, PNG, MP4, and SGO formats.
-• Onion skinning for animation and movement previews.
-• Issue-001 Fixed: Resolved project sync issues after .sgo imports.
-• Performance: 4096px limit for better stability on all devices.
+• Touch-Centric Zoom: Smoother zooming centered on your finger contact points with higher max zoom.
+• Layer Duplication & Opacity: Instant layer cloning and individual opacity sliders.
+• Double-Tap & Swipe Gestures: Quick undo/redo with screen double-taps and swipe gestures in panel info.
+• Advanced Onion Skinning: Transparent preview of neighboring frames for motion planning.
+• Composition Grids & Safe Areas: Rule of thirds grid and social/broadcast safe zone guides.
