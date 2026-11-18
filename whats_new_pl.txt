@@ -1,84 +1,44 @@
-VIDEO: https://www.youtube.com/shorts/OfD-maLW_Dw
-
+VIDEO: https://www.youtube.com/shorts/S0rwM-b-6LM
 Cześć! 
 Fajnie, że tutaj jesteś!
 
 Jako twórcę tej aplikacji czeka mnie jeszcze trochę pracy, dlatego z góry przepraszam za wszelkie błędy i niedogodności, na które możesz natrafić. Dzięki za Twoje wsparcie!
 
-Gorąco zachęcam do dzielenia się swoimi uwagami, zgłaszania błędów i podrzucania pomysłów na naszym Discordzie. Razem stworzymy najlepsze narzędzie do storyboardów! Pozdrawiam cieplutko - Witek
+Gorąco zachęcam do dzielenia się swoimi uwagami, zgłaszania błędów i podrzucania pomysłów na naszym Discordzie. Razem tworzymy najlepsze narzędzie do storyboardów! Pozdrawiam cieplutko - Witek 🧡
 
-🚀 Nowości w v1.0.7
+🚀 Nowości w v1.0.8
 
-• Skalowanie i transformacja warstw: W końcu tu jest! Możesz teraz swobodnie przesuwać, skalować i obracać wszystkie warstwy.
-• Dialogi w animaticu: Wyświetlaj teksty postaci bezpośrednio w animaticu.
-• Błyskawiczny eksport: Renderowanie plików jest teraz znacznie, znacznie szybsze!
-• Poprawka renderowania linii: Usprawniono renderowanie linii rysowanych na scenie – naprawiłem (mam nadzieję) irytujący błąd, przez który wektor nie był poprawnie "wypiekany" do rastra.
-• Poprawki Alpha i Opacity: Dodano dedykowany suwak Alpha do próbnika kolorów. Dodatkowo, przezroczystość warstwy jest w pełni zachowywana podczas duplikowania paneli.
-• Inteligentne dodawanie paneli: Nowy panel pojawia się teraz bezpośrednio obok aktualnie wybranego, a nie na samym końcu projektu.
-• Prawidłowe nazewnictwo i numery: Teraz w panelu Data (Dane) znajduje się wygodny podział na Scenę / Ujęcie (Shot) / Panel.
-• Inteligentne zamykanie warstw: Kliknięcie poza panelem warstw automatycznie go zamyka, pomagając utrzymać porządek w obszarze roboczym. Wyjątek: jeśli klikniesz miniaturkę sceny na górnym pasku, okno warstw pozostaje otwarte!
-• Społeczność Reddit: Dodano szybki link do naszej nowej społeczności na Reddicie w sekcji "Join Our Community!
-• Historia powstania SGO: Dodano zupełnie nową sekcję "The Storyboard GO Journey" w zakładce About.
-• Oficjalne ikony plików SGO: Twój telefon będzie teraz wyświetlał oficjalną ikonę SGO w menedżerze plików dla wszystkich plików w formacie.sgo.
-• Ikona ładowania: Renderowanie animaticów i PDF-ów wyświetla teraz animowaną ikonę aplikacji SGO jako wskaźnik ładowania.
-• Czyste duplikowanie: Usunięto irytujący dopisek "copy" z nazw warstw podczas kopiowania całych paneli.
+• Wielościeżkowa oś czasu audio: Funkcja, o którą wielu z Was mnie prosiło! Można teraz dodawać dialogi, muzykę i efekty dźwiękowe na wielu niezależnych ścieżkach audio i dopasowywać je do animatica.
+• Klatki kluczowe głośności (Keyframes): Twórz płynne wyciszenia (fade-in, fade-out) i precyzyjnie kontroluj głośność poszczególnych klipów (np. ściszając muzykę pod głos postaci).
+• Narzędzia edycji klipów: Przesuwaj, przycinaj i tnij klipy audio w miejscu wskaźnika odtwarzania (Split clip) jednym dotknięciem.
+• Odtwarzanie na żywo (Live Preview): Oglądaj swój animatic bezpośrednio na scenie z pełną synchronizacją dźwięku – koniec z koniecznością ciągłego eksportowania wideo, aby sprawdzić timing sceny!
+• Dostosuj wygląd studia (Appearance): Moja mała osobista niespodzianka! Udekoruj swoją przestrzeń roboczą wiszącymi ozdobami, które reagują na żyroskop i poruszają się, gdy obracasz telefonem lub tabletem.
+• Płynniejszy obrót i gesty: Udoskonalono obracanie sceny dwoma palcami – punkt obrotu (pivot) dopasowuje się naturalnie do miejsca styku palców, a szybkie obroty nie wywołują już przypadkowej akcji cofania (Undo).
+• Nowe okna eksportu dla wszystkich formatów: Wybieraj folder, w którym chcesz zapisać swoją pracę, zmieniaj ilość paneli w arkuszu PDF, zwiększaj bądź zmniejszaj rozdzielczość plików MP4, PNG i wiele innych parametrów!
+• Eksport MP4 i .sgo z audio: Nowy eksport animatica bez problemu wypieka wszystkie dodane ścieżki dźwiękowe do finalnego pliku wideo, a format .sgo bezpiecznie zapisuje całe udźwiękowienie.
+• Obserwuj za panele! Od teraz aż do odwołania uruchamiam akcję: zaobserwuj SGO na naszych social mediach, a za każde otrzymasz dodatkowy panel permanentnie! (Uwaga: ta funkcja nie jest przypisana do Twojego konta Google, a jedynie zapisywana stacjonarnie na Twoim urządzeniu. Jeśli korzystasz z kilku urządzeń, wystarczy, że ponownie spróbujesz zaobserwować profile SGO, a aplikacja sama wykryje, że już to zrobiłeś i zwiększy Ci limit paneli o +1).
+• Blokowanie obracania ekranu podczas przesuwania się po scenie.
+• Łatwiejsze wysuwanie narzędzi z paska narzędzi.
+• Zoptymalizowany tryb poziomy: Okno wyglądu oraz oś czasu audio automatycznie dopasowują swój układ w orientacji poziomej.
+• Nowe interaktywne instrukcje: Instrukcja w aplikacji została rozbudowana o w pełni klikalne, demonstracyjne moduły dla audio, klatek kluczowych i personalizacji studia.
+• Nowy wygląd strony www.storyboardgo.com!
 
-🎉 Poprzednie aktualizacje (v1.0.6)
+🎉 Poprzednie aktualizacje (v1.0.7)
 
-• Zoom punktowy: Lepsza logika przybliżania względem punktu styku palców oraz wyższy poziom maksymalnego zooma!
-• Import SGO: Płynne importowanie plików .sgo bezpośrednio z menedżera plików i innych aplikacji.
-• Miniaturki i Instrukcja: Usprawniono ładowanie miniaturek scen i dodano zakładkę "Import" do instrukcji.
-• Rysowanie i Eksport: Płynniejsze działanie narzędzi do rysowania oraz szybsze renderowanie PDF i MP4.
-• Scroll w informacjach: Przełączanie się między panelami (swipe) zachowuje teraz poziom przewinięcia ekranu.
+• Skalowanie i transformacja warstw: Swobodne przesuwanie, skalowanie i obracanie warstw oraz grafik.
+• Dialogi w animaticu: Wyświetlanie tekstów postaci bezpośrednio w animaticu.
+• Błyskawiczny eksport: Znaczne przyspieszenie renderowania plików PDF, PNG i MP4.
+• Poprawka renderowania linii: Usprawniono „wypiekanie” wektora do rastra przy rysowaniu na scenie.
+• Poprawki Alpha i Opacity: Dedykowany suwak Alpha w próbniku kolorów i zachowanie przezroczystości przy duplikowaniu.
+• Inteligentne dodawanie paneli: Nowy panel pojawia się bezpośrednio obok zaznaczonego ujęcia.
+• Podział danych w Panel Data: Wygodny podział metadanych na Scenę / Ujęcie (Shot) / Panel.
+• Historia powstania SGO: Nowa sekcja "The Storyboard GO Journey" w zakładce About.
+• Oficjalne ikony plików .sgo w systemowym menedżerze plików telefonu.
 
-Starsze aktualizacje (v1.0.2 - v1.0.5)
-• Kopiowanie i Opacity warstw: Możliwość szybkiego duplikowania warstw i kontroli ich przezroczystości.
-• Poprawka gestu Cofania: Przypadkowe dotknięcie ekranu podczas rysowania nie wywołuje już akcji Undo.
-• Swipe w Panel Data: Szybkie przełączanie między panelami gestem swipe bez zamykania okna.
-• Gesty Double-Tap: Szybkie cofanie (lewa strona) i ponawianie (prawa strona) dwukrotnym dotknięciem.
-• Ulepszone oznaczenia: Opcja wypalania numerów Scen, Paneli oraz odliczania klatek przy eksporcie MP4.
+🎉 Wcześniejsze aktualizacje (v1.0.2 - v1.0.6)
 
-Podstawowe funkcje (v1.0.0 & v1.0.1)
-• Pełne tworzenie storyboardów z podziałem na warstwy i panele.
-• Eksport projektów do formatów PDF, PNG, MP4 oraz natywnego .sgo.
-• Onion skinning: Podgląd poprzednich klatek ułatwiający planowanie ruchu.
-• Suwak Alpha: W próbniku kolorów dodano suwak do łatwiejszej kontroli przezroczystości (Alpha) pędzla.
-• Import SGO: Płynne importowanie plików .sgo bezpośrednio z menedżera plików i innych aplikacji.
-• Zaktualizowana instrukcja: Instrukcja wewnątrz aplikacji wzbogaciła się o nową zakładkę "Import".
-• Miniaturki: Usprawniono ładowanie i pojawianie się miniaturek scen na pasku paneli.
-• Rysowanie i mazanie: Płynniejsze i bardziej niezawodne działanie narzędzi do rysowania oraz wymazywania.
-• Renderowanie eksportu: Usprawniono ogólną wydajność renderowania przy eksporcie plików PDF oraz MP4.
-• Scroll w informacjach: Przełączanie się między danymi paneli (swipe) idealnie zachowuje teraz poziom przewinięcia ekranu z poprzedniego panelu.
-• Nazwy w PDF: Naprawiono błąd z zapisywaniem własnych nazw i numerów paneli w wyeksportowanych plikach PDF.
-• Czyste duplikowanie: Usunięto dopisek "copy" z nazw warstw przy kopiowaniu całych paneli.
-
-🎉 Poprzednie aktualizacje (v1.0.5)
-• Kopiowanie warstw: Dodano możliwość szybkiego kopiowania i duplikowania wybranych warstw.
-• Opacity warstw: Wprowadzono kontrolę przezroczystości dla poszczególnych warstw.
-• Poprawka gestu Cofania: Naprawiono gest dwoma palcami – przypadkowe dotknięcie ekranu podczas rysowania nie wywołuje już akcji Undo.
-• Wyświetlanie Social Mediów: Poprawiono wygląd i układ listy mediów społecznościowych w menu.
-
-Starsze aktualizacje (v1.0.2 & v1.0.4)
-• Swipe w Panel Data: Szybkie przełączanie między panelami za pomocą gestu swipe bez zamykania okna.
-• Gesty Double-Tap: Szybkie cofanie (lewa strona) i ponawianie (prawa strona) poprzez dwukrotne dotknięcie ekranu.
-• Ulepszone oznaczenia: Opcja wypalania numerów Scen, Paneli oraz odliczania klatek przy eksporcie MP4.
-
-Podstawowe funkcje (v1.0.0 & v1.0.1)
-• Pełne tworzenie storyboardów z podziałem na warstwy i panele.
-• Eksport projektów do formatów PDF, PNG, MP4 oraz natywnego .sgo.
-• Onion skinning: Podgląd poprzednich klatek ułatwiający planowanie ruchu.
-• Poprawka błędu ISSUE-001 (stabilizacja zapisu po imporcie .sgo).
-• Limit wielkości sceny (4096px) dla stabilnego działania na każdym urządzeniu.
-• Wyświetlanie Social Mediów: Poprawiono wygląd i układ listy mediów społecznościowych w menu.
-
-Poprzednie aktualizacje (v1.0.2 & v1.0.4)
-• Swipe w Panel Data: Szybkie przełączanie między panelami za pomocą gestu swipe bez zamykania okna.
-• Gesty Double-Tap: Szybkie cofanie (lewa strona) i ponawianie (prawa strona) poprzez dwukrotne dotknięcie ekranu.
-• Ulepszone oznaczenia: Opcja wypalania numerów Scen, Paneli oraz odliczania klatek przy eksporcie MP4.
-
-Podstawowe funkcje (v1.0.0 & v1.0.1)
-• Pełne tworzenie storyboardów z podziałem na warstwy i panele.
-• Eksport projektów do formatów PDF, PNG, MP4 oraz natywnego .sgo.
-• Onion skinning: Podgląd poprzednich klatek ułatwiający planowanie ruchu.
-• Poprawka błędu ISSUE-001 (stabilizacja zapisu po imporcie .sgo).
-• Limit wielkości sceny (4096px) dla stabilnego działania na każdym urządzeniu.
+• Zoom punktowy: Precyzyjniejsze przybliżanie względem punktu styku palców i wyższy poziom zoomu.
+• Kopiowanie i przezroczystość warstw: Szybkie powielanie warstw oraz niezależna kontrola ich krycia.
+• Gesty Double-Tap & Swipe: Szybkie cofanie/ponawianie stuknięciem oraz przełączanie paneli gestem swipe.
+• Zaawansowany Onion Skinning: Przezroczysty podgląd sąsiednich klatek ułatwiający planowanie ruchu.
+• Siatki kompozycyjne i Safe Areas: Siatka trójpodziału oraz strefy bezpieczne dla telewizji i social mediów.
